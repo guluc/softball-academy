@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+  <html lang="he" dir="rtl">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <title>אקדמיית הסופטבול 🥎</title>
+      <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+      <style>
+          * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+                      --bg: #0F172A;
+            --gold: #FCD34D;
+                          --text: #F1F5F9;
+                          --muted: #94A3B8;
+            --font: 'Heebo', 'Arial Hebrew', sans-serif;
+}
+
+        body {
+                      font-family: var(--font);
+            background: linear-gradient(165deg, #0F172A 0%, #1E3A5F 55%, #0F172A 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+}
+
+        .container {
+                      text-align: center;
+            max-width: 400px;
+            width: 100%;
+}
+
+        .ball {
+                      font-size: 64px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+              }
+
+        .title {
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 8px;
+              }
+
+        .subtitle {
+            color: #93C5FD;
+            font-size: 14px;
+            margin-bottom: 6px;
+}
+
+        .description {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+                          margin-bottom: 24px;
+}
+
+                      .features {
+            display: flex;
+                          flex-direction: column;
+            gap: 8px;
+}
+
+        .feature {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+                          padding: 16px;
+                          text-align: right;
+            backdrop-filter: blur(10px);
+                        }
+
+                  .feature-icon {
+            font-size: 20px;
+                      margin-left: 8px;
+}
+
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+}
+
+        .feature-count {
+                                    font-size: 11px;
+            color: var(--muted);
+}
+
+        .footer {
+            margin-top: 24px;
+            font-size: 10px;
+            color: #334155;
+}
+
+        .live-demo {
+                          background: rgba(34,197,94,0.2);
+            border: 2px solid #22C55E;
+            color: #86EFAC;
+                      margin-top: 16px;
+                          cursor: pointer;
+                      transition: transform 0.2s;
+}
+
+        .live-demo:hover {
+            transform: scale(1.02);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball">🥎</div>
+        <h1 class="title">אקדמיית הסופטבול</h1>
+        <p class="subtitle">Nomads Tech Solutions</p>
+        <p class="description">האפליקציה המלאה לכרטיסיות למידה, חידונים ומצבי משחק בסופטבול</p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-title">📚 כרטיסיות למידה <span class="feature-icon">📚</span></div>
+                              <div class="feature-count">83 מונחים מקצועיים</div>
+                      </div>
+
+            <div class="feature">
+                <div class="feature-title">🧠 חידון ידע <span class="feature-icon">🧠</span></div>
+                <div class="feature-count">114 שאלות בוחן</div>
+                          </div>
+
+            <div class="feature">
+                <div class="feature-title">🎮 מצבי משחק למתקדמים <span class="feature-icon">🎮</span></div>
+                <div class="feature-count">20 מצבים מורכבים</div>
+            </div>
+
+            <div class="feature">
+                      <div class="feature-title">⭐ מצבי משחק למתחילים <span class="feature-icon">⭐</span></div>
+                      <div class="feature-count">15 מצבים בסיסיים</div>
+                  </div>
+
+                  <div class="feature">
+                      <div class="feature-title">🏟️ מפת המגרש <span class="feature-icon">🏟️</span></div>
+                      <div class="feature-count">9 עמדות שחקנים</div>
+                  </div>
+
+                  <div class="feature live-demo" onclick="alert('🚀 האפליקציה המלאה זמינה להורדה כקובץ HTML!\\n\\n📱 פתחו בדפדפן הנייד לחוויה מיטבית\\n📄 גרסה זו היא דמו - האפליקציה המלאה כוללת את כל התכנים')">
+                      <div class="feature-title">🚀 גרסה מלאה זמינה <span class="feature-icon">💾</span></div>
+                      <div class="feature-count">לחצו כאן למידע נוסף</div>
+                  </div>
+              </div>
+
+              <div class="footer">
+                  🎯 פותח במיוחד לקבוצות הסופטבול הישראליות<br>
+                  🌟 הצגת מונחים מקצועיים באנגלית + הסברים בעברית
+              </div>
+          </div>
+      </body>
+      </html>
