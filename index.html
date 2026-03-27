@@ -114,686 +114,1009 @@ html,body{height:100%;overflow:hidden;background:var(--bg);font-family:var(--fon
 .result-btns{display:flex;flex-direction:column;gap:10px;width:100%}
 #situations{background:var(--bg)}
 .sit-card{background:var(--card);border-radius:20px;padding:20px;margin-bottom:16px;border:2px solid rgba(255,100,50,.25)}
-.sit-badge{padding:6px 16px;border-radius:20px;font-size:11px;font-weight:800;margin-bottom:12px;display:inline-block}
-.sit-title{font-size:18px;font-weight:800;margin-bottom:12px;color:var(--gold)}
-.sit-desc{font-size:14px;line-height:1.6;margin-bottom:18px;color:#CBD5E1}
-.sit-scene{background:rgba(0,0,0,.15);border-radius:16px;padding:16px;margin-bottom:16px}
-.sit-scene-label{font-size:11px;color:rgba(255,255,255,.6);font-weight:700;margin-bottom:6px}
-.sit-scene-text{font-size:15px;color:#fff;line-height:1.7;font-weight:500}
-.sit-question{font-size:16px;font-weight:700;margin-bottom:14px;color:var(--text)}
-.sit-opts{display:flex;flex-direction:column;gap:8px}
-.sit-opt{background:var(--card);border:2px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;font-size:14px;font-weight:600;color:var(--text);cursor:pointer;text-align:right;font-family:var(--font);transition:all .18s;border:none}
+.sit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(251,146,60,.15);border:1.5px solid rgba(251,146,60,.4);color:#FB923C;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:12px}
+.sit-scene{background:rgba(0,0,0,.3);border-radius:14px;padding:14px 16px;margin-bottom:14px;border:1px solid rgba(255,255,255,.07)}
+.sit-scene-label{font-size:11px;color:#94A3B8;font-weight:700;margin-bottom:6px;letter-spacing:.5px}
+.sit-scene-text{font-size:16px;line-height:1.75;color:#F1F5F9;font-weight:500}
+.sit-question{font-size:17px;font-weight:800;color:#FCD34D;margin-bottom:14px;line-height:1.5}
+.sit-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.sit-opt{background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 16px;font-size:15px;font-weight:600;color:var(--text);cursor:pointer;text-align:right;font-family:var(--font);transition:all .18s;display:flex;align-items:center;gap:10px}
 .sit-opt:active{transform:scale(.98)}
 .sit-opt.correct{background:rgba(34,197,94,.15);border-color:#22C55E;color:#86EFAC}
 .sit-opt.wrong{background:rgba(244,63,94,.12);border-color:#F43F5E;color:#FDA4AF}
-.sit-opt.plain{opacity:.45}
-.sit-explain{margin-top:16px;border-radius:16px;padding:16px;display:none;background:rgba(59,130,246,.08);border:1.5px solid rgba(59,130,246,.2)}
+.sit-opt.plain{opacity:.4;pointer-events:none}
+.sit-explain{display:none;background:rgba(59,130,246,.1);border:1.5px solid rgba(59,130,246,.35);border-radius:14px;padding:14px 16px;margin-top:4px}
 .sit-explain.show{display:block}
-.sit-explain-title{font-size:14px;font-weight:800;margin-bottom:8px;color:#60A5FA}
-.sit-explain-text{font-size:13px;line-height:1.6;color:#CBD5E1;margin-bottom:10px}
-.sit-rule{font-size:12px;color:var(--muted);background:rgba(0,0,0,.2);padding:8px 12px;border-radius:8px;border-right:3px solid var(--gold)}
-.fade-in{animation:fadeIn .4s ease}
-@keyframes fadeIn{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
-#field{background:linear-gradient(135deg,#166534 0%,#15803D 50%,#166534 100%);justify-content:center;align-items:center;padding:20px;text-align:center;position:relative;overflow:hidden}
-.field-bg{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.02) 10px,rgba(255,255,255,.02) 20px)}
-.field-content{position:relative;z-index:1;width:100%;max-width:360px}
-.field-title{font-size:20px;font-weight:900;color:#fff;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
-.field-diamond{position:relative;width:280px;height:280px;margin:0 auto 20px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.2);transform:rotate(45deg);border-radius:20px;box-shadow:inset 0 4px 12px rgba(0,0,0,.2)}
-.pos{position:absolute;width:36px;height:36px;background:var(--gold);color:#1C1C1C;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;cursor:pointer;transition:all .25s;transform:rotate(-45deg);border:2px solid rgba(255,255,255,.3);box-shadow:0 3px 8px rgba(0,0,0,.4)}
-.pos:active{transform:rotate(-45deg) scale(.95)}
-.pos.active{background:#fff;color:var(--primary);transform:rotate(-45deg) scale(1.15);box-shadow:0 6px 20px rgba(0,0,0,.6)}
-.pos1{top:45%;left:45%}
-.pos2{top:8%;left:45%}
-.pos3{top:45%;left:82%}
-.pos4{top:82%;left:45%}
-.pos5{top:45%;left:8%}
-.pos6{top:22%;left:22%}
-.pos7{top:22%;left:68%}
-.pos8{top:68%;left:68%}
-.pos9{top:68%;left:22%}
-.field-info{background:rgba(255,255,255,.1);border-radius:16px;padding:16px;color:#fff;backdrop-filter:blur(10px)}
-.field-info.empty{color:var(--muted);font-style:italic}
-.field-info h3{font-size:16px;font-weight:800;margin-bottom:8px;color:var(--gold)}
-.field-info p{font-size:13px;line-height:1.6}
-#situations-easy{background:var(--bg)}
-.sit-done-box{background:rgba(244,114,182,.08);border-radius:24px;padding:28px;margin-top:20px;text-align:center;border:2px solid rgba(244,114,182,.2)}
-.sit-done-icon{font-size:48px;margin-bottom:8px}
-.sit-done-title{font-size:18px;font-weight:800;color:var(--gold);margin-bottom:12px}
-.sit-done-score{font-size:36px;font-weight:900;color:#fff;margin-bottom:4px}
-.sit-done-of{font-size:12px;color:var(--muted);margin-bottom:16px}
+.sit-explain-title{font-size:14px;font-weight:800;margin-bottom:6px}
+.sit-explain-text{font-size:14px;line-height:1.7;color:#CBD5E1}
+.sit-rule{font-size:12px;color:#60A5FA;margin-top:8px;font-weight:600}
+.sit-progress-bar{height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin:0 16px 12px;overflow:hidden;flex-shrink:0}
+.sit-progress-fill{height:100%;background:linear-gradient(90deg,#FB923C,#F59E0B);border-radius:3px;transition:width .5s ease}
+.sit-done-box{text-align:center;padding:32px 20px;background:linear-gradient(135deg,#1E3A5F,#0F172A);border-radius:20px;border:2px solid rgba(252,211,77,.25);margin-bottom:24px}
+.sit-done-icon{font-size:60px;margin-bottom:10px}
+.sit-done-title{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:18px;line-height:1.3}
+.sit-done-score{font-size:46px;font-weight:900;color:#fff}
+.sit-done-of{font-size:14px;color:var(--muted);margin-bottom:16px}
+#field{background:var(--bg)}
+.field-svg-wrap{margin:0 16px 12px;border-radius:20px;overflow:hidden;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.field-svg-wrap svg{display:block;width:100%}
+.field-info{margin:0 16px;background:var(--card);border-radius:16px;padding:16px;border:2px solid rgba(252,211,77,.3);flex-shrink:0}
+.field-info.hidden{display:none}
+.field-name-badge{display:inline-block;padding:3px 12px;border-radius:20px;background:#1D4ED8;color:#fff;font-size:12px;font-weight:700;font-style:italic;margin-bottom:5px}
+.field-heb{font-size:19px;font-weight:800;color:var(--text);margin-bottom:6px}
+.field-desc{font-size:14px;color:#CBD5E1;line-height:1.7}
+.field-hint{margin:0 16px;text-align:center;color:var(--muted);font-size:13px;padding:13px;background:var(--card);border-radius:14px;border:1.5px solid rgba(255,255,255,.05)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeUp .25s ease both}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.05)}100%{transform:scale(1)}}
+.pop{animation:pop .22s ease}
 </style>
 </head>
 <body>
 <div id="app">
-<div class="screen active" id="home">
+<div id="home" class="screen active">
   <div class="home-glow"></div>
   <div class="home-content">
     <div class="home-ball">🥎</div>
-    <h1 class="home-title">אקדמיית הסופטבול</h1>
-    <p class="home-sub">Nomads Tech Solutions</p>
-    <p class="home-desc">כל מה שצריך לדעת על סופטבול באפליקציה אחת!</p>
+    <div class="home-title">אקדמיית הסופטבול</div>
+    <div class="home-sub">Nomads Tech Solutions</div>
+    <div class="home-desc">למדו את חוקי המשחק בצורה כיפית!<br>המונחים החשובים באנגלית מסומנים.</div>
     <div class="home-btns">
-      <button class="home-btn btn-yellow" onclick="showScreen('cards')">
-        <span class="btn-icon">📚</span>
-        <span>כרטיסיות למידה<br><small>83 מונחים מקצועיים</small></span>
-      </button>
-      <button class="home-btn btn-green" onclick="showScreen('quizmenu')">
-        <span class="btn-icon">🧠</span>
-        <span>חידון ידע<br><small>114 שאלות בוחן</small></span>
-      </button>
-      <button class="home-btn btn-blue" onclick="showScreen('situations')">
-        <span class="btn-icon">🎮</span>
-        <span>מצבי משחק מתקדמים<br><small>20 מצבים מאתגרים</small></span>
-      </button>
-      <button class="home-btn btn-orange" onclick="startSituationsEasy()">
-        <span class="btn-icon">⭐</span>
-        <span>מצבי משחק למתחילים<br><small>15 מצבים בסיסיים</small></span>
-      </button>
-      <button class="home-btn btn-pink" onclick="showScreen('field')">
-        <span class="btn-icon">🏟️</span>
-        <span>מפת המגרש<br><small>9 עמדות שחקנים</small></span>
-      </button>
+      <button class="home-btn btn-yellow" onclick="showScreen('categories')"><span class="btn-icon">📚</span><span>כרטיסיות למידה</span></button>
+      <button class="home-btn btn-green" onclick="showScreen('quizmenu')"><span class="btn-icon">🧠</span><span>חידון — בוחן ידע!</span></button>
+      <button class="home-btn btn-orange" onclick="startSituations()"><span class="btn-icon">🎮</span><span>מצבי משחק - למתקדמים</span></button>
+      <button class="home-btn btn-pink" onclick="startSituationsEasy()"><span class="btn-icon">⭐</span><span>מצבי משחק - למתחילים</span></button>
+      <button class="home-btn btn-blue" onclick="showScreen('field')"><span class="btn-icon">🏟️</span><span>מפת המגרש</span></button>
     </div>
-    <div class="home-footer">🎯 פותח במיוחד לקבוצות הסופטבול הישראליות<br>🌟 מונחים באנגלית + הסברים בעברית</div>
+    <div class="home-footer" id="homeFooter">טוען...</div>
   </div>
 </div>
-
-<div class="screen" id="cards">
+<div id="categories" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="showScreen('home')">←</button>
-    <div class="header-text">
-      <h2>כרטיסיות למידה</h2>
-      <p>לחץ על הכרטיסיה להפוך</p>
-    </div>
+    <button class="back-btn" onclick="showScreen('home')">→</button>
+    <div class="header-text"><h2>בחרו נושא</h2><p>Choose a topic to learn</p></div>
   </div>
-  <div class="scroll-area">
-    <div class="cat-grid" id="catGrid"></div>
-  </div>
+  <div class="scroll-area"><div class="cat-grid" id="catGrid"></div></div>
 </div>
-
-<div class="screen" id="learn">
+<div id="learn" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="showScreen('cards')">←</button>
-    <div class="header-text">
-      <h2 id="catName"></h2>
-      <p id="learnSubtitle"></p>
-    </div>
+    <button class="back-btn" onclick="showScreen('categories')">→</button>
+    <div class="header-text"><h2 id="learnCatName">—</h2><p id="learnCatSub">—</p></div>
+    <div id="learnCounter" style="font-size:13px;font-weight:700;background:rgba(255,255,255,.08);padding:4px 12px;border-radius:20px;flex-shrink:0">1/6</div>
   </div>
-  <div class="progress-row" id="progressDots"></div>
+  <div class="progress-row" id="learnProgress"></div>
   <div class="learn-scroll">
-    <div class="flip-card" onclick="flipCard()">
+    <div class="flip-card" id="flipCard" onclick="flipCard()">
       <div class="flip-inner" id="flipInner">
-        <div class="flip-face flip-front" id="flipFront"></div>
-        <div class="flip-face flip-back" id="flipBack"></div>
+        <div class="flip-face flip-front">
+          <div class="term-badge" id="cardTerm">—</div>
+          <div class="term-heb" id="cardHeb">—</div>
+          <div class="flip-hint">לחצו להפוך 👆</div>
+        </div>
+        <div class="flip-face flip-back" id="cardBack"></div>
       </div>
     </div>
     <div class="card-nav">
-      <button class="nav-btn nav-prev" id="prevBtn" onclick="moveCard(-1)">→</button>
-      <button class="nav-btn nav-flip btn-yellow" onclick="flipCard()">הפוך כרטיסיה</button>
-      <button class="nav-btn nav-next" id="nextBtn" onclick="moveCard(1)">←</button>
+      <button class="nav-btn nav-prev" onclick="moveCard(-1)">→ הקודם</button>
+      <button class="nav-btn nav-flip" id="flipBtnColor" onclick="flipCard()">🔄 הפוך</button>
+      <button class="nav-btn nav-next" onclick="moveCard(1)">הבא ←</button>
     </div>
   </div>
 </div>
-
-<div class="screen" id="quizmenu">
+<div id="quizmenu" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="showScreen('home')">←</button>
-    <div class="header-text">
-      <h2>חידון ידע</h2>
-      <p>בחר נושא לחידון</p>
-    </div>
+    <button class="back-btn" onclick="showScreen('home')">→</button>
+    <div class="header-text"><h2>בחרו נושא חידון</h2><p>15 שאלות אקראיות מהנושא</p></div>
   </div>
-  <div class="scroll-area">
-    <div class="qmenu-grid" id="qmenuGrid"></div>
-  </div>
+  <div class="scroll-area"><div class="qmenu-grid" id="quizMenuGrid"></div></div>
 </div>
-
-<div class="screen" id="quiz">
+<div id="quiz" class="screen">
   <div class="quiz-header-row">
-    <button class="back-btn" onclick="showScreen('quizmenu')">←</button>
-    <div class="header-text">
-      <h2 id="quizTitle"></h2>
-      <p id="quizSubtitle"></p>
-    </div>
-    <div class="quiz-score-badge" id="quizScore">0/0</div>
+    <button class="back-btn" onclick="showScreen('quizmenu')">→</button>
+    <div style="flex:1;font-size:13px;color:var(--muted);font-weight:600" id="quizProgress">שאלה 1 מתוך 15</div>
+    <div class="quiz-score-badge" id="quizScore">✓ 0</div>
   </div>
-  <div class="scroll-area" id="quizArea"></div>
-</div>
-
-<div class="screen" id="result">
-  <div class="result-icon" id="resultIcon">🎯</div>
-  <div class="result-title" id="resultTitle">סיימת!</div>
-  <div class="result-box">
-    <div class="result-score" id="resultScore">0</div>
-    <div class="result-of" id="resultOf">מתוך 0</div>
-    <div class="result-bar-bg">
-      <div class="result-bar" id="resultBar" style="background:var(--gold);width:0%"></div>
+  <div class="progress-row" id="quizProgressBar"></div>
+  <div class="scroll-area">
+    <div class="quiz-q-card fade-in" id="quizQCard">
+      <div class="quiz-q-icon">🧠</div>
+      <div class="quiz-q-text" id="quizQ">—</div>
     </div>
+    <div class="quiz-opts" id="quizOpts"></div>
+    <div class="quiz-feedback" id="quizFeedback">
+      <div class="fb-title" id="fbTitle"></div>
+      <div class="fb-exp" id="fbExp"></div>
+      <button class="fb-next" id="fbNext" onclick="nextQuestion()">שאלה הבאה ←</button>
+    </div>
+  </div>
+</div>
+<div id="result" class="screen">
+  <div class="result-icon" id="resultIcon">🏆</div>
+  <div class="result-title" id="resultTitle">כל הכבוד!</div>
+  <div class="result-box">
+    <div class="result-score" id="resultScore">0 / 15</div>
+    <div class="result-of">תשובות נכונות</div>
+    <div class="result-bar-bg"><div class="result-bar" id="resultBar" style="width:0%"></div></div>
   </div>
   <div class="result-btns">
-    <button class="home-btn btn-green" onclick="restartQuiz()"><span class="btn-icon">🔄</span><span>שחק שוב</span></button>
-    <button class="home-btn btn-blue" onclick="showScreen('quizmenu')"><span class="btn-icon">📋</span><span>נושאים אחרים</span></button>
-    <button class="home-btn btn-yellow" onclick="showScreen('home')"><span class="btn-icon">🏠</span><span>תפריט ראשי</span></button>
+    <button class="home-btn btn-green" onclick="restartSameTopic()"><span class="btn-icon">🔄</span><span>נסו שוב — אותו נושא!</span></button>
+    <button class="home-btn btn-purple" onclick="showScreen('quizmenu')"><span class="btn-icon">🧠</span><span>נושא אחר</span></button>
+    <button class="home-btn btn-blue" onclick="showScreen('home')"><span class="btn-icon">🏠</span><span>חזרה לתפריט</span></button>
   </div>
 </div>
-
-<div class="screen" id="situations">
+<div id="situations" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="showScreen('home')">←</button>
-    <div class="header-text">
-      <h2 id="sitTitle">מצבי משחק מתקדמים</h2>
-      <p id="sitSubtitle">מצב 1 מתוך 20</p>
-    </div>
+    <button class="back-btn" onclick="showScreen('home')">→</button>
+    <div class="header-text"><h2>🎮 מצבי משחק</h2><p id="sitSubtitle">מה היית עושה?</p></div>
+    <div id="sitCounter" style="font-size:13px;font-weight:700;background:rgba(255,255,255,.08);padding:4px 12px;border-radius:20px;flex-shrink:0">1/20</div>
   </div>
-  <div class="progress-row">
-    <div class="prog-dot" id="sitProgressFill"></div>
-  </div>
+  <div class="sit-progress-bar"><div class="sit-progress-fill" id="sitProgressFill" style="width:0%"></div></div>
   <div class="scroll-area" id="sitArea"></div>
 </div>
-
-<div class="screen" id="situations-easy">
+<div id="situations-easy" class="screen">
   <div class="header">
-    <button class="back-btn" onclick="showScreen('home')">←</button>
-    <div class="header-text">
-      <h2 id="sitEasyTitle">מצבי משחק למתחילים</h2>
-      <p id="sitEasySubtitle">מצב <span id="sitEasyCounter">1 / 15</span></p>
-    </div>
+    <button class="back-btn" onclick="showScreen('home')">→</button>
+    <div class="header-text"><h2>⭐ מצבי משחק</h2><p id="sitEasySubtitle">למתחילים</p></div>
+    <div id="sitEasyCounter" style="font-size:13px;font-weight:700;background:rgba(255,255,255,.08);padding:4px 12px;border-radius:20px;flex-shrink:0">1/15</div>
   </div>
-  <div class="progress-row">
-    <div class="prog-dot" id="sitEasyProgressFill"></div>
-  </div>
+  <div class="sit-progress-bar"><div class="sit-progress-fill" id="sitEasyProgressFill" style="width:0%"></div></div>
   <div class="scroll-area" id="sitEasyArea"></div>
 </div>
-
-<div class="screen" id="field">
-  <div class="field-bg"></div>
-  <div class="field-content">
-    <h2 class="field-title">🏟️ מפת המגרש</h2>
-    <div class="field-diamond">
-      <div class="pos pos1" onclick="showPos(1)">1</div>
-      <div class="pos pos2" onclick="showPos(2)">2</div>
-      <div class="pos pos3" onclick="showPos(3)">3</div>
-      <div class="pos pos4" onclick="showPos(4)">4</div>
-      <div class="pos pos5" onclick="showPos(5)">5</div>
-      <div class="pos pos6" onclick="showPos(6)">6</div>
-      <div class="pos pos7" onclick="showPos(7)">7</div>
-      <div class="pos pos8" onclick="showPos(8)">8</div>
-      <div class="pos pos9" onclick="showPos(9)">9</div>
-    </div>
-    <div class="field-info empty" id="fieldInfo">לחץ על מספר עמדה ללמידה</div>
-    <button class="home-btn btn-blue" onclick="showScreen('home')" style="margin-top:20px"><span class="btn-icon">🏠</span><span>חזרה לתפריט</span></button>
+<div id="field" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('home')">→</button>
+    <div class="header-text"><h2>מפת המגרש</h2><p>לחצו על שחקן לקרוא עליו</p></div>
   </div>
+  <div class="field-svg-wrap">
+    <svg viewBox="0 0 360 265" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="gr1" cx="50%" cy="65%" r="70%"><stop offset="0%" stop-color="#16A34A"/><stop offset="100%" stop-color="#052e16"/></radialGradient>
+        <radialGradient id="gr2" cx="50%" cy="60%" r="55%"><stop offset="0%" stop-color="#B45309" stop-opacity=".7"/><stop offset="100%" stop-color="#451a03" stop-opacity=".4"/></radialGradient>
+      </defs>
+      <rect width="360" height="265" rx="10" fill="url(#gr1)"/>
+      <path d="M180 250 L68 158 L180 103 L292 158 Z" fill="url(#gr2)"/>
+      <path d="M180 250 L60 125 Q55 40 180 35 Q305 40 300 125 Z" fill="none" stroke="#15803D" stroke-width="2" stroke-dasharray="7 5" opacity=".7"/>
+      <path d="M180 250 L68 158" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+      <path d="M180 250 L292 158" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+      <rect x="170" y="99" width="20" height="10" rx="2" fill="#fff" opacity=".9"/>
+      <rect x="170" y="157" width="20" height="10" rx="2" fill="#fff" opacity=".9"/>
+      <rect x="60" y="150" width="10" height="10" rx="2" fill="#fff" opacity=".9"/>
+      <rect x="291" y="150" width="10" height="10" rx="2" fill="#fff" opacity=".9"/>
+      <polygon points="173,255 187,255 191,248 180,243 169,248" fill="#fff" opacity=".95"/>
+      <circle cx="180" cy="160" r="20" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1" stroke-dasharray="4 3"/>
+      <rect x="173" y="157" width="14" height="5" rx="1.5" fill="#fff" opacity=".85"/>
+      <g id="fieldDots"></g>
+    </svg>
+  </div>
+  <div class="field-info hidden" id="fieldInfo">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div class="field-name-badge" id="fieldNameBadge"></div>
+        <div class="field-heb" id="fieldHeb"></div>
+      </div>
+      <button onclick="clearFieldInfo()" style="background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;padding:0 0 0 8px">✕</button>
+    </div>
+    <div class="field-desc" id="fieldDesc"></div>
+  </div>
+  <div class="field-hint" id="fieldHint">לחצו על אחד מ-9 השחקנים 👆</div>
 </div>
 </div>
-
 <script>
-// Application Data
-const CATEGORIES = {
-  'כללי': [
-    {en:'Softball',he:'סופטבול',def:'משחק כדור הדומה לבייסבול, משוחק עם כדור רך יותר ובמגרש קטן יותר',ex:'הילדים שיחקו סופטבול בפארק'},
-    {en:'Inning',he:'אינינג',def:'יחידת משחק שבה כל קבוצה מגיעה לחבוט ולשדה פעם אחת',ex:'במשחק יש 7 אינינגים'},
-    {en:'Out',he:'אאוט',def:'הרחקת שחקן מהמשחק לפי חוקי המשחק',ex:'השחקן יצא אאוט אחרי 3 סטרייקים'},
-    {en:'Safe',he:'בטוח',def:'שחקן שהגיע לבסיס בצורה חוקית',ex:'הרץ הגיע בטוח לבסיס ראשון'},
-    {en:'Run',he:'ריצה/נקודה',def:'נקודה שמושגת כשרץ חוזר לבסיס הבית',ex:'הקבוצה הבקיעה 3 ריצות באינינג'},
-    {en:'Strike',he:'סטרייק',def:'חבטה שגויה או כדור שעבר דרך אזור החבטה',ex:'החבטן קיבל סטרייק שלישי'},
-    {en:'Ball',he:'בול',def:'זריקה לא תקינה מחוץ לאזור החבטה',ex:'הזורק זרק 4 בולים והחבטן הלך לבסיס'},
-    {en:'Foul',he:'פאול',def:'כדור שנחבט מחוץ לקווי המגרש',ex:'החבטה הייתה פאול מאחורי בסיס שלישי'},
-    {en:'Fair',he:'חוקי',def:'כדור שנחבט בתוך קווי המגרש',ex:'הכדור נפל בתחום החוקי'},
-    {en:'Walk',he:'הליכה לבסיס',def:'כשחבטן מקבל 4 בולים ועובר לבסיס ראשון',ex:'החבטן קיבל הליכה ועבר לבסיס ראשון'}
-  ],
-  'עמדות שחקנים': [
-    {en:'Pitcher',he:'זורק',def:'השחקן שזורק את הכדור לחבטן',ex:'הזורק זרק פאסט-בול מהיר'},
-    {en:'Catcher',he:'תופס',def:'השחקן שתופס את הכדור מאחורי חבטן',ex:'התופס תפס את הכדור ותייג את הרץ'},
-    {en:'First Baseman',he:'שחקן בסיס ראשון',def:'שחקן המגן על הבסיס הראשון',ex:'שחקן הבסיס הראשון תפס את הכדור לאאוט'},
-    {en:'Second Baseman',he:'שחקן בסיס שני',def:'שחקן המגן בין בסיס ראשון לשני',ex:'שחקן הבסיס השני עשה דאבל-פליי'},
-    {en:'Third Baseman',he:'שחקן בסיס שלישי',def:'שחקן המגן על הבסיס השלישי',ex:'שחקן הבסיס השלישי זרק לבסיס הראשון'},
-    {en:'Shortstop',he:'שורט-סטופ',def:'שחקן המגן בין בסיס שני לשלישי',ex:'השורט-סטופ תפס כדור קשה'},
-    {en:'Left Field',he:'שדה שמאל',def:'שחקן המגן בשדה השמאלי',ex:'שחקן השדה השמאלי תפס כדור מעופף'},
-    {en:'Center Field',he:'שדה מרכז',def:'שחקן המגן במרכז השדה',ex:'שחקן המרכז רץ מהר לתפוס את הכדור'},
-    {en:'Right Field',he:'שדה ימין',def:'שחקן המגן בשדה הימני',ex:'שחקן השדה הימני זרק לבסיס השני'},
-    {en:'Outfield',he:'שדה חיצוני',def:'האזור הרחוק יותר מהבסיסים',ex:'הכדור נחט בשדה החיצוני'}
-  ],
-  'ציוד': [
-    {en:'Bat',he:'מחבט',def:'כלי החבטה העשוי מעץ או מתכת',ex:'השחקן בחר מחבט מתכת'},
-    {en:'Ball',he:'כדור',def:'הכדור הרשמי של סופטבול, גדול יותר מכדור בייסבול',ex:'הכדור היה צהוב ורך'},
-    {en:'Glove',he:'כפפה',def:'כפפת עור לתפיסת הכדור',ex:'הכפפה עזרה לתפוס את הכדור'},
-    {en:'Helmet',he:'קסדה',def:'קסדת מגן לחבטן ורצים',ex:'החבטן חבש קסדה לבטחות'},
-    {en:'Cleats',he:'נעלי ספייקים',def:'נעליים מיוחדות עם יציאות למשחק על דשא',ex:'הנעליים נתנו אחיזה טובה על הדשא'},
-    {en:'Mitt',he:'כפפת תופס',def:'כפפה מיוחדה לתופס, גדולה יותר',ex:'כפפת התופס גדולה ומרופדת'},
-    {en:'Chest Protector',he:'מגן חזה',def:'מגן לתופס מפני כדורים קשים',ex:'מגן החזה הגן על התופס'},
-    {en:'Shin Guards',he:'מגני שוק',def:'מגנים לשוקיים של התופס',ex:'מגני השוק מנעו פציעה'},
-    {en:'Mask',he:'מסכה',def:'מסכת מגן לפנים של התופס',ex:'המסכה הגנה על פני התופס'},
-    {en:'Uniform',he:'מדים',def:'הלבוש הרשמי של הקבוצה',ex:'כל השחקנים לבשו מדים כחולים'}
-  ],
-  'חוקים ומונחים': [
-    {en:'Force Out',he:'אאוט כפוי',def:'אאוט כשרץ חייב לרוץ לבסיס הבא',ex:'עשו פורס אאוט בבסיס השני'},
-    {en:'Tag Out',he:'אאוט במגע',def:'אאוט כשמגיעים ברץ עם הכדור',ex:'התופס תייג את הרץ לאאוט'},
-    {en:'Double Play',he:'משחק כפול',def:'שני אאוטים במשחק אחד רציף',ex:'עשו דאבל פליי מהיר ויפה'},
-    {en:'Bunt',he:'באנט',def:'חבטה עדינה לתנועה קצרה של הכדור',ex:'השחקן עשה באנט מוצלח'},
-    {en:'Steal',he:'גניבה',def:'רצה לבסיס הבא בלי שהכדור נחבט',ex:'הרץ גנב בסיס שני'},
-    {en:'Lead Off',he:'ליד-אוף',def:'התרחקות מהבסיס לפני הזריקה',ex:'הרץ לקח ליד-אוף גדול'},
-    {en:'Pick Off',he:'פיק-אוף',def:'ניסיון לעשות אאוט לרץ שמתרחק מבסיס',ex:'הזורק עשה פיק-אוף לבסיס ראשון'},
-    {en:'Wild Pitch',he:'זריקה פרועה',def:'זריקה שהתופס לא יכול לתפוס',ex:'הזריקה הפרועה אפשרה לרץ להתקדם'},
-    {en:'Error',he:'שגיאה',def:'טעות הגנתית שמאפשרת לרץ להתקדם',ex:'השגיאה עלתה לקבוצה בנקודה'},
-    {en:'Assist',he:'סיוע',def:'משחק הגנתי שעוזר ליצור אאוט',ex:'הזריקה הייתה סיוע מעולה'}
-  ],
-  'סוגי חבטות': [
-    {en:'Ground Ball',he:'כדור קרקע',def:'כדור שנחבט וגולש על הקרקע',ex:'החבטן חבט כדור קרקע מהיר'},
-    {en:'Fly Ball',he:'כדור מעופף',def:'כדור שנחבט גבוה באוויר',ex:'הכדור המעופף נתפס בשדה'},
-    {en:'Line Drive',he:'לין דרייב',def:'כדור שנחבט קשה וישר',ex:'הלין דרייב עבר בין השחקנים'},
-    {en:'Pop Up',he:'פופ-אפ',def:'כדור שנחבט גבוה לשדה הפנימי',ex:'הפופ-אפ נתפס על ידי השורט-סטופ'},
-    {en:'Single',he:'סינגל',def:'חבטה שמביאה את החבטן לבסיס ראשון',ex:'השחקן חבט סינגל לשדה ימין'},
-    {en:'Double',he:'דאבל',def:'חבטה שמביאה את החבטן לבסיס שני',ex:'הדאבל הביא שני רצים הביתה'},
-    {en:'Triple',he:'טריפל',def:'חבטה שמביאה את החבטן לבסיס שלישי',ex:'הטריפל היה חבטה מדהימה'},
-    {en:'Home Run',he:'הום-ראן',def:'חבטה מעל גדר המגרש',ex:'ההום-ראן זכה במחיאות כפיים'},
-    {en:'RBI',he:'ריצות הובאו',def:'מספר הריצות שחבטן הביא הביתה',ex:'השחקן צבר 3 RBI במשחק'},
-    {en:'Sacrifice Fly',he:'זבח מעופף',def:'כדור מעופף שמאפשר לרץ לחזור הביתה',ex:'הזבח המעופף הביא את הריצה הזוכה'}
-  ],
-  'זריקה והגנה': [
-    {en:'Fastball',he:'פאסט-בול',def:'זריקה מהירה וישרה',ex:'הפאסט-בול היה במהירות 70 קמ"ש'},
-    {en:'Changeup',he:'צ\'יינג\'-אפ',def:'זריקה איטית יותר להבלטת החבטן',ex:'הצ\'יינג\'-אפ הבלבל את החבטן'},
-    {en:'Curveball',he:'קרב-בול',def:'זריקה עם סיבוב שגורמת לעקמומיות',ex:'הקרב-בול עקם ימינה'},
-    {en:'Windup',he:'וויינד-אפ',def:'תנועת הזריקה המלאה של הזורק',ex:'הזורק השתמש בוויינד-אפ מלא'},
-    {en:'Stretch',he:'סטרץ\'',def:'תנועת זריקה קצרה עם רץ על בסיס',ex:'הזורק עבר לסטרץ\' עם רץ על בסיס'},
-    {en:'Strike Zone',he:'אזור סטרייק',def:'האזור מעל הבסיס בין ברכיים לכתפיים',ex:'הכדור עבר דרך אזור הסטרייק'},
-    {en:'Count',he:'ספירה',def:'מספר הבולים והסטרייקים על חבטן',ex:'הספירה הייתה 2 בולים ו-1 סטרייק'},
-    {en:'Full Count',he:'ספירה מלאה',def:'3 בולים ו-2 סטרייקים',ex:'בספירה מלאה המתח גבוה'},
-    {en:'Shutout',he:'שאט-אאוט',def:'משחק שבו קבוצה לא הבקיעה ריצות',ex:'הזורק עשה שאט-אאוט מושלם'},
-    {en:'Save',he:'סייב',def:'זורק מחליף שמציל את הניצחון',ex:'הזורק עשה סייב דרמטי'}
-  ],
-  'אסטרטגיה': [
-    {en:'Lineup',he:'סדר החבטה',def:'הסדר בו השחקנים מגיעים לחבוט',ex:'המאמן שינה את סדר החבטה'},
-    {en:'Batting Order',he:'סדר חבטנים',def:'הרשימה הרשמית של החבטנים',ex:'סדר החבטנים הוגש לשופט'},
-    {en:'Pinch Hitter',he:'חבטן מחליף',def:'שחקן שמחליף חבטן אחר',ex:'השחקן נכנס כחבטן מחליף'},
-    {en:'Pinch Runner',he:'רץ מחליף',def:'שחקן שמחליף רץ על בסיס',ex:'הרץ המחליף היה מהיר יותר'},
-    {en:'Substitution',he:'החלפה',def:'החלפת שחקן במהלך המשחק',ex:'המאמן עשה החלפה אסטרטגית'},
-    {en:'Relief Pitcher',he:'זורק מחליף',def:'זורק שנכנס במהלך המשחק',ex:'הזורק המחליף יציב את המשחק'},
-    {en:'Closer',he:'סוגר',def:'זורק המסיים משחקים קשים',ex:'הסוגר שמר על ההובלה'},
-    {en:'Hit and Run',he:'חבט ורוץ',def:'מהלך שבו הרץ מתחיל לרוץ עם הזריקה',ex:'הביצעו מהלך חבט ורוץ מוצלח'},
-    {en:'Stolen Base',he:'בסיס נגנב',def:'הגעה לבסיס הבא ללא חבטה',ex:'השחקן גנב בסיס שני במהירות'},
-    {en:'Intentional Walk',he:'הליכה מכוונת',def:'מתן 4 בולים במכוון',ex:'נתנו הליכה מכוונת לחבטן החזק'}
-  ]
-};
-
-const QUIZ_QUESTIONS = {
-  'חוקי בסיס': [
-    {q:'כמה סטרייקים צריך כדי שחבטן יהיה אאוט?',opts:['2','3','4','5'],ans:1,exp:'3 סטרייקים הופכים את החבטן לאאוט. זה חוק בסיסי בסופטבול.'},
-    {q:'כמה בולים צריך כדי שחבטן יקבל הליכה לבסיס?',opts:['3','4','5','6'],ans:1,exp:'4 בולים מעניקים לחבטן הליכה חופשית לבסיס ראשון.'},
-    {q:'כמה אינינגים יש במשחק סופטבול רגיל?',opts:['6','7','8','9'],ans:1,exp:'במשחק סופטבול רגיל יש 7 אינינגים, בשונה מבייסבול שיש 9.'},
-    {q:'מה קורה אם כדור נחבט פאול עם פחות משני סטרייקים?',opts:['זה נספר כסטרייק','זה נספר כבול','זה לא נספר','המשחק מתחיל מחדש'],ans:0,exp:'פאול עם פחות משני סטרייקים נחשב לסטרייק. עם 2 סטרייקים, פאול לא מוסיף סטרייק.'},
-    {q:'איך שחקן הופך לאאוט?',opts:['רק עם 3 סטרייקים','רק אם תופסים כדור מעופף','3 סטרייקים, תפיסת כדור מעופף, או מגע/כפייה','רק אם יוצא מהמגרש'],ans:2,exp:'יש מספר דרכים להיות אאוט: 3 סטרייקים, תפיסת כדור מעופף, Force Out או Tag Out.'}
-  ],
-  'עמדות ומיקומים': [
-    {q:'איך קוראים לשחקן שזורק את הכדור?',opts:['Thrower','Pitcher','Launcher','Dealer'],ans:1,exp:'Pitcher הוא השם המקובל לזורק בסופטבול ובבייסבול.'},
-    {q:'איזו עמדה מספר 6?',opts:['Pitcher','Shortstop','Third Baseman','Left Field'],ans:1,exp:'מספר 6 הוא Shortstop - עמדת המפתח בין בסיס שני לשלישי.'},
-    {q:'איך קוראים לשחקן שמגן מאחורי החבטן?',opts:['Backstop','Receiver','Catcher','Guardian'],ans:2,exp:'Catcher הוא התופס המגן מאחורי החבטן והבסיס הבית.'},
-    {q:'מה זה "Battery"?',opts:['כל הקבוצה','הזורק והתופס','השדה החיצוני','הציוד החשמלי'],ans:1,exp:'Battery מתייחס לזוג הזורק והתופס שעובדים יחד.'}
-  ],
-  'ציוד ובטיחות': [
-    {q:'איך קוראים לכפפה מיוחדת של התופס?',opts:['Glove','Mitt','Hand Protector','Catcher Glove'],ans:1,exp:'Mitt הוא השם לכפפת התופס המיוחדת, שגדולה ומרופדת יותר.'},
-    {q:'מה התופס לובש על הפנים?',opts:['Helmet','Mask','Shield','Visor'],ans:1,exp:'Mask (מסכה) מגנה על פני התופס מפני כדורים קשים.'},
-    {q:'מה ההבדל בין כדור סופטבול לבייסבול?',opts:['אין הבדל','סופטבול גדול יותר','סופטבול קטן יותר','סופטבול כחול'],ans:1,exp:'כדור הסופטבול גדול יותר ורך יותר מכדור הבייסבול.'}
-  ],
-  'חבטה והתקפה': [
-    {q:'מה זה RBI?',opts:['Runs Batted In','Really Big Inning','Runner Base Increment','Rapid Ball Impact'],ans:0,exp:'RBI = Runs Batted In - מספר הריצות שחבטן הביא הביתה עם החבטה שלו.'},
-    {q:'איך קוראים לחבטה שמביאה את החבטן לבסיס ראשון?',opts:['Single','First','Base Hit','Primary'],ans:0,exp:'Single הוא חבטה שמביאה את החבטן בבטחה לבסיס ראשון.'},
-    {q:'מה זה באנט (Bunt)?',opts:['חבטה חזקה','חבטה עדינה','החמצת כדור','ריצה מהירה'],ans:1,exp:'Bunt הוא חבטה עדינה ומבוקרת שגורמת לכדור לנוע מרחק קצר.'}
-  ],
-  'הגנה ופילדינג': [
-    {q:'מה זה Double Play?',opts:['שני משחקים ברצף','שני אאוטים במשחק אחד','שתי קבוצות משחקות','מחליפים שני שחקנים'],ans:1,exp:'Double Play הוא משחק הגנתי שיוצר שני אאוטים ברצף, בדרך כלל מכדור קרקע.'},
-    {q:'מה ההבדל בין Tag Out ל-Force Out?',opts:['אין הבדל','Tag Out דורש מגע, Force Out לא','Tag Out קל יותר','Force Out רק בבסיס ראשון'],ans:1,exp:'Tag Out צריך מגע פיזי של הרץ עם הכדור. Force Out מספיק לגעת בבסיס עם הכדור כשהרץ חייב לרוץ.'}
-  ],
-  'זריקה וניהול משחק': [
-    {q:'איך קוראים לזריקה המהירה והישרה?',opts:['Speedball','Fastball','Quickball','Straightball'],ans:1,exp:'Fastball הוא הסוג הכי בסיסי של זריקה - מהיר וישר.'},
-    {q:'מה זה Strike Zone?',opts:['המקום בו הזורק עומד','האזור בו הכדור הופך לסטרייק','הבסיסים','כל המגרש'],ans:1,exp:'Strike Zone הוא האזור מעל הבסיס הבית, בין הברכיים לכתפיים של החבטן.'}
-  ],
-  'אסטרטגיה ומונחים מתקדמים': [
-    {q:'מה זה Pinch Hitter?',opts:['חבטן שמעביט בכוח','חבטן מחליף','חבטן ראשון','חבטן שגוב'],ans:1,exp:'Pinch Hitter הוא שחקן שנכנס כמחליף לחבטן אחר במצב מסוים.'},
-    {q:'איך קוראים לזורק שמסיים משחקים קרובים?',opts:['Starter','Reliever','Closer','Finisher'],ans:2,exp:'Closer הוא זורק מומחה להצלת ניצחונות במצבים קריטיים באינינגים האחרונים.'}
-  ]
-};
-
-const FIELD_POSITIONS = {
-  1: {name:'Pitcher (זורק)',desc:'זורק את הכדור לחבטן. עומד במרכז המגרש ושולט בקצב המשחק. זה כמו להיות הבמאי של ההגנה!'},
-  2: {name:'Catcher (תופס)',desc:'יושב מאחורי הבסיס הבית. תופס את הכדור, מגן על הבסיס, ומכוון את ההגנה. כמו השוער בכדורגל!'},
-  3: {name:'First Baseman (בסיס 1)',desc:'שומר על הבסיס הראשון. צריך להיות גבוה ועם כפפה טובה כי הרבה זריקות מגיעות אליו.'},
-  4: {name:'Second Baseman (בסיס 2)',desc:'מכסה את האזור בין בסיס ראשון לשני. עובד הרבה עם השורט-סטופ במשחקים כפולים.'},
-  5: {name:'Third Baseman (בסיס 3)',desc:'שומר על בסיס שלישי - "הפינה הלוהטת"! צריך רפלקסים מהירים כי הכדורים מגיעים חזק ומהר.'},
-  6: {name:'Shortstop (שורט-סטופ)',desc:'עמדת המפתח! הכי פעיל בהגנה, עוזר בכל מקום. כמו הקשר במרכז השדה בכדורגל.'},
-  7: {name:'Left Field (שמאל)',desc:'שומר על השדה השמאלי. צריך זרוע חזקה לזריקות ארוכות לבסיס השלישי והבית.'},
-  8: {name:'Center Field (מרכז)',desc:'המפקד של השדה החיצוני! מכסה הכי הרבה שטח ואחראי על התקשורת בשדה החיצוני.'},
-  9: {name:'Right Field (ימין)',desc:'שומר על השדה הימני. צריך זרוע מצוינת כי הזריקות לבסיס שלישי הן הכי ארוכות במגרש.'}
-};
-
-const SITUATIONS = [
-  {title:'בסיסים עמוסים - 2 אאוטים',desc:'רץ על כל בסיס, 2 אאוטים. הכדור נחבט גראנד-בול חד לשורט-סטופ.',solution:'השורט-סטופ צריך לזרוק לבסיס השני עבור Force Out ולסיים את האינינג. זה הכי בטוח ומהיר.',tip:'תמיד תלכו על האופציה הבטוחה עם 2 אאוטים - Force Out קל יותר מTag Out.'},
-  {title:'Sacrifice Fly מצב',desc:'רץ על בסיס שלישי, 1 אאוט. כדור מעופף עמוק לשדה ימין.',solution:'שדה ימין תופס את הכדור וזורק מהר לבסיס הבית. הזריקה צריכה להיות נמוכה וחזקה. התופס מתכונן לתג.',tip:'ב-Sacrifice Fly, הרץ יכול לעזוב את הבסיס רק אחרי שהכדור נתפס.'},
-  {title:'Double Play אידיאלי',desc:'רצים על בסיס ראשון ושני, 0 אאוטים. כדור קרקע לשחקן בסיס שני.',solution:'שחקן בסיס שני דורך על הבסיס (Force Out) וזורק לבסיס ראשון. Double Play שמסיים את האיום.',tip:'המפתח ל-Double Play טוב הוא מהירות וזריקה מדויקת לבסיס ראשון.'},
-  {title:'גניבה על Full Count',desc:'רץ על בסיס ראשון, Full Count (3-2). הרץ יוצא לגניבה עם הזריקה.',solution:'אם Strike - התופס זורק לבסיס שני. אם Ball - הרץ מקבל הליכה בכל מקרה. הזורק צריך להתמקד בזריקה טובה.',tip:'על Full Count, הרץ כמעט תמיד ירוץ כי אין לו מה להפסיד.'}
+const CATS=[
+{id:"basics",name:"יסודות המשחק",sub:"Game Basics",icon:"🏟️",bg:"#172554",accent:"#3B82F6",text:"#93C5FD",cards:[
+{term:"Inning",heb:"אינינג",def:"מחזור משחק שבו שתי הקבוצות מתחלפות. משחק רגיל = 7 אינינגים.",ex:"בכל אינינג: קבוצה אחת תוקפת ← קבוצה אחת מגנה."},
+{term:"Half-Inning",heb:"חצי אינינג",def:"תורה של קבוצה אחת. חצי עליון (Top) = קבוצת האורחים. תחתון (Bottom) = קבוצת הבית.",ex:"Top of the 3rd = החצי הראשון של האינינג השלישי."},
+{term:"Out",heb:"אאוט",def:"שחקן תוקף מסולק ממשחק. 3 Outs ← הצד מחליף!",ex:"3 Outs = הצד שתקף עובר להגנה. כולם מחליפים!"},
+{term:"Run",heb:"ריצה / נקודה",def:"נקודה שנצברת כשרץ עובר דרך כל הבסיסים ונוגע ב-Home Plate לפני ה-Out השלישי.",ex:"הקבוצה עם יותר Runs בסוף 7 האינינגים מנצחת!"},
+{term:"Fair Ball",heb:"כדור תקין",def:"כדור שנפל בתוך גבולות המגרש. כדור מעל הגדר בשטח תקין = Home Run!",ex:"Fair Ball ← החובט הופך ל-Batter-Runner!"},
+{term:"Foul Ball",heb:"כדור פסול",def:"כדור שנפל מחוץ לגבולות המגרש. נחשב Strike, אך לא ניתן להיפסל אחרי 2 Strikes.",ex:"Foul + 0 Strikes → Strike. Foul + 2 Strikes → ממשיכים."},
+{term:"Dead Ball",heb:"כדור מת",def:"מצב שבו המשחק מושהה ואין פעולה. הכדור לא בשימוש. כל ריצה שנעשית לא נספרת.",ex:"לאחר Foul Ball: כדור מת, הרצים חוזרים לבסיסים."},
+{term:"Live Ball",heb:"כדור חי",def:"הכדור בשימוש והמשחק פעיל. הרצים יכולים לרוץ ולהיפסל.",ex:"אחרי הגשה חוקית: הכדור חי, המשחק מתחיל!"},
+{term:"Forfeit",heb:"ניצחון מוענק",def:"קבוצה שמפרה חוקים חמורים: היריב מנצח אוטומטית ב-7-0.",ex:"שחקן שגורש חוזר למגרש → Forfeit לקבוצתו!"},
+{term:"Regulation Game",heb:"משחק תקין",def:"משחק שהסתיים אחרי 7 אינינגים, או לפחות 5 אינינגים שנקרא ע\"י שופט.",ex:"גשם אחרי 4 אינינגים שלמים = לא משחק תקין."},
+{term:"Tiebreaker",heb:"שוברת שוויון",def:"מהאינינג ה-8 ואילך, כל קבוצה מתחילה עם רץ על הבסיס השני!",ex:"מגביר מתח: מתחילים כבר עם רץ בעמדה מאיימת!"},
+{term:"Run Ahead Rule",heb:"חוק הפרש ניקוד",def:"המשחק נגמר מוקדם: 15+ ריצות אחרי 3 אינינגים, 10+ אחרי 4, 7+ אחרי 5.",ex:"נקרא גם Mercy Rule — כדי לא להשפיל קבוצה חלשה."},
+]},
+{id:"positions",name:"עמדות שחקנים",sub:"Player Positions",icon:"👥",bg:"#052e16",accent:"#22C55E",text:"#86EFAC",cards:[
+{term:"Pitcher",heb:"מגיש",def:"מגיש את הכדור מהתחתית לכיוון החובט. עומד על Pitcher's Plate. חייב לעצור 2 שניות לפני ההגשה.",ex:"ה-Pitcher הוא השחקן החשוב ביותר בצד המגן!"},
+{term:"Catcher",heb:"תופס",def:"תופס כדורים מאחורי בסיס הבית. חייב ללבוש קסדה, מסכה, רפידות גוף ומגני שוקיים.",ex:"ה-Catcher מנחה את ה-Pitcher איזה כדור להגיש!"},
+{term:"First Baseman",heb:"מגן בסיס ראשון",def:"מגן על הבסיס הראשון ותופס זריקות לפסול רצים. רק הוא והתופס רשאים להשתמש ב-Mitt.",ex:"כמעט כל Out ב-Infield עובר דרך הבסיס הראשון!"},
+{term:"Second Baseman",heb:"מגן בסיס שני",def:"מגן על האזור סביב הבסיס השני מצד ימין. שותף לפסילות כפולות עם ה-Shortstop.",ex:"Second Baseman + Shortstop = צמד המגנים הכי עסוק!"},
+{term:"Third Baseman",heb:"מגן בסיס שלישי",def:"מגן על הבסיס השלישי. חייב תגובה מהירה לכדורים חזקים — נקרא 'Hot Corner'!",ex:"'Hot Corner': הכדורים הכי חזקים מגיעים לשם!"},
+{term:"Shortstop",heb:"שורטסטופ",def:"מגן בין הבסיס השני לשלישי. עמדה הדורשת מהירות ויכולת זריקה חזקה.",ex:"לרוב ה-Shortstop הוא המגן הכי טוב בקבוצה!"},
+{term:"Left Fielder",heb:"מגן שמאל",def:"מגן על השטח החיצוני הצדדי השמאלי. מקבל כדורים גבוהים ורחוקים.",ex:"ה-Left Fielder זורק הרבה ל-Third Base!"},
+{term:"Center Fielder",heb:"מגן מרכז",def:"מגן על מרכז השטח החיצוני. מכסה הכי הרבה שטח — בדרך כלל השחקן המהיר ביותר.",ex:"ה-Center Fielder הוא שוטר השטח החיצוני!"},
+{term:"Right Fielder",heb:"מגן ימין",def:"מגן על השטח החיצוני הצדדי הימני. זריקתו הארוכה מגיעה לעיתים ל-Third Base.",ex:"ה-Right Fielder זורק הרבה לבסיס הראשון!"},
+{term:"Designated Player (DP)",heb:"שחקן ייעודי",def:"שחקן שחובט במקום אחד המגנים (ה-FLEX). מאפשר 10 שחקנים בקבוצה.",ex:"ה-DP חובט, אבל לא חייב לשחק בשדה!"},
+{term:"FLEX",heb:"פלקס",def:"שחקן שמשחק בשדה אבל לא חובט — ה-DP חובט במקומו. נמצא בעמדה ה-10 בכרטיס הסדר.",ex:"DP + FLEX = 10 שחקנים בקבוצה. ביחד הם צמד אחד!"},
+]},
+{id:"pitching",name:"חוקי ההגשה",sub:"Pitching Rules",icon:"🎯",bg:"#451a03",accent:"#F59E0B",text:"#FDE68A",cards:[
+{term:"Strike Zone",heb:"אזור הסטרייק",def:"האזור מעל בסיס הבית, בין תחתית עצם החזה לתחתית הברך של החובט.",ex:"השופט (Plate Umpire) מחליט אם הכדור עבר ב-Strike Zone!"},
+{term:"Strike",heb:"סטרייק",def:"כדור שעבר ב-Strike Zone ולא הוכה, הכאה שהחטיאה, או Foul Ball עם פחות מ-2 Strikes.",ex:"3 Strikes = Out! החובט מסולק."},
+{term:"Ball",heb:"בול",def:"כדור שלא עבר ב-Strike Zone ולא הוכה.",ex:"4 Balls = Walk! החובט מקבל בסיס ראשון בחינם!"},
+{term:"Walk",heb:"הליכה",def:"4 Balls = Walk. החובט מקבל בסיס ראשון. אפשר גם Intentional Walk.",ex:"Intentional Walk: הקבוצה המגנה מחליטה לתת Walk מרצון!"},
+{term:"Illegal Pitch",heb:"הגשה לא חוקית",def:"הגשה שמפרה חוקים: לא עצר שתי שניות, Crow Hop, שחרור ידית אחת לפני עצירה.",ex:"עונש: Ball נוסף לחשבון החובט. אם הכה — הוא בוחר."},
+{term:"Crow Hop",heb:"קרו הופ",def:"תנועה אסורה: ה-Pitcher קופץ מהצלחת ומשתמש ברגל שנייה לדחיפה.",ex:"Crow Hop = Illegal Pitch! עונש מיידי."},
+{term:"Leaping",heb:"קפיצה",def:"ה-Pitcher עף באוויר מהצלחת בזמן ההגשה — זה חוקי! בתנאי שזה לא Crow Hop.",ex:"Leaping מותר: הרגל קפצה מהצלחת בצורה טבעית."},
+{term:"No Pitch",heb:"לא הגשה",def:"מצב שבו ההגשה מבוטלת ולא נספרת. לדוגמה: הגשה בזמן הפסקה.",ex:"הגשה כשהשופט לא אמר 'Play Ball' = No Pitch!"},
+{term:"Warm-Up Pitch",heb:"כדור חימום",def:"ה-Pitcher מורשה לחמם לפני כל אינינג. 5 כדורים באינינג הראשון, 3 בכל אינינג לאחר מכן.",ex:"כדור חימום נוסף שלא מורשה = Ball לחובט!"},
+{term:"Pitcher's Plate",heb:"צלחת המגיש",def:"גושית גומי לבנה 61×15 ס\"מ. הרגל חייבת לגעת בה בתחילת ההגשה.",ex:"אם הרגל לא נוגעת בצלחת = Illegal Pitch!"},
+{term:"Pivot Foot",heb:"רגל הציר",def:"הרגל שנוגעת בצלחת המגיש ומשמשת לדחיפה. חייבת להישאר על הצלחת עד תחילת ההגשה.",ex:"הרגל הציר מניעה את הגוף קדימה — היא המנוע של ה-Pitcher!"},
+]},
+{id:"batting",name:"חוקי החבטה",sub:"Batting Rules",icon:"🏏",bg:"#2e1065",accent:"#A78BFA",text:"#DDD6FE",cards:[
+{term:"Batter",heb:"חובט",def:"שחקן שעומד ב-Batter's Box ומנסה להכות את הכדור. חייב לעמוד בתוך הקווים!",ex:"החובט ממשיך להיות Batter עד שנפסל או הופך ל-Batter-Runner."},
+{term:"Batter-Runner",heb:"חובט-רץ",def:"שחקן שסיים לחבוט ועדיין לא הגיע לבסיס הראשון — הוא גם חובט וגם רץ.",ex:"החובט הכה כדור תקין ← הופך ל-Batter-Runner!"},
+{term:"Batting Order",heb:"סדר חבטה",def:"רשימת השחקנים לפי סדר החבטה. חייבים לשמור עליו לאורך כל המשחק!",ex:"שחקן שחובט בתור לא שלו = Batting Out of Order!"},
+{term:"Home Run",heb:"הום ראן",def:"הכדור עובר מעל הגדר בשטח תקין! כל הרצים + החובט מקבלים נקודה.",ex:"Grand Slam = Home Run עם שחקנים על כל 3 הבסיסים = 4 נקודות!"},
+{term:"Grand Slam",heb:"גרנד סלאם",def:"Home Run שנעשה כשיש שחקנים על כל 3 הבסיסים. 4 נקודות בבת אחת!",ex:"הדבר הכי מרגש בסופטבול = Grand Slam!"},
+{term:"Bunt",heb:"בונט",def:"הכאה עדינה: החובט לא מניף את המחבט אלא נוגע בכדור כדי שיתגלגל לאט.",ex:"Bunt עוזר לקדם רצים לבסיסים, גם אם החובט נפסל."},
+{term:"Slap Hit",heb:"מכה קצרה",def:"הכאה קצרה ומהירה (לא Bunt). החובט לעיתים רץ לפני ההכאה בתוך ה-Batter's Box.",ex:"Slap Hit מועדפת על שחקניות מהירות שרוצות להגיע לבסיס מהר!"},
+{term:"Foul Tip",heb:"מגע קצה",def:"כדור שנגע קלות בראש המחבט ועף ישירות לידי התופס ונתפס. נחשב Strike, הכדור חי!",ex:"Foul Tip + 2 Strikes = Out! החובט מסולק."},
+{term:"Intentional Walk",heb:"הליכה מכוונת",def:"הקבוצה המגנה בוחרת לתת Walk לחובט מרצון. מכריזים על כך לשופט.",ex:"אסטרטגיה: עדיף לתת Walk לחובט חזק ולהתמודד עם הבא!"},
+{term:"Hit by Pitch",heb:"פגיעת כדור",def:"הכדור פוגע בגוף החובט. החובט מקבל בסיס ראשון! אם לא ניסה להתחמק — לא מקבל.",ex:"Ouch! פגיעה בחובט = בסיס ראשון בחינם!"},
+{term:"Infield Fly",heb:"כדור פנים שדה",def:"כדור גבוה קצר שמגן פנים השדה יכול לתפוס. החובט נפסל אוטומטית — כדי למנוע תרגיל.",ex:"הכרזת Infield Fly = החובט אאוט, הרצים לא חייבים לרוץ!"},
+{term:"Dropped Third Strike",heb:"סטרייק שלישי שנפל",def:"אם התופס לא תפס את הסטרייק השלישי — החובט יכול לנסות לרוץ לבסיס הראשון!",ex:"תופס לא תפס? החובט רץ — אולי יגיע!"},
+]},
+{id:"running",name:"ריצת הבסיסים",sub:"Base Running",icon:"🏃",bg:"#4c0519",accent:"#F43F5E",text:"#FECDD3",cards:[
+{term:"Runner",heb:"רץ",def:"שחקן שסיים תורו כחובט, הגיע לבסיס הראשון ועדיין לא נפסל.",ex:"ה-Runner מנסה לרוץ דרך כל הבסיסים ולנגוע ב-Home Plate!"},
+{term:"Stolen Base",heb:"בסיס גנוב",def:"רץ שמגיע לבסיס הבא מבלי שהחובט הכה, בזמן ש-Pitcher מגיש.",ex:"ה-Catcher מנסה לתפוס את הרץ הגנוב בזריקה מהירה!"},
+{term:"Force Out",heb:"פסילה בכוח",def:"כשרץ חייב לעזוב בסיס כי הרץ שמאחוריו מגיע. המגן גועל בבסיס עם הכדור.",ex:"כשהחובט הכה כדור תקין: כל הרצים חייבים לרוץ קדימה."},
+{term:"Tag Out",heb:"פסילה במגע",def:"מגן גועל ברץ (כשהרץ לא על בסיס) עם הכדור בידו. הרץ נפסל!",ex:"אם הרץ יוצא מהבסיס: המגן יכול לגעת בו ולפסול אותו!"},
+{term:"Tag Up",heb:"חזרה לבסיס",def:"אחרי כדור שנתפס — הרץ חייב לגעת בבסיס שעליו עמד לפני שמנסה לרוץ קדימה.",ex:"כדור נתפס → חזרה לבסיס → רצים קדימה!"},
+{term:"Double Play",heb:"פסילה כפולה",def:"שתי פסילות בפעולה אחת רצופה! מפנה רצים ביעילות מהשדה.",ex:"כדור לקרקע ← בסיס שני ← בסיס ראשון = Double Play!"},
+{term:"Triple Play",heb:"פסילה משולשת",def:"שלוש פסילות בפעולה אחת רצופה! נדיר מאוד.",ex:"Triple Play = הנדיר ביותר בסופטבול, מסיים אינינג מיד!"},
+{term:"Obstruction",heb:"חסימה אסורה",def:"מגן מונע מרץ להתקדם כשאין לו את הכדור. הרץ מקבל בסיס נוסף!",ex:"מגן לא יכול לחסום רץ אם אין לו את הכדור!"},
+{term:"Base Path",heb:"שביל הבסיס",def:"הדרך הישירה בין שני בסיסים. הרץ חייב להישאר לא יותר ממטר אחד מהשביל.",ex:"רץ שיצא יותר ממטר מהשביל כדי להתחמק = Out!"},
+{term:"Over-Slide",heb:"החלקה יתר",def:"רץ שהחליק מעבר לבסיס ואיבד קשר איתו — עלול להיפסל!",ex:"החלקת יתר בבסיס ראשון מותרת — אבל לא בבסיסים אחרים!"},
+{term:"Temporary Runner",heb:"רץ זמני",def:"מחליף לתופס או למגיש שנמצאים על בסיס עם 2 אאוטים — כדי לחסוך זמן.",ex:"רץ זמני חייב להיות השחקן שתורו לחבוט אחרון!"},
+]},
+{id:"fieldequip",name:"מגרש וציוד",sub:"Field & Equipment",icon:"⚙️",bg:"#1a2744",accent:"#60A5FA",text:"#BAE6FD",cards:[
+{term:"Home Plate",heb:"בסיס הבית",def:"לוחית חמישה צדדים לבנה. הרץ חייב לנגוע בה כדי לצבור נקודה.",ex:"Home Plate גם מגדיר את ה-Strike Zone!"},
+{term:"Pitcher's Circle",heb:"עיגול המגיש",def:"עיגול בקוטר 4.88 מ' סביב הצלחת. כשהמגיש בעיגול עם הכדור, הרצים חייבים להחליט — קדימה או חזרה.",ex:"המגיש בעיגול עם כדור → הרצים חייבים להחליט מיד!"},
+{term:"Foul Lines",heb:"קווי הפסול",def:"שני קווים מבסיס הבית לגדר, המגדירים את שטח המשחק. כדור על הקו = Fair Ball!",ex:"הכדור נפל בדיוק על הקו = Fair Ball!"},
+{term:"Foul Pole",heb:"עמוד הפסול",def:"העמוד בקצה הגדר. כדור שפגע בעמוד = Home Run!",ex:"כדור שנגע בעמוד הפסול = Home Run! הפסול הפך להצלחה!"},
+{term:"Double Base",heb:"בסיס כפול",def:"בסיס ראשון מיוחד: חצי בשטח תקין (לבן) וחצי בשטח פסול (צבעוני). החובט נוגע בצבעוני, המגן בלבן.",ex:"הבסיס הכפול מונע התנגשות בין חובט-רץ למגן!"},
+{term:"Infield",heb:"פנים שדה",def:"האזור בשטח תקין שמכוסה בדרך כלל על ידי מגני הפנים. כולל הדיאמונד.",ex:"Infield Fly נקרא רק כשהכדור גבוה בפנים השדה!"},
+{term:"Outfield",heb:"חוץ שדה",def:"האזור הגדול מעבר לפנים השדה, עד לגדר. מכוסה על ידי 3 מגנים.",ex:"כדור שנפל ב-Outfield = לרוב כדור Single או Double!"},
+{term:"Warning Track",heb:"מסלול אזהרה",def:"רצועת חצץ/עפר לפני הגדר. מזהיר את המגן שהגדר קרובה.",ex:"שחקן שמרגיש חצץ מתחת לרגליו — הגדר קרובה!"},
+{term:"Bat",heb:"מחבט",def:"מחבט אחיד, עגול, מעץ, מתכת או חומרים מורכבים. מקסימום 86.4 ס\"מ אורך.",ex:"מחבט ששונה (Altered Bat) = אסור! מסולק ומחובטו מגורש!"},
+{term:"Glove / Mitt",heb:"כפפה / מיט",def:"כל שחקן יכול ללבוש כפפה. רק תופס ומגן בסיס ראשון רשאים להשתמש ב-Mitt.",ex:"מיט = כפפה ללא חריצים לאצבעות. עמוקה יותר לתפיסה!"},
+{term:"Helmet",heb:"קסדה",def:"חובה לחובטים, חובטים-רצים ורצים. חייבת להיות עם שני סנפירי אוזן.",ex:"חובט שמסרב לעטות קסדה = Out!"},
+]},
+{id:"scoring",name:"ניקוד וחוקים",sub:"Scoring & Rules",icon:"🏆",bg:"#0c2a4a",accent:"#38BDF8",text:"#BAE6FD",cards:[
+{term:"Run / Score",heb:"נקודה",def:"נקודה נצברת כשרץ עובר דרך כל 3 הבסיסים ונוגע ב-Home Plate, לפני ה-Out השלישי.",ex:"הקבוצה עם יותר נקודות בסוף 7 האינינגים מנצחת!"},
+{term:"RBI",heb:"ריצה שהובאה",def:"Run Batted In: כמה פעמים החובט גרם לרצים לצבור נקודות.",ex:"Home Run = לפחות 1 RBI. Grand Slam = 4 RBIs!"},
+{term:"Winning",heb:"ניצחון",def:"הקבוצה עם יותר Runs בסוף המשחק. שוויון → Tiebreaker innings!",ex:"קבוצת הבית חובטת בחצי האינינג התחתון = יתרון הבית!"},
+{term:"Appeal Play",heb:"פנייה לשופט",def:"פעולה שהשופט לא יכול לפסוק עליה לבד — הקבוצה המגנה חייבת לבקש פסיקה.",ex:"רץ שדילג על בסיס? הקבוצה המגנה צריכה לבקש Appeal Play!"},
+{term:"Interference",heb:"הפרעה",def:"שחקן תוקף מפריע לשחקן מגן שמנסה לבצע פעולה. עונש: Out!",ex:"חובט שמפריע לתופס לזרוק = Interference!"},
+{term:"Obstruction",heb:"חסימה",def:"שחקן מגן מפריע לרץ להתקדם כשאין לו את הכדור. עונש: בסיס נוסף לרץ.",ex:"מגן חוסם רץ ללא כדור = Obstruction!"},
+{term:"Umpire",heb:"שופט",def:"השופט אחראי על אכיפת החוקים. שופט צלחת (Plate Umpire) הוא הראשי.",ex:"שופט הצלחת מחליט: Strike, Ball, Fair, Foul, Safe, Out!"},
+{term:"Protest",heb:"מחאה",def:"קבוצה שחושבת שהשופט טעה בפרשנות חוק — יכולה להגיש מחאה רשמית.",ex:"אפשר למחות רק על פרשנות חוק — לא על שיקול דעת השופט!"},
+{term:"Ejection",heb:"גירוש",def:"השופט מגרש שחקן, מאמן או כל חבר סגל. המגורש עוזב המגרש לאלתר.",ex:"מחלוקת עם שופט שיצאה משליטה → Ejection!"},
+{term:"ERA",          heb:"ממוצע ריצות",          def:"Earned Run Average: מדד איכות המגיש. ממוצע נקודות מוענקות ל-7 אינינגים.",         ex:"ERA נמוך = מגישה טובה. ERA 1.50 = מצוינת!"},
+{term:"Single",       heb:"הכאה ראשונה",         def:"הכאה תקינה שהחובט מגיע בעקבותיה לבסיס הראשון בלבד.",                           ex:"Single הוא ה-Hit הנפוץ ביותר בסופטבול!"},
+{term:"Double",       heb:"הכאה כפולה",          def:"הכאה תקינה שהחובט מגיע בעקבותיה לבסיס השני.",                                   ex:"כדור שנפל ב-Gap (בין מגני החוץ) = לרוב Double!"},
+{term:"Walk-off Win", heb:"ניצחון מחוץ לגבולות", def:"הנקודה המנצחת שנצברת בחצי האינינג התחתון האחרון — המשחק נגמר מיד!",            ex:"Walk-off = הכי דרמטי בסופטבול! הקהל מתפרץ!"},
+{term:"Earned Run",   heb:"ריצה מוענקת",         def:"ריצה שנצברה ללא שגיאות שדה. מחושבת ב-ERA של המגיש.",                           ex:"ריצה אחרי שגיאת מגן = Unearned Run, לא נחשבת ב-ERA!"},
+{term:"Error (E)",    heb:"שגיאת שדה",           def:"טעות שדה שאפשרה לחובט/רץ להתקדם. לא נחשבת כ-Hit לחובט.",                      ex:"מגן שהחטיא כדור קל = Error. הרץ מתקדם, אבל זה לא Hit!"},
+]},
 ];
+const QD={
+basics:{name:"יסודות המשחק",color:"#3B82F6",bg:"#172554",qs:[
+{q:"כמה Outs מקבלת כל קבוצה בכל אינינג?",opts:["1","2","3","4"],ans:2,exp:"3 Outs לפני שמחליפים צדדים. 3×2 = 6 Outs לכל אינינג!"},
+{q:"כמה Innings יש במשחק סופטבול רגיל?",opts:["5","6","7","9"],ans:2,exp:"משחק סופטבול Fast Pitch = 7 Innings. בייסבול = 9 Innings."},
+{q:"מה ה-Score של ניצחון מוענק (Forfeit)?",opts:["1-0","7-0","9-0","3-0"],ans:1,exp:"Forfeit = 7-0 לזכות הקבוצה הלא-אשמה. כמספר האינינגים!"},
+{q:"מה קורה ב-Tiebreaker Inning?",opts:["מוסיפים שחקן","כל קבוצה מתחילה עם רץ על בסיס 2","מנצח מי שמתחיל ראשון","מקבלים 4 Outs"],ans:1,exp:"Tiebreaker מהאינינג ה-8: כל קבוצה מתחילה עם רץ על בסיס 2!"},
+{q:"מה נחשב Fair Ball?",opts:["כדור שיצא מהמגרש","כדור שנפל בתוך גבולות המגרש","כדור שפגע בחובט","כדור מחוץ לקווי הפסול"],ans:1,exp:"Fair Ball = כדור שנפל בשטח התקין, בין קווי הפסול!"},
+{q:"מה זה Dead Ball?",opts:["כדור שנשבר","מצב שהמשחק מושהה ואין פעולה","כדור שיצא מהמגרש","הכדור האחרון"],ans:1,exp:"Dead Ball = הכדור לא בשימוש. ריצות לא נספרות."},
+{q:"כמה ריצות הפרש נחוצות אחרי 5 אינינגים לסיום מוקדם?",opts:["5","7","10","15"],ans:1,exp:"Run Ahead Rule: 7 ריצות הפרש אחרי 5 אינינגים = משחק נגמר!"},
+{q:"מתי נגמר משחק לפני 7 Innings?",opts:["אחרי אינינג 5 בכל מצב","כשיש פרש ריצות גדול","כשהגשם מתחיל","כשמגיש מוחלף"],ans:1,exp:"Run Ahead Rule מסיים משחק מוקדם כשיש פרש גדול!"},
+{q:"מה זה Half-Inning?",opts:["חצי משחק","תורה של קבוצה אחת באינינג","3 Outs מהיר","חצי Inning"],ans:1,exp:"Half-Inning = תורה של קבוצה אחת. Top = אורחים, Bottom = בית."},
+{q:"קבוצת האורחים חובטת ב...?",opts:["Bottom half","Top half","שני החצאים","לא חובטת"],ans:1,exp:"קבוצת האורחים חובטת ב-Top half (החצי העליון) של כל אינינג!"},
+{q:"מהו Live Ball?",opts:["כדור חדש","כדור שהמשחק פעיל לגביו","כדור שנפגע","כדור חימום"],ans:1,exp:"Live Ball = הכדור בשימוש, המשחק פעיל — אפשר לרוץ!"},
+{q:"אחרי כמה Innings שלמים משחק נחשב תקין אם נקרא?",opts:["3","4","5","6"],ans:2,exp:"5+ אינינגים שלמים = משחק תקין גם אם נעצר מוקדם."},
+{q:"מה קורה לריצות שנעשו תוך כדי Dead Ball?",opts:["נספרות","לא נספרות","תלוי בשופט","נספרות חצי"],ans:1,exp:"ריצות שנעשו במהלך Dead Ball לא נספרות!"},
+{q:"מה ה-Run Ahead Rule אחרי 3 אינינגים?",opts:["7 ריצות הפרש","10 ריצות הפרש","15 ריצות הפרש","5 ריצות הפרש"],ans:2,exp:"אחרי 3 אינינגים: 15 ריצות הפרש = המשחק נגמר מוקדם!"},
+{q:"כמה ריצות הפרש צריך אחרי 4 אינינגים?",opts:["5","7","10","15"],ans:2,exp:"Run Ahead Rule: 10 ריצות הפרש אחרי 4 אינינגים = המשחק נגמר!"},
+]},
+positions:{name:"עמדות שחקנים",color:"#22C55E",bg:"#052e16",qs:[
+{q:"מי רשאי להשתמש ב-Mitt (ולא רק כפפה)?",opts:["כל שחקן","רק המגיש","תופס ומגן בסיס ראשון בלבד","רק המגיש והתופס"],ans:2,exp:"רק התופס ומגן הבסיס הראשון רשאים להשתמש ב-Mitt!"},
+{q:"מה עמדת ה-'Hot Corner'?",opts:["בסיס ראשון","בסיס שני","בסיס שלישי","שורטסטופ"],ans:2,exp:"Third Base = 'Hot Corner' — מקבלת הכי הרבה כדורים חזקים!"},
+{q:"מה תפקיד ה-Shortstop?",opts:["מגן על בסיס 1","מגן בין בסיס 2 ל-3","מגן על מרכז שדה","מגיש"],ans:1,exp:"Shortstop מגן בין בסיסים 2 ו-3 — נחשב לרוב המגן הטוב ביותר!"},
+{q:"כמה מגני שטח חיצוני יש?",opts:["2","3","4","5"],ans:1,exp:"3 Outfielders: Left Fielder, Center Fielder, Right Fielder."},
+{q:"מה זה DP?",opts:["Double Play","Designated Player","Dead Pitch","Defense Player"],ans:1,exp:"DP = Designated Player — שחקן שחובט במקום ה-FLEX!"},
+{q:"מה עושה ה-FLEX?",opts:["חובט ומגן","משחק בשדה אבל לא חובט","רץ בלבד","תופס כדורים"],ans:1,exp:"FLEX משחק בשדה אבל לא חובט — ה-DP חובט במקומו!"},
+{q:"מי נמצא מאחורי בסיס הבית?",opts:["Shortstop","First Baseman","Catcher","Left Fielder"],ans:2,exp:"Catcher = תופס עומד מאחורי Home Plate!"},
+{q:"מה ה-Center Fielder צריך יותר מכולם?",opts:["גובה","מהירות ריצה","עוצמת זריקה","שכלת מחבט"],ans:1,exp:"Center Fielder מכסה הכי הרבה שטח — חייב להיות המהיר ביותר!"},
+{q:"אל מי זורק ה-Right Fielder בדרך כלל?",opts:["Home Plate","Second Base","Third Base","First Base"],ans:3,exp:"Right Fielder זורק הרבה ל-First Base לפסילה מהירה!"},
+{q:"DP ו-FLEX — כמה שחקנים זה מוסיף לקבוצה?",opts:["0","1","2","3"],ans:1,exp:"DP + FLEX = 10 שחקנים בקבוצה במקום 9. 1 שחקן נוסף!"},
+{q:"מה חייב לובש ה-Catcher?",opts:["רק קסדה","רק מסכה","קסדה, מסכה, רפידות גוף ומגני שוקיים","כל הנ\"ל"],ans:2,exp:"Catcher חייב ציוד מלא: קסדה + מסכה + chest protector + shin guards!"},
+{q:"מה ה-Left Fielder עושה בדרך כלל עם הכדור?",opts:["זורק ל-First Base","זורק ל-Third Base","זורק ל-Home Plate","שומר לעצמו"],ans:1,exp:"Left Fielder זורק לרוב ל-Third Base לעצור רצים!"},
+{q:"כמה שחקנים יש בקבוצה ללא DP?",opts:["7","8","9","10"],ans:2,exp:"9 שחקנים בלי DP. עם DP = 10 שחקנים!"},
+{q:"מי מגן על האזור בין הבסיסים השני והשלישי?",opts:["Second Baseman","First Baseman","Shortstop","Center Fielder"],ans:2,exp:"Shortstop מגן בין בסיסים 2 ו-3!"},
+{q:"איזה עמדה נמצאת בין ה-Shortstop לגדר?",opts:["Left Fielder","Center Fielder","Right Fielder","Second Baseman"],ans:0,exp:"Left Fielder נמצא בשטח החיצוני השמאלי, מעבר ל-Shortstop!"},
+]},
+pitching:{name:"חוקי ההגשה",color:"#F59E0B",bg:"#451a03",qs:[
+{q:"כמה Balls גורמים ל-Walk?",opts:["2","3","4","5"],ans:2,exp:"4 Balls = Walk! החובט מקבל את הבסיס הראשון בחינם."},
+{q:"כמה שניות חייב המגיש לעצור לפני הגשה?",opts:["1","2","3","5"],ans:1,exp:"המגיש חייב לעצור לפחות 2 שניות לפני הגשה!"},
+{q:"מה זה Crow Hop?",opts:["קפיצה חוקית","קפיצה אסורה מהצלחת","סוג הגשה","תנועת הרגל"],ans:1,exp:"Crow Hop = תנועה אסורה. המגיש קופץ מהצלחת ומשתמש ברגל שנייה!"},
+{q:"כמה כדורי חימום מותרים בתחילת המשחק?",opts:["3","5","7","10"],ans:1,exp:"5 כדורי חימום בתחילת המשחק. 3 כדורים בתחילת כל אינינג לאחר מכן."},
+{q:"מה עונש כדור חימום נוסף שלא מורשה?",opts:["Out לחובט","Strike לחובט","Ball לחובט","אין עונש"],ans:2,exp:"כל כדור חימום נוסף שלא מורשה = Ball לחשבון החובט הבא!"},
+{q:"מה זה Intentional Walk?",opts:["הגשה שגויה","הקבוצה המגנה מחליטה לתת Walk מרצון","4 Balls רגילים","הגשה לבסיס"],ans:1,exp:"Intentional Walk: המגיש, התופס או המאמן מכריזים → החובט ל-1st base!"},
+{q:"מה זה Leaping?",opts:["קפיצה אסורה","קפיצה חוקית של המגיש מהצלחת","ריצת הרץ","זריקת המגיש"],ans:1,exp:"Leaping = המגיש קופץ באוויר מהצלחת — חוקי! בתנאי שאינו Crow Hop!"},
+{q:"מה קורה כשהכדור נשמט מיד המגיש תוך כדי הגשה?",opts:["No Pitch","Ball לחובט","Strike לחובט","עצירת משחק"],ans:1,exp:"כדור שנשמט = Ball לחובט. הכדור חי — הרצים יכולים לרוץ!"},
+{q:"מה זה No Pitch?",opts:["הגשה רעה","הגשה שמבוטלת ולא נספרת","הגשה ללא כוונה","סטרייק מיוחד"],ans:1,exp:"No Pitch = ההגשה לא נספרת! לדוגמה: הגשה כשהמשחק מושהה."},
+{q:"מה ה-Strike Zone בסופטבול?",opts:["מדבר לשוקיים","מעצם החזה לברכיים","מהאמפון לברכיים","כל כדור מעל הצלחת"],ans:1,exp:"Strike Zone: מתחתית עצם החזה ועד תחתית הברך, מעל Home Plate!"},
+{q:"כמה פעמים יכול המגיש לחזור לתפקיד?",opts:["פעם אחת","פעמיים","אין הגבלה","שלוש פעמים"],ans:2,exp:"אין הגבלה! כל עוד לא הוצא מהמשחק ולא הוכרז כ-Illegal Pitcher."},
+{q:"מה גורם למגיש להיות Illegal Pitcher?",opts:["החלפה רגילה","חריגה ממספר ועידות או עבירות הגשה חוזרות","הפסד משחק","פציעה"],ans:1,exp:"Illegal Pitcher: חריגה ממכסת הוועידות ההגנתיות, או הפרות הגשה חוזרות!"},
+{q:"מה ה-Pivot Foot?",opts:["הרגל הקדמית","הרגל שנוגעת בצלחת המגיש","הרגל האחורית","רגל ימין תמיד"],ans:1,exp:"Pivot Foot = הרגל שנוגעת בצלחת ומשמשת לדחיפה!"},
+{q:"מה קורה כשמגיש זורק לבסיס תוך כדי שרגלו על הצלחת?",opts:["מותר","Illegal Pitch","Out לרץ","No Pitch"],ans:1,exp:"מגיש לא יכול לזרוק לבסיס כשרגלו על הצלחת — Illegal Pitch!"},
+{q:"כמה שניות יש למגיש לבצע הגשה?",opts:["10","15","20","30"],ans:2,exp:"המגיש חייב להגיש תוך 20 שניות מקבלת הכדור!"},
+]},
+batting:{name:"חוקי החבטה",color:"#A78BFA",bg:"#2e1065",qs:[
+{q:"מה קורה ב-3 Strikes?",opts:["Walk","בסיס חינם","Out!","Home Run"],ans:2,exp:"3 Strikes = Out! החובט מסולק ממשחק."},
+{q:"מה זה Bunt?",opts:["הכאה חזקה","קפיצה מהבסיס","הכאה עדינה שהכדור מתגלגל לאט","כדור שיצא מהמגרש"],ans:2,exp:"Bunt = הכאה עדינה. הכדור מתגלגל לאט בתוך המגרש."},
+{q:"מה קורה ב-Home Run?",opts:["רק החובט מקבל נקודה","כל הרצים + החובט מקבלים נקודה","המשחק נגמר","החובט נפסל"],ans:1,exp:"Home Run: החובט + כל הרצים שעל הבסיסים מקבלים נקודה!"},
+{q:"כמה נקודות שווה Grand Slam?",opts:["1","2","3","4"],ans:3,exp:"Grand Slam = Home Run עם שחקנים על כל 3 הבסיסים = 4 נקודות!"},
+{q:"מה זה Foul Tip?",opts:["כדור שיצא מהמגרש","כדור שנגע קלות במחבט ונתפס ישירות","Foul Ball רגיל","כדור שפגע בחובט"],ans:1,exp:"Foul Tip = נגע בקצה המחבט ועף לידי התופס. Strike, הכדור חי!"},
+{q:"מה קורה 2 Strikes ואז Foul Ball?",opts:["Out","Strike נוסף","ממשיכים","Ball"],ans:2,exp:"Foul + 2 Strikes = ממשיכים. אי אפשר להיפסל על Foul Ball!"},
+{q:"מה זה Dropped Third Strike?",opts:["Out מיידי","החובט יכול לנסות לרוץ לבסיס ראשון","Ball נוסף","ממשיכים"],ans:1,exp:"תופס לא תפס סטרייק 3? החובט רץ! יכול לנסות להגיע לבסיס 1!"},
+{q:"מה זה Slap Hit?",opts:["הכאה מלאה","הכאה קצרה ומהירה שלא Bunt","בונט מיוחד","זריקה"],ans:1,exp:"Slap Hit = הכאה קצרה ומהירה. מועדפת על שחקניות מהירות!"},
+{q:"מתי מוכרז Infield Fly?",opts:["כשכל הבסיסים מאוכלסים","כדור גבוה קצר עם רצים על בסיסים 1+2 ופחות מ-2 Outs","כשהמגיש מחליג","בכל מצב"],ans:1,exp:"Infield Fly: כדור גבוה + רצים על בסיסים 1 ו-2 (או 1,2,3) + פחות מ-2 Outs!"},
+{q:"מה קורה לחובט שפגע בכדור פעמיים?",opts:["Strike נוסף","Ball נוסף","Out","ממשיכים"],ans:2,exp:"הכאה כפולה בכדור = Out! אלא אם הכדור נפל על המחבט שבידיו."},
+{q:"מה זה Hit by Pitch?",opts:["כדור שפגע במחבט","כדור שפגע בגוף החובט","Foul Ball","סטרייק"],ans:1,exp:"Hit by Pitch = כדור פגע בגוף החובט. מקבל בסיס ראשון בחינם!"},
+{q:"מה משמעות RBI?",opts:["Run Before Innings","Run Batted In — ריצה שהובאה","Really Big Impact","Random Base Idea"],ans:1,exp:"RBI = Run Batted In. כמה פעמים החובט גרם לרצים לצבור נקודות!"},
+{q:"מה זה Batting Out of Order?",opts:["חבטה בכוח","שחקן שחובט לא בתורו","חבטה לפסול","חבטה חסרת כוונה"],ans:1,exp:"Batting Out of Order = שחקן שחובט לא בתורו. אפשר לערור על כך!"},
+{q:"מה קורה לחובט שיוצא מ-Batter's Box?",opts:["Out מיידי","Strike ללא הגשה","Ball","ממשיכים"],ans:1,exp:"חובט שיצא מה-Batter's Box = Strike, גם ללא הגשה!"},
+{q:"מה זה Grand Slam?",opts:["Home Run ב-9 אינינגים","Home Run עם שחקנים על כל 3 הבסיסים","Home Run ראשון בעונה","Home Run ב-Tiebreaker"],ans:1,exp:"Grand Slam = Home Run עם בסיס מלא = 4 נקודות בבת אחת!"},
+]},
+running:{name:"ריצת הבסיסים",color:"#F43F5E",bg:"#4c0519",qs:[
+{q:"מה זה Stolen Base?",opts:["כדור שנגנב","רץ שמגיע לבסיס הבא ללא הכאה","Home Run מיוחד","סטרייק"],ans:1,exp:"Stolen Base: רץ רץ לבסיס הבא בזמן שה-Pitcher מגיש."},
+{q:"מה זה Force Out?",opts:["פסילה במגע","פסילה כשהרץ חייב לרוץ קדימה","קפיצה על בסיס","Double Play"],ans:1,exp:"Force Out: הרץ חייב לעזוב בסיס כי הרץ שמאחוריו מגיע!"},
+{q:"מה זה Tag Out?",opts:["פסילה בבסיס","מגן נוגע ברץ עם הכדור כשהרץ לא על בסיס","זריקה לבסיס","Double Play"],ans:1,exp:"Tag Out: מגן נוגע ברץ עם הכדור בזמן שהרץ לא על בסיס."},
+{q:"מה זה Double Play?",opts:["שני Home Runs","שתי פסילות בפעולה אחת","שניים על בסיס","שני כדורים"],ans:1,exp:"Double Play = 2 Outs בפעולה אחת רצופה!"},
+{q:"מה זה Tag Up?",opts:["קפיצה על בסיס","נגיעה בבסיס כדי להתחיל ריצה אחרי Fly Ball שנתפס","פסילה","גניבת בסיס"],ans:1,exp:"Tag Up: אחרי Fly Ball שנתפס, חייב לגעת בבסיס לפני שרצים קדימה!"},
+{q:"כמה מטר מחוץ לשביל הבסיס רץ יכול לסטות?",opts:["0.5 מטר","1 מטר","2 מטר","3 מטר"],ans:1,exp:"מקסימום 1 מטר (3 רגל) מחוץ ל-Base Path. יותר = Out!"},
+{q:"מה מיוחד בבסיס הכפול (Double Base)?",opts:["הוא גדול יותר","חצי בשטח תקין וחצי בשטח פסול","הוא עגול","הוא אדום"],ans:1,exp:"Double Base: חצי לבן (מגן) + חצי צבעוני (חובט). מונע התנגשות!"},
+{q:"מה קורה לרץ שעזב בסיס לפני שה-Fly Ball נתפס?",opts:["מקבל נקודה","Out אם המגן עושה Appeal","ממשיך","Walk"],ans:1,exp:"עזב מוקדם על Fly Ball? המגן יכול לעשות Appeal ולפסול אותו!"},
+{q:"מה זה Temporary Runner?",opts:["מחליף קבוע","מחליף זמני לתופס/מגיש על בסיס עם 2 Outs","שחקן שנפצע","רץ מהיר"],ans:1,exp:"Temporary Runner: מחליף את התופס או המגיש שנמצאים על בסיס עם 2 Outs!"},
+{q:"מה הכלל לגבי שני רצים על אותו בסיס?",opts:["שניהם בסדר","הרץ שהגיע ראשון זכאי; השני יכול להיפסל","שניהם נפסלים","הגיע ראשון = Out"],ans:1,exp:"שני רצים על אותו בסיס: הרץ שהגיע ראשון זכאי לבסיס!"},
+{q:"מה זה Over-Slide?",opts:["ריצה יתרה","החלקה מעבר לבסיס ואיבוד קשר","דריכה על בסיס","טעות ריצה"],ans:1,exp:"Over-Slide = החלקת יתר + איבוד קשר עם הבסיס. הרץ עלול להיפסל!"},
+{q:"מה Obstruction?",opts:["מגן גועל ברץ","מגן מפריע לרץ ללא כדור","רץ מפריע למגן","כדור חוסם"],ans:1,exp:"Obstruction: מגן מפריע לרץ כשאין לו את הכדור = בסיס נוסף לרץ!"},
+{q:"מה זה Triple Play?",opts:["3 Home Runs","שלוש פסילות בפעולה אחת","פגיעה משולשת","3 Stolen Bases"],ans:1,exp:"Triple Play = 3 Outs בפעולה אחת. נדיר מאוד!"},
+{q:"מה קורה לרץ שנוגע בכדור שנמצא בשדה?",opts:["נקודה","Out אם המגן לא נגע בכדור לפני כן","ממשיך","Ball"],ans:1,exp:"רץ שנגע בכדור שלא נגע במגן = Out!"},
+{q:"מה זה Base Path?",opts:["שביל לכניסה","הדרך הישירה בין שני בסיסים","גבול המגרש","שביל לחובט"],ans:1,exp:"Base Path = הדרך הישירה בין שני בסיסים. לא ניתן לסטות יותר ממטר!"},
+]},
+fieldequip:{name:"מגרש וציוד",color:"#60A5FA",bg:"#1a2744",qs:[
+{q:"מה מיוחד בכדור שפגע בעמוד הפסול (Foul Pole)?",opts:["Foul Ball","Home Run!","Single","Dead Ball"],ans:1,exp:"כדור שפגע ב-Foul Pole = Home Run! העמוד עצמו הוא Fair!"},
+{q:"מה גודל גושית המגיש (Pitcher's Plate)?",opts:["30×10 ס\"מ","61×15 ס\"מ","45×20 ס\"מ","50×12 ס\"מ"],ans:1,exp:"Pitcher's Plate = 61 ס\"מ ארוך × 15 ס\"מ רחב. גומי לבן!"},
+{q:"מה מטרת ה-Warning Track?",opts:["גבול הבסיסים","מזהיר שחקן שהגדר קרובה","ציון ה-Foul Line","אזור החלפת שחקנים"],ans:1,exp:"Warning Track = רצועת חצץ לפני הגדר. מזהירה: הגדר קרובה!"},
+{q:"מה זה Pitcher's Circle?",opts:["הבסיס של המגיש","עיגול 4.88 מ' סביב הצלחת","אזור חמום","גבול ה-Strike Zone"],ans:1,exp:"Pitcher's Circle: כשהמגיש בפנים עם כדור, הרצים חייבים להחליט קדימה או חזרה!"},
+{q:"מה ה-Infield?",opts:["כל המגרש","האזור בשטח תקין שמכוסה ע\"י מגני הפנים","אזור החוץ שדה","השטח מאחורי הבסיסים"],ans:1,exp:"Infield = הדיאמונד + האזור שמכסים מגני הפנים."},
+{q:"אורך מקסימלי של מחבט?",opts:["80 ס\"מ","86.4 ס\"מ","90 ס\"מ","100 ס\"מ"],ans:1,exp:"מחבט: מקסימום 86.4 ס\"מ (34 אינץ') אורך!"},
+{q:"מה זה Altered Bat?",opts:["מחבט חדש","מחבט שנשנה מהמבנה המקורי — אסור!","מחבט חימום","מחבט מורשה"],ans:1,exp:"Altered Bat = מחבט שנשנה. אסור לחלוטין! החובט שמשתמש בו מגורש!"},
+{q:"מי חייב לעטות קסדה עם 2 סנפירי אוזן?",opts:["רק המגיש","כל שחקן בשדה","חובטים, חובטי-רצים ורצים","רק התופס"],ans:2,exp:"חובטים, חובטי-רצים ורצים — כולם חייבים קסדה עם 2 סנפירי אוזן!"},
+{q:"כדור שנפל על ה-Foul Line עצמו — Fair או Foul?",opts:["Foul","Fair","תלוי בשופט","Dead Ball"],ans:1,exp:"כדור על ה-Foul Line = Fair Ball! הקו הוא חלק מהשטח התקין!"},
+{q:"מה ה-Outfield?",opts:["האזור ליד הבסיסים","האזור הגדול מעבר לפנים השדה עד הגדר","האזור מאחורי בסיס הבית","כל המגרש"],ans:1,exp:"Outfield = האזור הגדול מעבר ל-Infield. 3 שחקנים מגנים עליו!"},
+{q:"מה מיוחד בבסיס הכפול?",opts:["הוא גדול יותר","חצי לבן בשטח תקין + חצי צבעוני בשטח פסול","הוא גבוה יותר","הוא עגול"],ans:1,exp:"Double Base: החובט נוגע בצבעוני, המגן בלבן. מונע התנגשות!"},
+{q:"מה גודל ה-Pitcher's Circle?",opts:["3 מטר קוטר","4.88 מטר קוטר","2 מטר קוטר","6 מטר קוטר"],ans:1,exp:"עיגול המגיש = 4.88 מטר קוטר (רדיוס 2.44 מ') סביב הצלחת!"},
+{q:"מה ההבדל בין Glove לבין Mitt?",opts:["אין הבדל","Mitt אין בה חריצים לאצבעות","Mitt קטנה יותר","Glove לתופס בלבד"],ans:1,exp:"Mitt = כפפה ללא חריצים לאצבעות. עמוקה יותר לתפיסה! רק לתופס ולמגן בסיס 1!"},
+{q:"איזה מחבט אסור לשימוש?",opts:["מחבט עץ","מחבט מתכת","Altered Bat — מחבט ששונה","מחבט קצר"],ans:2,exp:"Altered Bat = מחבט ששונה מהמקורי. אסור! החובט מגורש!"},
+{q:"מה ה-Home Plate?",opts:["בסיס ראשון","לוחית חמישה צדדים שבה הרץ חייב לנגוע לצבור נקודה","בסיס שני","גבול ה-Strike Zone בלבד"],ans:1,exp:"Home Plate = לוחית 5 צדדים לבנה. הרץ חייב לנגוע בה לצבור נקודה!"},
+]},
+umpires:{name:"שופטים וחוקים",color:"#38BDF8",bg:"#0c2340",qs:[
+{q:"מה תפקידו של Plate Umpire?",opts:["שופט הבסיסים","שופט הבית — מחליט Balls, Strikes, Fair, Foul","השופט הראשי בלבד","שופט גבולות השדה"],ans:1,exp:"Plate Umpire = שופט הבית, עומד מאחורי התופס. מחליט Balls ו-Strikes!"},
+{q:"מי רשאי להגיש מחאה (Protest) רשמית?",opts:["כל שחקן","רק קפטן","המאמן הראשי בלבד","כל המאמנים"],ans:2,exp:"רק המאמן הראשי יכול להגיש Protest רשמי!"},
+{q:"על מה ניתן להגיש מחאה?",opts:["כל החלטת שופט","טעות שדה","פרשנות שגויה של חוק","קריאת Ball/Strike"],ans:2,exp:"Protest = פרשנות שגויה של חוק בלבד. לא על שיקול דעת שופט!"},
+{q:"מה 'Time' אומר?",opts:["התחילו לשחק","עצרו את המשחק","החליפו שחקן","ניצחון"],ans:1,exp:"'Time' = עצירת המשחק. הכדור מת — אי אפשר לרוץ!"},
+{q:"מה 'Play Ball' אומר?",opts:["עצרו","תתחילו / תמשיכו לשחק","החליפו שחקן","ניצחון"],ans:1,exp:"'Play Ball' = תחילת המשחק או חידושו. הכדור חי!"},
+{q:"האם אפשר לערער על קריאת Fair/Foul?",opts:["כן תמיד","לא — זה שיקול דעת שופט","רק ב-3 שניות ראשונות","רק בפלייאוף"],ans:1,exp:"Fair/Foul = שיקול דעת שופט. לא ניתן לערעור!"},
+{q:"מה זה Appeal Play?",opts:["ביקור מאמן","בקשה מהשופט לפסוק על עבירה שלא שם לב לה","מחאה רשמית","שינוי שחקן"],ans:1,exp:"Appeal Play: פעולה שהשופט לא יכול לפסוק עליה לבד — הקבוצה המגנה חייבת לבקש!"},
+{q:"כמה Defensive Conferences מותרות ב-7 אינינגים?",opts:["1","2","3","5"],ans:2,exp:"3 ועידות הגנה מותרות ב-7 אינינגים."},
+{q:"מה קורה כשמאמן חורג ממספר הוועידות המותר?",opts:["אזהרה","המגיש חייב לצאת","Walk לחובט","Out"],ans:1,exp:"מאמן שחורג ממכסת הוועידות → המגיש חייב לצאת מהמגרש!"},
+{q:"מה Ejection?",opts:["פציעת שחקן","גירוש שחקן/מאמן מהמשחק","החלפת שחקן","ביקור רפואי"],ans:1,exp:"Ejection = גירוש! השחקן/מאמן חייב לעזוב את המגרש לאלתר!"},
+{q:"מה Unreported Substitution?",opts:["שחקן שנפצע","שחקן שנכנס מבלי להודיע לשופט","שחקן שאיחר","שחקן שנטש"],ans:1,exp:"Unreported Sub = כניסה ללא דיווח לשופט. עבירה על החוק!"},
+{q:"מה קורה לשחקן שגורש ואז חוזר למגרש?",opts:["קנס","השחקן נפסל","Forfeit לקבוצתו","אזהרה"],ans:2,exp:"שחקן שגורש וחוזר = Forfeit! הקבוצה שלו מפסידה 7-0!"},
+]},
+scoring:{name:"ניקוד ואסטרטגיה",color:"#FCD34D",bg:"#2a1a00",qs:[
+{q:"כיצד צוברים Run?",opts:["הגעה לבסיס 2","הגעה לבסיס 3","נגיעה ב-Home Plate","כל הכאה"],ans:2,exp:"Run = נוגע ב-Home Plate לאחר שעבר את כל הבסיסים!"},
+{q:"מה Single?",opts:["Home Run","הגעה לבסיס 1 בהכאה","Bunt","Walk"],ans:1,exp:"Single = הגעה לבסיס הראשון בהכאה תקינה. ♦"},
+{q:"מה Double?",opts:["2 Home Runs","הגעה לבסיס 2 בהכאה","Bunt כפול","שני Walks"],ans:1,exp:"Double = הגעה לבסיס ה-2 בהכאה תקינה. ♦♦"},
+{q:"מה Triple?",opts:["3 Home Runs","הגעה לבסיס 3 בהכאה","3 Walks","3 Stolen Bases"],ans:1,exp:"Triple = הגעה לבסיס ה-3 בהכאה תקינה. ♦♦♦ נדיר!"},
+{q:"Grand Slam כמה נקודות שווה?",opts:["1","2","3","4"],ans:3,exp:"Grand Slam = 4 נקודות! Home Run עם שחקנים על כל 3 הבסיסים!"},
+{q:"מה זה Sacrifice Fly?",opts:["Foul Ball","כדור גבוה שנתפס, אך רץ מ-3rd מגיע הביתה","Home Run","Walk"],ans:1,exp:"Sacrifice Fly = כדור שנתפס באוויר אך מביא נקודה מהבסיס השלישי!"},
+{q:"מה Run Ahead Rule (Mercy Rule)?",opts:["כלל ניקוד מינימלי","סיום מוקדם כשיש פרש גדול בריצות","כלל אינינגים נוסף","כלל לפלייאוף בלבד"],ans:1,exp:"Mercy Rule = המשחק נגמר מוקדם כשפרש הריצות גדול מאוד."},
+{q:"מה ה-ERA?",opts:["ריצה ממוצעת לשחקן","ממוצע ריצות מוענקות למגיש ל-7 אינינגים","מדד RBI","טעויות שדה"],ans:1,exp:"ERA = Earned Run Average. מדד איכות המגיש. ככל שנמוך — טוב יותר!"},
+{q:"מה Fielding Error?",opts:["הכאה שהשיגה מגן","טעות שדה שאפשרה לחובט/רץ להתקדם","כדור פסול","סטרייק"],ans:1,exp:"Error = טעות שדה. לא נחשבת כ-Hit לחובט, אבל הרץ מתקדם!"},
+{q:"מה ההבדל בין Earned Run לבין Unearned Run?",opts:["אין הבדל","Earned = ללא טעויות שדה; Unearned = בגלל שגיאות","Earned = Home Run בלבד","Unearned = Walk בלבד"],ans:1,exp:"Earned Run = ללא שגיאות. Unearned Run = נוצרה בגלל Error של שדה!"},
+{q:"מה Walk-off Win?",opts:["ניצחון בגמר","הנקודה המנצחת שנצברת בחצי האינינג התחתון האחרון","ניצחון ב-Extra Innings","ניצחון ב-Forfeit"],ans:1,exp:"Walk-off = קבוצת הבית מובילה בסוף — המשחק נגמר מיד! הכי דרמטי!"},
+{q:"מה ממוצע חבטות טוב?",opts:[".100",".200",".300+",".500"],ans:2,exp:"ממוצע .300 ומעלה נחשב לממוצע מצוין בסופטבול!"},
+]},
+};
+// Populate "all"
+QD.all={name:"כל הנושאים 🌟",color:"#FCD34D",bg:"#1a1200",qs:[]};
+['basics','positions','pitching','batting','running','fieldequip','umpires','scoring'].forEach(k=>QD[k].qs.forEach(q=>QD.all.qs.push(q)));
 
-const SITUATIONS_EASY = [
-  {
-    badge:"⭐ מצב בסיסי",
-    scene:"דן עומד ליד הבית. המגיש זורק את הכדור. דן מנסה להכות אבל הכדור עבר מעליו.",
-    q:"מה זה נחשב?",
-    opts:["Ball ⚾","Strike 🎯","Out","Home Run"],
-    ans:1,
-    explain:"אם הכדור עבר במקום הנכון (Strike Zone) וגן לא ניסה להכות, או אם הוא ניסה ולא פגע - זה Strike!",
-    rule:"Strike = הכדור במקום הנכון או הכאה שהחטיאה"
-  },
-  {
-    badge:"⭐ מצב בסיסי",
-    scene:"מיכל הכה את הכדור! הכדור טס גבוה באוויר ושחקן בשדה תפס אותו לפני שהכדור נפל על הקרקע.",
-    q:"מה קורה למיכל?",
-    opts:["הוא Safe על בסיס ראשון","Out! ✋ כדור שנתפס באוויר = אאוט","הוא צריך לרוץ שוב","Ball"],
-    ans:1,
-    explain:"כל כדור שנתפס באוויר הופך את החבטן מיד לאאוט! לא משנה איפה בשדה הכדור נתפס.",
-    rule:"כדור נתפס באוויר = אאוט מיידי"
-  }
+const QUIZ_MENU_ORDER=[
+{key:'all',icon:'🌟'},{key:'basics',icon:'🏟️'},{key:'positions',icon:'👥'},
+{key:'pitching',icon:'🎯'},{key:'batting',icon:'🏏'},{key:'running',icon:'🏃'},
+{key:'fieldequip',icon:'⚙️'},{key:'umpires',icon:'⚖️'},{key:'scoring',icon:'🏆'}
 ];
-
-// Global variables
-let currentCat = 'כללי';
-let currentCardIdx = 0;
-let flipped = false;
-let currentQuizCat = 'חוקי בסיס';
-let currentQuizIdx = 0;
-let quizScore = 0;
-let quizTotal = 0;
-let sitIndex = 0;
-let sitPool = [];
-let sitEasyIdx = 0;
-let sitEasyPool = [];
-let sitEasyAnswered = [];
-
-// Navigation functions
-function showScreen(screenId) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(screenId).classList.add('active');
+const FIELD_POS=[
+{id:"cf",label:"CF",cx:180,cy:52,name:"Center Fielder",heb:"מגן מרכז",desc:"מגן על מרכז השטח החיצוני. בדרך כלל המהיר ביותר — מכסה הכי הרבה שטח!"},
+{id:"lf",label:"LF",cx:84,cy:84,name:"Left Fielder",heb:"מגן שמאל",desc:"מגן על השטח החיצוני הצדדי השמאלי. זורק לרוב ל-Third Base."},
+{id:"rf",label:"RF",cx:276,cy:84,name:"Right Fielder",heb:"מגן ימין",desc:"מגן על השטח החיצוני הצדדי הימני. זורק לרוב ל-First Base."},
+{id:"ss",label:"SS",cx:126,cy:133,name:"Shortstop",heb:"שורטסטופ",desc:"מגן בין בסיסים 2 ו-3. נחשב לרוב למגן הכי חשוב בקבוצה!"},
+{id:"2b",label:"2B",cx:228,cy:133,name:"Second Baseman",heb:"מגן בסיס שני",desc:"מגן על אזור הבסיס השני מצד ימין. שותף לפסילות כפולות!"},
+{id:"3b",label:"3B",cx:82,cy:170,name:"Third Baseman",heb:"מגן בסיס שלישי",desc:"מגן ה-'Hot Corner'. מקבל כדורים חזקים ומהירים!"},
+{id:"1b",label:"1B",cx:277,cy:170,name:"First Baseman",heb:"מגן בסיס ראשון",desc:"מגן על הבסיס הראשון. רק הוא והתופס רשאים להשתמש ב-Mitt!"},
+{id:"p",label:"P",cx:180,cy:163,name:"Pitcher",heb:"מגיש",desc:"מגיש את הכדור מהתחתית לכיוון החובט. עומד על Pitcher's Plate!"},
+{id:"c",label:"C",cx:180,cy:222,name:"Catcher",heb:"תופס",desc:"תופס כדורים מאחורי Home Plate. חייב ציוד מגן מלא!"},
+];
+let curCat=null,cardIdx=0,isFlipped=false;
+let quizPool=[],quizIdx=0,quizScore=0,quizSelected=null,curQuizKey=null;
+let curField=null;
+const QPQ=15;
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const s=document.getElementById(id);
+  s.classList.add('active');
+  s.classList.remove('fade-in');
+  requestAnimationFrame(()=>s.classList.add('fade-in'));
 }
-
-// Flashcards functions
-function buildCategories() {
-  const grid = document.getElementById('catGrid');
-  const colors = ['btn-yellow', 'btn-green', 'btn-blue', 'btn-orange', 'btn-pink', 'btn-purple'];
-  const icons = ['🎯', '👥', '🏏', '⚖️', '🎪', '⚡', '🎮'];
-  
-  grid.innerHTML = Object.keys(CATEGORIES).map((cat, i) => `
-    <button class="cat-card ${colors[i % colors.length]}" onclick="startLearning('${cat}')">
-      <span class="cat-icon">${icons[i]}</span>
-      <span class="cat-name">${cat}</span>
-      <span class="cat-sub">מונחי סופטבול</span>
-      <span class="cat-count">${CATEGORIES[cat].length} כרטיסיות</span>
-    </button>
-  `).join('');
+function buildCategories(){
+  document.getElementById('catGrid').innerHTML=CATS.map(c=>`
+    <button class="cat-card" onclick="openCategory('${c.id}')" style="background:${c.bg};border:2px solid ${c.accent}40">
+      <span class="cat-icon">${c.icon}</span>
+      <span class="cat-name" style="color:${c.accent}">${c.name}</span>
+      <span class="cat-sub" style="color:${c.accent}99">${c.sub}</span>
+      <span class="cat-count">${c.cards.length} כרטיסיות</span>
+    </button>`).join('');
+  const total=CATS.reduce((a,c)=>a+c.cards.length,0);
+  document.getElementById('homeFooter').textContent=`${total} כרטיסיות · ${QD.all.qs.length} שאלות חידון · 9 עמדות`;
 }
-
-function startLearning(category) {
-  currentCat = category;
-  currentCardIdx = 0;
-  flipped = false;
-  updateCard();
-  showScreen('learn');
+function openCategory(id){curCat=CATS.find(c=>c.id===id);cardIdx=0;isFlipped=false;renderCard();showScreen('learn');}
+function renderCard(){
+  const card=curCat.cards[cardIdx];
+  document.getElementById('learnCatName').textContent=curCat.icon+' '+curCat.name;
+  document.getElementById('learnCatSub').textContent=curCat.sub;
+  document.getElementById('learnCounter').textContent=`${cardIdx+1} / ${curCat.cards.length}`;
+  document.getElementById('learnProgress').innerHTML=curCat.cards.map((_,i)=>
+    `<div class="prog-dot${i<cardIdx?' done':i===cardIdx?' current':''}"></div>`).join('');
+  const badge=document.getElementById('cardTerm');
+  badge.textContent=card.term;badge.style.background=curCat.accent;
+  document.getElementById('cardHeb').textContent=card.heb;
+  const back=document.getElementById('cardBack');
+  back.style.background=curCat.bg;
+  back.innerHTML=`<div class="back-term" style="background:rgba(255,255,255,.12)">${card.term} = ${card.heb}</div><div class="back-def">${card.def}</div><div class="back-example"><div class="back-example-label">דוגמה:</div><p>${card.ex}</p></div>`;
+  document.getElementById('flipBtnColor').style.background=curCat.accent;
+  isFlipped=false;document.getElementById('flipInner').classList.remove('flipped');
+  const fc=document.getElementById('flipCard');fc.classList.remove('pop');requestAnimationFrame(()=>fc.classList.add('pop'));
 }
-
-function updateCard() {
-  const cat = CATEGORIES[currentCat];
-  const card = cat[currentCardIdx];
-  
-  document.getElementById('catName').textContent = currentCat;
-  document.getElementById('learnSubtitle').textContent = `${currentCardIdx + 1} מתוך ${cat.length}`;
-  
-  const dotsContainer = document.getElementById('progressDots');
-  dotsContainer.innerHTML = cat.map((_, i) => 
-    `<div class="prog-dot ${i < currentCardIdx ? 'done' : i === currentCardIdx ? 'current' : ''}"></div>`
-  ).join('');
-  
-  const front = document.getElementById('flipFront');
-  const back = document.getElementById('flipBack');
-  
-  front.innerHTML = `
-    <div class="term-badge" style="background:linear-gradient(45deg,#3B82F6,#1D4ED8)">${card.en}</div>
-    <div class="term-heb">${card.he}</div>
-    <div class="flip-hint">לחץ להפוך ←</div>
-  `;
-  
-  back.innerHTML = `
-    <div class="back-term">${card.en}</div>
-    <div class="back-def">${card.def}</div>
-    <div class="back-example">
-      <div class="back-example-label">דוגמה</div>
-      <p>${card.ex}</p>
-    </div>
-  `;
-  
-  document.getElementById('flipInner').classList.remove('flipped');
-  flipped = false;
+function flipCard(){isFlipped=!isFlipped;document.getElementById('flipInner').classList.toggle('flipped',isFlipped);}
+function moveCard(dir){cardIdx=(cardIdx+dir+curCat.cards.length)%curCat.cards.length;renderCard();}
+function buildQuizMenu(){
+  document.getElementById('quizMenuGrid').innerHTML=QUIZ_MENU_ORDER.map(item=>{
+    const d=QD[item.key];const n=d.qs.length;const take=Math.min(n,QPQ);
+    return `<button class="qmenu-card" onclick="startQuiz('${item.key}')" style="background:${d.bg};border:1.5px solid ${d.color}40">
+      <span class="qmenu-icon">${item.icon}</span>
+      <span class="qmenu-info"><span class="qmenu-name" style="color:${d.color}">${d.name}</span><span class="qmenu-count">${take} שאלות אקראיות מתוך ${n}</span></span>
+      <span class="qmenu-arrow" style="color:${d.color}">←</span>
+    </button>`;
+  }).join('');
 }
-
-function flipCard() {
-  flipped = !flipped;
-  document.getElementById('flipInner').classList.toggle('flipped', flipped);
+function shuffle(arr){return[...arr].sort(()=>Math.random()-.5);}
+function startQuiz(key){
+  curQuizKey=key;quizPool=shuffle(QD[key].qs).slice(0,QPQ);
+  quizIdx=0;quizScore=0;quizSelected=null;renderQuizQ();showScreen('quiz');
 }
-
-function moveCard(direction) {
-  const cat = CATEGORIES[currentCat];
-  currentCardIdx = Math.max(0, Math.min(cat.length - 1, currentCardIdx + direction));
-  updateCard();
+function restartSameTopic(){startQuiz(curQuizKey);}
+function renderQuizQ(){
+  const q=quizPool[quizIdx];
+  document.getElementById('quizProgress').textContent=`שאלה ${quizIdx+1} מתוך ${quizPool.length}`;
+  document.getElementById('quizScore').textContent=`✓ ${quizScore}`;
+  document.getElementById('quizProgressBar').innerHTML=quizPool.map((_,i)=>
+    `<div class="prog-dot${i<quizIdx?' done':i===quizIdx?' current':''}"></div>`).join('');
+  document.getElementById('quizQ').textContent=q.q;
+  document.getElementById('quizOpts').innerHTML=q.opts.map((o,i)=>
+    `<button class="quiz-opt" id="opt${i}" onclick="answerQuiz(${i})"><span class="opt-icon" id="optIcon${i}">⬜</span>${o}</button>`).join('');
+  const fb=document.getElementById('quizFeedback');fb.classList.remove('show','good','bad');quizSelected=null;
+  const qc=document.getElementById('quizQCard');qc.classList.remove('fade-in');requestAnimationFrame(()=>qc.classList.add('fade-in'));
 }
-
-// Quiz functions
-function buildQuizMenu() {
-  const grid = document.getElementById('qmenuGrid');
-  const colors = ['btn-yellow', 'btn-green', 'btn-blue', 'btn-orange', 'btn-pink', 'btn-purple'];
-  const icons = ['🎯', '👥', '🏏', '⚖️', '🎪', '⚡', '🎮', '🏆'];
-  
-  grid.innerHTML = Object.keys(QUIZ_QUESTIONS).map((cat, i) => `
-    <button class="qmenu-card ${colors[i % colors.length]}" onclick="startQuiz('${cat}')">
-      <span class="qmenu-icon">${icons[i]}</span>
-      <div class="qmenu-info">
-        <span class="qmenu-name">${cat}</span>
-        <span class="qmenu-count">${QUIZ_QUESTIONS[cat].length} שאלות</span>
-      </div>
-      <span class="qmenu-arrow">←</span>
-    </button>
-  `).join('');
-}
-
-function startQuiz(category) {
-  currentQuizCat = category;
-  currentQuizIdx = 0;
-  updateQuiz();
-  showScreen('quiz');
-}
-
-function updateQuiz() {
-  const questions = QUIZ_QUESTIONS[currentQuizCat];
-  const q = questions[currentQuizIdx];
-  
-  document.getElementById('quizTitle').textContent = currentQuizCat;
-  document.getElementById('quizSubtitle').textContent = `${currentQuizIdx + 1} מתוך ${questions.length}`;
-  document.getElementById('quizScore').textContent = `${quizScore}/${quizTotal}`;
-  
-  document.getElementById('quizArea').innerHTML = `
-    <div class="quiz-q-card">
-      <div class="quiz-q-icon">❓</div>
-      <div class="quiz-q-text">${q.q}</div>
-    </div>
-    <div class="quiz-opts">
-      ${q.opts.map((opt, i) => `
-        <button class="quiz-opt" onclick="answerQuiz(${i})">
-          <span class="opt-icon">${String.fromCharCode(65 + i)}</span>
-          <span>${opt}</span>
-        </button>
-      `).join('')}
-    </div>
-    <div class="quiz-feedback" id="feedback"></div>
-  `;
-}
-
-function answerQuiz(selectedIdx) {
-  const questions = QUIZ_QUESTIONS[currentQuizCat];
-  const q = questions[currentQuizIdx];
-  const isCorrect = selectedIdx === q.ans;
-  
-  quizTotal++;
-  if (isCorrect) quizScore++;
-  
-  const buttons = document.querySelectorAll('.quiz-opt');
-  buttons.forEach((btn, i) => {
-    if (i === q.ans) btn.classList.add('correct');
-    else if (i === selectedIdx && !isCorrect) btn.classList.add('wrong');
-    else btn.classList.add('plain');
-    btn.onclick = null;
-  });
-  
-  const feedback = document.getElementById('feedback');
-  feedback.className = `quiz-feedback show ${isCorrect ? 'good' : 'bad'}`;
-  feedback.innerHTML = `
-    <div class="fb-title">${isCorrect ? '✅ נכון!' : '❌ לא נכון'}</div>
-    <div class="fb-exp">${q.exp}</div>
-    <button class="fb-next" style="background:${isCorrect ? '#16A34A' : '#3B82F6'}" onclick="nextQuestion()">
-      ${currentQuizIdx + 1 < questions.length ? 'השאלה הבאה ←' : 'סיום החידון 🏁'}
-    </button>
-  `;
-  
-  document.getElementById('quizScore').textContent = `${quizScore}/${quizTotal}`;
-}
-
-function nextQuestion() {
-  const questions = QUIZ_QUESTIONS[currentQuizCat];
-  if (currentQuizIdx + 1 < questions.length) {
-    currentQuizIdx++;
-    updateQuiz();
-  } else {
-    showResult();
+function answerQuiz(i){
+  if(quizSelected!==null)return;quizSelected=i;
+  const q=quizPool[quizIdx];const correct=i===q.ans;if(correct)quizScore++;
+  for(let k=0;k<q.opts.length;k++){
+    const el=document.getElementById(`opt${k}`);const ic=document.getElementById(`optIcon${k}`);
+    if(k===q.ans){el.classList.add('correct');ic.textContent='✅';}
+    else if(k===i&&!correct){el.classList.add('wrong');ic.textContent='❌';}
+    else{el.classList.add('plain');ic.textContent='⬜';}
   }
+  document.getElementById('fbTitle').textContent=correct?'🎉 מצוין! נכון לגמרי!':'💡 כמעט! הנה ההסבר:';
+  document.getElementById('fbTitle').style.color=correct?'#86EFAC':'#93C5FD';
+  document.getElementById('fbExp').textContent=q.exp;
+  const btn=document.getElementById('fbNext');
+  btn.textContent=quizIdx+1<quizPool.length?'שאלה הבאה ←':'לראות תוצאות! 🏆';
+  btn.style.background=correct?'#16A34A':'#1D4ED8';
+  const fb=document.getElementById('quizFeedback');fb.classList.add('show',correct?'good':'bad');
+  document.getElementById('quizScore').textContent=`✓ ${quizScore}`;
+  setTimeout(()=>fb.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
 }
-
-function showResult() {
-  const pct = (quizScore / quizTotal) * 100;
-  const icon = pct >= 80 ? '🏆' : pct >= 60 ? '🎯' : pct >= 40 ? '💪' : '📚';
-  const title = pct >= 80 ? 'מצוין!' : pct >= 60 ? 'טוב מאוד!' : pct >= 40 ? 'לא רע!' : 'כדאי להתאמן עוד';
-  
-  document.getElementById('resultIcon').textContent = icon;
-  document.getElementById('resultTitle').textContent = title;
-  document.getElementById('resultScore').textContent = quizScore;
-  document.getElementById('resultOf').textContent = `מתוך ${quizTotal}`;
-  document.getElementById('resultBar').style.width = pct + '%';
-  
-  showScreen('result');
+function nextQuestion(){if(quizIdx+1>=quizPool.length){showResult();return;}quizIdx++;renderQuizQ();}
+function showResult(){
+  const pct=quizScore/quizPool.length;
+  document.getElementById('resultIcon').textContent=pct>=.8?'🏆':pct>=.5?'⭐':'💪';
+  document.getElementById('resultTitle').textContent=pct>=.8?'מדהים! אלוף הסופטבול!':pct>=.5?'כל הכבוד! ממשיכים להשתפר!':'נסו שוב, תצליחו!';
+  document.getElementById('resultScore').textContent=`${quizScore} / ${quizPool.length}`;
+  const bar=document.getElementById('resultBar');bar.style.width='0%';
+  bar.style.background=pct>=.8?'#22C55E':pct>=.5?'#F59E0B':'#EF4444';
+  showScreen('result');setTimeout(()=>{bar.style.width=(pct*100)+'%';},80);
 }
-
-function restartQuiz() {
-  quizScore = 0;
-  quizTotal = 0;
-  startQuiz(currentQuizCat);
+function buildField(){
+  document.getElementById('fieldDots').innerHTML=FIELD_POS.map(p=>`
+    <g onclick="selectFieldPos('${p.id}')" style="cursor:pointer">
+      <circle id="fc_${p.id}" cx="${p.cx}" cy="${p.cy}" r="14" fill="#1D4ED8" stroke="#fff" stroke-width="2" style="transition:all .2s"/>
+      <text x="${p.cx}" y="${p.cy+1}" text-anchor="middle" dominant-baseline="central" style="font-size:9px;font-weight:700;fill:#fff;font-family:'Heebo',sans-serif;pointer-events:none">${p.label}</text>
+    </g>`).join('');
 }
-
-// Situations functions
-function startSituations() {
-  sitPool = SITUATIONS.slice();
-  sitIndex = 0;
-  renderSituation();
-  showScreen('situations');
+function selectFieldPos(id){
+  if(curField){const p=document.getElementById(`fc_${curField}`);if(p){p.setAttribute('fill','#1D4ED8');p.setAttribute('r','14');}}
+  curField=id;
+  const dot=document.getElementById(`fc_${id}`);if(dot){dot.setAttribute('fill','#FCD34D');dot.setAttribute('r','17');}
+  const pos=FIELD_POS.find(p=>p.id===id);
+  document.getElementById('fieldNameBadge').textContent=pos.name;
+  document.getElementById('fieldHeb').textContent=pos.heb;
+  document.getElementById('fieldDesc').textContent=pos.desc;
+  document.getElementById('fieldInfo').classList.remove('hidden');
+  document.getElementById('fieldHint').style.display='none';
 }
-
-function renderSituation() {
-  const sit = sitPool[sitIndex];
-  document.getElementById('sitTitle').textContent = 'מצבי משחק מתקדמים';
-  document.getElementById('sitSubtitle').textContent = `מצב ${sitIndex + 1} מתוך ${sitPool.length}`;
-  
-  document.getElementById('sitArea').innerHTML = `
+function clearFieldInfo(){
+  if(curField){const p=document.getElementById(`fc_${curField}`);if(p){p.setAttribute('fill','#1D4ED8');p.setAttribute('r','14');}curField=null;}
+  document.getElementById('fieldInfo').classList.add('hidden');document.getElementById('fieldHint').style.display='block';
+}
+const SITUATIONS=[
+{
+  badge:"אינינג 3 · רץ על בסיס 1",
+  scene:"יש רץ על הבסיס הראשון. החובט מכה כדור גבוה לשדה הפנימי. יש אאוט אחד. השורטסטופ יכול לתפוס אותו בקלות.",
+  q:"מה יקרה?",
+  opts:["השופט יכריז Infield Fly — החובט אאוט אוטומטית, הרצים חופשיים","החובט חייב לרוץ לבסיס ראשון","הרץ חייב לרוץ לבסיס שני","שום דבר מיוחד — משחק רגיל"],
+  ans:0,
+  explain:"כשיש רץ על בסיסים 1 ו-2 (או 1, 2 ו-3) עם פחות מ-2 Outs, שופט יכריז Infield Fly — החובט אאוט אוטומטית, גם אם הכדור נפל! הרצים לא חייבים לרוץ.",
+  rule:"חוק: Infield Fly Rule"
+},
+{
+  badge:"אינינג 5 · בסיס מלא",
+  scene:"שחקנים על כל הבסיסים. 1 אאוט. החובט מכה כדור גבוה לשדה החיצוני. ה-Left Fielder תופס את הכדור.",
+  q:"מה יכול הרץ מבסיס שלישי לעשות?",
+  opts:["לרוץ מיד כשהכדור נפגע","לחכות עד שהכדור נתפס, לגעת בבסיס שלישי ואז לרוץ הביתה","לא לרוץ בכלל — נחשב Out","לרוץ רק אם ה-Catcher מפספס"],
+  ans:1,
+  explain:"Tag Up: אחרי שהכדור נתפס, הרץ חייב לחזור ולגעת בבסיס לפני שרץ הלאה. אם עשה זאת ומגיע ל-Home לפני הזריקה — נקודה!",
+  rule:"חוק: Tag Up / Sacrifice Fly"
+},
+{
+  badge:"אינינג 2 · רץ על בסיס 1",
+  scene:"רץ ניסה לגנוב את הבסיס השני בזמן ההגשה. ה-Catcher קלט ורצה לבסיס שני לפסול. הרץ הגיע ממש בו-זמנית עם הכדור.",
+  q:"מה מחליט השופט?",
+  opts:["תמיד Out — הכדור הגיע ראשון","תמיד Safe — הרץ הגיע ראשון","Safe! בספק, תמיד לטובת הרץ","Out! בספק, תמיד לטובת הצד המגן"],
+  ans:2,
+  explain:"בסופטבול (ובייסבול), כשקשה להחליט, ה-Tie goes to the runner: ספק הוא לטובת הרץ — Safe!",
+  rule:"עיקרון: Tie goes to the runner"
+},
+{
+  badge:"אינינג 1 · אין רצים",
+  scene:"לחובט יש 2 Strikes ו-1 Ball. ה-Pitcher מגיש, החובט מכה ומפספס — וה-Catcher מפיל את הכדור.",
+  q:"מה קורה?",
+  opts:["Out מיידי — 3 Strikes","החובט רץ לבסיס ראשון! Dropped Third Strike","Ball — מספר ה-Balls עולה ל-2","המשחק ממשיך, אין שינוי"],
+  ans:1,
+  explain:"Dropped Third Strike: אם התופס לא תפס את סטרייק 3, החובט יכול לנסות לרוץ לבסיס ראשון! הוא אאוט רק אם התופס ייגע בבסיס 1 לפניו.",
+  rule:"חוק: Dropped Third Strike"
+},
+{
+  badge:"אינינג 4 · שתי קבוצות שוות",
+  scene:"קצה האינינג ה-7, תיקו 3-3. מתחילים Tiebreaker.",
+  q:"באיזה מצב מתחילה כל קבוצה את האינינג ה-8?",
+  opts:["ללא רצים — משחק רגיל","עם רץ על בסיס 1","עם רץ על בסיס 2","עם רץ על בסיס 3"],
+  ans:2,
+  explain:"Tiebreaker מהאינינג ה-8: כל קבוצה מתחילה עם רץ על הבסיס השני! זה מגביר את המתח ומגדיל את סיכוי הניקוד.",
+  rule:"חוק: Tiebreaker Inning"
+},
+{
+  badge:"אינינג 6 · רץ על בסיס 2",
+  scene:"רץ על בסיס 2. המגיש עם כדור בידיו עומד בתוך ה-Pitcher's Circle. הרץ עומד בין הבסיסים ולא מחליט.",
+  q:"מה יקרה?",
+  opts:["הרץ יכול לעמוד שם כמה שרוצה","הרץ חייב להחליט — לרוץ קדימה או לחזור אחורה. אם לא יחליט, Out!","ה-Pitcher חייב להגיש","אין חוק לגבי זה"],
+  ans:1,
+  explain:"כאשר המגיש נמצא בתוך עיגול המגיש עם הכדור, הרץ חייב להחליט — לחזור לבסיס שלו או לרוץ לבסיס הבא. השהייה = Out!",
+  rule:"חוק: Pitcher's Circle Rule"
+},
+{
+  badge:"אינינג 3 · בסיס 1 ו-2",
+  scene:"רצים על בסיסים 1 ו-2. החובט מכה כדור תקין לשדה הפנימי. ה-Shortstop תופס את הכדור.",
+  q:"האם הרץ מבסיס 1 חייב לרוץ לבסיס 2?",
+  opts:["כן — Force Out, חייב לרוץ","לא — יכול להישאר","רק אם יש 2 Outs","רק אם הכדור היה Fly Ball"],
+  ans:0,
+  explain:"Force Out: כשחובט הכה כדור תקין, כל הרצים שיש רץ מאחוריהם חייבים לרוץ קדימה. הרץ מבסיס 1 חייב לפנות מקום לחובט!",
+  rule:"חוק: Force Out"
+},
+{
+  badge:"אינינג 5 · אין רצים",
+  scene:"החובט עומד מחוץ ל-Batter's Box בזמן שה-Pitcher זורק. הכדור עובר בתוך ה-Strike Zone.",
+  q:"מה קורה?",
+  opts:["Ball — החובט לא היה בתוך הקווים","Strike — הכדור עבר בזון","Out מיידי","המשחק עוצר"],
+  ans:1,
+  explain:"גם אם החובט עמד מחוץ ל-Batter's Box, אם הכדור עבר ב-Strike Zone — Strike! ואם החובט ניסה להכות ויצא מהקווים — גם Strike.",
+  rule:"חוק: Batter's Box"
+},
+{
+  badge:"אינינג 2 · רץ על בסיס 3",
+  scene:"רץ על בסיס 3. 2 Outs. החובט מכה כדור שמגן הבסיס הראשון עוצר, אבל זורק לבסיס 1 ומחטיא. הכדור יוצא מהמגרש.",
+  q:"לאן מגיע הרץ מבסיס 3?",
+  opts:["עובר ל-Home Plate ומקבל נקודה","נשאר על בסיס 3","מקבל בסיס אחד — מגיע ל-Home","מחכה ל-Dead Ball ולא מתקדם"],
+  ans:0,
+  explain:"כדור שיצא מהמגרש (Overthrow) = Dead Ball. הרצים מקבלים 2 בסיסים מהמיקום שהיו בו כשהכדור שוחרר. הרץ מבסיס 3 יגיע ל-Home!",
+  rule:"חוק: Overthrow — 2 Bases"
+},
+{
+  badge:"אינינג 4 · אין רצים · 1 Strike",
+  scene:"חובט מקבל Foul Ball שנתפס ישירות ביד ה-Catcher — הכדור נגע בקצה המחבט.",
+  q:"מה זה נחשב?",
+  opts:["Foul Ball רגיל — Strike בלבד, הכדור מת","Foul Tip — Strike, הכדור חי!","Out — התופס תפס!","Ball"],
+  ans:1,
+  explain:"Foul Tip: כדור שנגע בקצה המחבט ועף ישירות לידי התופס. זה Strike והכדור חי — הרצים יכולים לרוץ! שונה מ-Foul Ball רגיל!",
+  rule:"חוק: Foul Tip vs Foul Ball"
+},
+{
+  badge:"אינינג 6 · רץ על בסיס 1",
+  scene:"מגן הבסיס השני עומד בדרך של הרץ כדי לתפוס כדור — אבל הכדור עדיין בדרכו ולא בידיו.",
+  q:"מה קורה?",
+  opts:["הרץ אאוט — חייב להתחמק ממגן","Obstruction! הרץ מקבל בסיס נוסף","הרץ חייב לעצור","אין עבירה — מגן רשאי לעמוד בכל מקום"],
+  ans:1,
+  explain:"Obstruction: מגן שמפריע לרץ כשאין לו את הכדור. עבירה! הרץ מקבל לפחות בסיס אחד נוסף מעבר למה שהיה בו.",
+  rule:"חוק: Obstruction"
+},
+{
+  badge:"אינינג 1 · בסיס מלא",
+  scene:"בסיס מלא! החובט עצמו מפריע ל-Catcher שמנסה לתפוס כדור שנשמט ולזרוק לבסיס.",
+  q:"מה יקרה?",
+  opts:["אין עבירה — החובט תמיד מוגן ב-Home","Interference! החובט אאוט","Ball לחובט","הרץ מבסיס 3 אאוט"],
+  ans:1,
+  explain:"Interference: חובט שמפריע ל-Catcher = Out מיידי! ואם הרץ מבסיס 3 כבר התחיל לרוץ — גם הוא חוזר לבסיס שלו.",
+  rule:"חוק: Batter Interference"
+},
+{
+  badge:"אינינג 3 · אין רצים",
+  scene:"החובט מכה כדור שנוגע בקו הפסול (Foul Line) ממש — לא מחוצה לו ולא פנימה ממנו.",
+  q:"Fair Ball או Foul Ball?",
+  opts:["Foul Ball — הקו הוא גבול","Fair Ball — הקו הוא חלק מהשטח התקין","תלוי בשופט","Dead Ball"],
+  ans:1,
+  explain:"הקו עצמו הוא Fair! כדור שנוגע ב-Foul Line = Fair Ball. גם העמוד הפסול (Foul Pole) הוא Fair — כדור שפוגע בו = Home Run!",
+  rule:"חוק: Fair/Foul Ball"
+},
+{
+  badge:"אינינג 7 · 2 Outs",
+  scene:"החובט הוכרז כ-Out השלישי בבסיס הראשון, אך לפני שהוכרז Out — הרץ מבסיס 3 כבר עבר ב-Home Plate.",
+  q:"האם הנקודה נספרת?",
+  opts:["כן — הרץ הגיע ל-Home לפני ה-Out","לא — Out השלישי מבטל נקודות שנצברו אחריו","כן — רק אם זה לא Force Out","תלוי בשופט"],
+  ans:1,
+  explain:"Out השלישי מבטל נקודות שנצברו במהלך אותה פעולה. אם ה-Out השלישי קרה לפני הגעת הרץ ל-Home — אין נקודה.",
+  rule:"חוק: Timing of the Third Out"
+},
+{
+  badge:"אינינג 5 · רץ על בסיס 2",
+  scene:"הרץ מבסיס 2 רץ לבסיס 3. מגן בסיס 3 תופס את הכדור ונוגע ברץ. הרץ נוגע בבסיס ובמגן בו-זמנית.",
+  q:"Safe או Out?",
+  opts:["Out — המגן נגע בו","Safe — נגיעה בבסיס מגינה על הרץ","תלוי מי הגיע ראשון","Out — ה-Tie הוא לטובת המגן"],
+  ans:1,
+  explain:"כל עוד הרץ נוגע בבסיס — הוא מוגן! המגן יכול לנגוע ברץ כמה שרוצה, אם הרץ על הבסיס הוא Safe!",
+  rule:"חוק: Runner on Base is Safe"
+},
+{
+  badge:"אינינג 2 · 0 Outs",
+  scene:"קבוצה מובילה בהפרש של 16 ריצות אחרי שמחצית האינינג ה-3 הסתיימה (Bottom of 3rd).",
+  q:"מה קורה?",
+  opts:["ממשיכים עד 7 אינינגים","המשחק נגמר — Run Ahead Rule","מוסיפים עוד 2 אינינגים","שאלה לשופט"],
+  ans:1,
+  explain:"Run Ahead Rule (Mercy Rule): 15+ ריצות הפרש אחרי 3 אינינגים שלמים = המשחק נגמר! גם 10 ריצות אחרי 4 ו-7 ריצות אחרי 5.",
+  rule:"חוק: Run Ahead (Mercy) Rule"
+},
+{
+  badge:"אינינג 4 · רץ על בסיס 1",
+  scene:"שחקן חלופי נכנס לשחק בשדה — אבל המאמן שכח להודיע לשופט.",
+  q:"מה קורה כשהיריב שם לב?",
+  opts:["אין עונש — שוכחים","Unreported Substitution: השחקן מגורש","Out לקבוצה","הצד היריב מקבל Walk"],
+  ans:1,
+  explain:"Unreported Substitution = עבירה! השחקן שנכנס ללא דיווח יכול להיות מגורש. חייבים להודיע לשופט על כל החלפת שחקן!",
+  rule:"חוק: Unreported Substitution"
+},
+{
+  badge:"אינינג 6 · 2 Outs · בסיס 1",
+  scene:"החובט ריץ למחבט ומכה כדור. הכדור נוגע בו שוב כשהוא עדיין ב-Batter's Box (פגע בידו).",
+  q:"מה קורה?",
+  opts:["Foul Ball — ממשיכים","Out — הכאה כפולה אסורה","Ball","Fair Ball — ממשיכים"],
+  ans:1,
+  explain:"הכאה כפולה (Double Hit) = Out! אסור לפגוע בכדור פעמיים באותה הכאה, אלא אם הכדור מונח על המחבט שבידיו.",
+  rule:"חוק: Double Hit"
+},
+{
+  badge:"אינינג 1 · אין רצים",
+  scene:"החובט מכה כדור שיוצא מעל גדר הימנית. הכדור פוגע בעמוד הפסול הימני (Foul Pole) ועובר מחוצה לו.",
+  q:"מה זה?",
+  opts:["Foul Ball — יצא מחוץ לגבול","Home Run! הכדור פגע ב-Foul Pole שהוא Fair","Single — כי הכדור נגע בעמוד","Dead Ball"],
+  ans:1,
+  explain:"ה-Foul Pole הוא Fair! כל כדור שפוגע בו הוא Home Run, גם אם העמוד נמצא בדיוק על הגבול.",
+  rule:"חוק: Foul Pole = Home Run"
+},
+{
+  badge:"אינינג 5 · Tiebreaker",
+  scene:"מאמן הצוות המגן רוצה לעצור את המשחק ולדבר עם המגיש — זו הפעם הרביעית שהוא עושה זאת באינינג זה.",
+  q:"מה קורה?",
+  opts:["מותר — אין הגבלה על ביקורים","המגיש חייב לצאת! חרגו ממכסת הוועידות","Ball לחובט","Out לקבוצה"],
+  ans:1,
+  explain:"מותר רק 3 ועידות הגנה ב-7 אינינגים. חריגה = המגיש חייב לצאת מהמגרש! גם אם המאמן לא רצה להחליף אותו.",
+  rule:"חוק: Defensive Conference Limit"
+},
+];
+let sitPool=[], sitIdx=0, sitAnswered=[];
+function startSituations(){
+  sitPool=SITUATIONS.map((s,i)=>({...s,_i:i})).sort(()=>Math.random()-.5);
+  sitIdx=0; sitAnswered=new Array(sitPool.length).fill(null);
+  renderSituation(); showScreen('situations');
+}
+function renderSituation(){
+  const total=sitPool.length;
+  const answered=sitAnswered.filter(x=>x!==null).length;
+  document.getElementById('sitCounter').textContent=`${sitIdx+1} / ${total}`;
+  document.getElementById('sitSubtitle').textContent=`${answered} ענינו מתוך ${total}`;
+  document.getElementById('sitProgressFill').style.width=`${(answered/total)*100}%`;
+  const sit=sitPool[sitIdx];
+  const alreadyAns=sitAnswered[sitIdx];
+  document.getElementById('sitArea').innerHTML=`
     <div class="sit-card fade-in">
-      <div class="sit-badge" style="background:rgba(59,130,246,.15);border:1.5px solid rgba(59,130,246,.4);color:#3B82F6">🎮 מצב מתקדם</div>
-      <div class="sit-title">${sit.title}</div>
-      <div class="sit-desc">${sit.desc}</div>
-      <div class="sit-scene">
-        <div class="sit-scene-label">הפתרון:</div>
-        <div class="sit-scene-text">${sit.solution}</div>
+      <div class="sit-badge">🎮 ${sit.badge}</div>
+      <div class="sit-scene"><div class="sit-scene-label">המצב בשדה</div><div class="sit-scene-text">${sit.scene}</div></div>
+      <div class="sit-question">${sit.q}</div>
+      <div class="sit-opts" id="sitOpts">
+        ${sit.opts.map((o,i)=>`<button class="sit-opt${alreadyAns!==null?(i===sit.ans?' correct':i===alreadyAns&&i!==sit.ans?' wrong':' plain'):(alreadyAns===null?'':'')}" id="sopt${i}" onclick="answerSit(${i})">${o}</button>`).join('')}
       </div>
-      <div style="display:flex;gap:10px;margin-top:16px">
-        <button class="nav-btn nav-prev" onclick="moveSit(-1)" ${sitIndex === 0 ? 'disabled style="opacity:.4"' : ''}>→ הקודם</button>
-        <button class="nav-btn nav-next" onclick="moveSit(1)" style="background:#FB923C">${sitIndex + 1 < sitPool.length ? 'הבא ←' : 'סיום 🌟'}</button>
+      <div class="sit-explain${alreadyAns!==null?' show':''}" id="sitExplain">
+        <div class="sit-explain-title">${alreadyAns!==null?(alreadyAns===sit.ans?'🎉 נכון!':'💡 ההסבר הנכון:'):''}</div>
+        <div class="sit-explain-text">${sit.explain}</div>
+        <div class="sit-rule">📋 ${sit.rule}</div>
+      </div>
+      <div id="sitNavRow" style="display:${alreadyAns!==null?'flex':'none'};gap:10px;margin-top:14px">
+        <button class="nav-btn nav-prev" style="flex:1;padding:14px" onclick="moveSit(-1)" ${sitIdx===0?'disabled style="opacity:.4"':''}>→ הקודם</button>
+        <button class="nav-btn nav-next" style="flex:1;padding:14px;background:${alreadyAns===sit.ans?'#16A34A':'#1D4ED8'}" onclick="moveSit(1)">${sitIdx+1<total?'הבא ←':'סיום 🏆'}</button>
       </div>
     </div>
+    ${sitAnswered.filter(x=>x!==null).length===total?renderSitDone():''}
   `;
 }
-
-function moveSit(direction) {
-  sitIndex = Math.max(0, Math.min(sitPool.length - 1, sitIndex + direction));
+function answerSit(i){
+  if(sitAnswered[sitIdx]!==null)return;
+  sitAnswered[sitIdx]=i;
   renderSituation();
+  setTimeout(()=>{
+    const exp=document.getElementById('sitExplain');
+    if(exp) exp.scrollIntoView({behavior:'smooth',block:'nearest'});
+  },100);
 }
-
-// Easy situations
-function startSituationsEasy() {
-  sitEasyPool = SITUATIONS_EASY.map((s, i) => ({...s, _i: i})).sort(() => Math.random() - 0.5);
-  sitEasyIdx = 0;
-  sitEasyAnswered = new Array(sitEasyPool.length).fill(null);
-  renderSituationEasy();
-  showScreen('situations-easy');
+function moveSit(dir){
+  const total=sitPool.length;
+  sitIdx=Math.max(0,Math.min(total-1,sitIdx+dir));
+  renderSituation();
+  document.getElementById('sitArea').scrollTop=0;
 }
+function renderSitDone(){
+  const correct=sitAnswered.filter((a,i)=>a===sitPool[i].ans).length;
+  const total=sitPool.length;
+  const pct=correct/total;
+  const icon=pct>=.8?'🏆':pct>=.5?'⭐':'💪';
+  const title=pct>=.8?'מנהל מגרש מעולה!':pct>=.5?'ממשיכים להתאמן!':'כדאי לחזור על החוקים!';
+  return `<div class="sit-done-box fade-in">
+    <div class="sit-done-icon">${icon}</div>
+    <div class="sit-done-title">${title}</div>
+    <div class="sit-done-score">${correct} / ${total}</div>
+    <div class="sit-done-of">תשובות נכונות</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button class="home-btn btn-orange" onclick="startSituations()"><span class="btn-icon">🔄</span><span>שחקו שוב!</span></button>
+      <button class="home-btn btn-blue" onclick="showScreen('home')"><span class="btn-icon">🏠</span><span>חזרה לתפריט</span></button>
+    </div>
+  </div>`;
+}
+const SITUATIONS_EASY=[
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"דנה עומדת ליד הבית ומחכה לכדור. ה-Pitcher זורק את הכדור. דנה לא מנסה להכות — הכדור עובר ישר מעל הצלחת, בגובה הנכון.",
+  q:"מה יקרא השופט?",
+  opts:["Strike! 🎯","Ball!","Home Run!","Out!"],
+  ans:0,
+  explain:"כשהכדור עובר מעל הצלחת בגובה הנכון ולא מכים — זה Strike! צריך 3 Strikes כדי להיות Out.",
+  rule:"Strike = כדור שעבר בגובה הנכון ולא הוכה"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"יוסי עומד ליד הבית. ה-Pitcher זורק, אבל הכדור עף גבוה מאוד — הרבה מעל הראש. יוסי לא מכה.",
+  q:"מה יקרא השופט?",
+  opts:["Strike!","Ball! 🎈","Out!","Walk!"],
+  ans:1,
+  explain:"כשהכדור עף גבוה מדי (או נמוך מדי, או הצדה) ולא מכים — זה Ball! אחרי 4 Balls יוסי מקבל ללכת לבסיס הראשון בחינם.",
+  rule:"Ball = כדור שלא עבר בגובה הנכון"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"מיכל הכתה את הכדור חזק! הכדור עף ועף ועף... ועבר מעל הגדר!",
+  q:"מה זה נקרא?",
+  opts:["Foul Ball","Strike","Home Run! 🏠💨","Out"],
+  ans:2,
+  explain:"Home Run! כשהכדור עובר מעל הגדר בשטח התקין — מיכל רצה דרך כל הבסיסים ומקבלת נקודה! כל הרצים שהיו על הבסיסים גם מקבלים נקודה.",
+  rule:"Home Run = כדור מעל הגדר = נקודה!"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"רון הכה את הכדור לצד שמאל — הכדור נפל מחוץ לקווים הלבנים של המגרש.",
+  q:"מה זה נקרא?",
+  opts:["Fair Ball","Foul Ball 🚫","Home Run","Strike"],
+  ans:1,
+  explain:"Foul Ball! כשהכדור נוחת מחוץ לקווים הלבנים — זה כדור פסול. רון צריך להכות שוב. זה גם נחשב Strike, אבל לא אפשר להיות Out רק מ-Foul Ball.",
+  rule:"Foul Ball = כדור שנפל מחוץ לקווים"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"נועה קיבלה כבר 2 Strike ו-3 Ball. ה-Pitcher מגיש שוב — הפעם הכדור עף הרחק מהצלחת.",
+  q:"מה קורה עכשיו?",
+  opts:["Out! 3 Strikes","Strike שלישי","Walk! נועה הולכת לבסיס 1 🚶‍♀️","ממשיכים"],
+  ans:2,
+  explain:"4 Balls = Walk! נועה הולכת לבסיס הראשון בחינם, בלי להכות! זה כמו מתנה מה-Pitcher 😄",
+  rule:"4 Balls = Walk = בסיס ראשון בחינם!"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"לקבוצה של טל כבר יש 2 Out. השחקנית הבאה מכה, ה-Shortstop תופסת את הכדור באוויר ומוסרת לבסיס הראשון.",
+  q:"כמה Out יש עכשיו?",
+  opts:["2 Out","3 Out — הצד מחליף! 🔄","1 Out","4 Out"],
+  ans:1,
+  explain:"3 Out = הצד מחליף! עכשיו הקבוצה שהגנה עוברת לתקוף, וקבוצת טל עוברת להגן. כל אינינג מתחלק לשני תורות.",
+  rule:"3 Outs = הצד מחליף"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"אורי רץ לבסיס הראשון. המגן בבסיס הראשון תפס את הכדור וגעל בבסיס לפני שאורי הגיע.",
+  q:"מה קורה לאורי?",
+  opts:["Safe! אורי על הבסיס","Out! ❌ אורי חוזר להמתין לתורו","Walk","הוא מקבל עוד תור"],
+  ans:1,
+  explain:"Out! הכדור הגיע לבסיס לפני אורי — הוא נפסל. אורי יצטרך לחכות לתורו הבא.",
+  rule:"Force Out = כדור לבסיס לפני הרץ = Out"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"שירה עומדת על הבסיס הראשון. החובטת הכתה כדור לשדה. שירה רצה לבסיס השני, אבל המגן קיבל את הכדור ונגע בה בגופה לפני שהגיעה.",
+  q:"מה קורה לשירה?",
+  opts:["Safe! היא על הבסיס השני","Out! ❌ נגעו בה עם הכדור","היא מקבלת בסיס נוסף","ממשיכים"],
+  ans:1,
+  explain:"Tag Out! כשמגן נוגע ברץ עם הכדור בזמן שהרץ לא על בסיס — הרץ נפסל. חשוב להגיע לבסיס ולהישאר עליו!",
+  rule:"Tag Out = מגן נגע ברץ עם כדור = Out"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"עידו עומד על הבסיס השני. המגישה מחזיקה את הכדור ועומדת בתוך העיגול שלה. עידו עומד בדיוק באמצע — לא חוזר לבסיס ולא רץ קדימה.",
+  q:"מה עידו חייב לעשות?",
+  opts:["לעמוד שם עד שהמגישה תגיש","לחזור לבסיס שלו או לרוץ קדימה — חייב להחליט! 🏃","לצעוק על המגישה","לחכות לשופט"],
+  ans:1,
+  explain:"כשהמגישה בתוך העיגול שלה עם כדור — הרץ חייב להחליט: חוזר לבסיס שלו או רץ לבסיס הבא. אם לא מחליט — Out!",
+  rule:"Pitcher's Circle = חייב להחליט!"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"לליא הכתה כדור גבוה לאוויר. ה-Left Fielder רץ, רץ, ותפסה את הכדור לפני שנפל לאדמה!",
+  q:"מה קורה ללליא?",
+  opts:["לליא על הבסיס הראשון","Out! ❌ תפסו את הכדור באוויר","נקודה ללליא","Walk"],
+  ans:1,
+  explain:"כשמגן תופס את הכדור לפני שהוא נוגע בקרקע — החובט נפסל! זה נקרא Fly Out. לא משנה כמה גבוה היה הכדור.",
+  rule:"כדור שנתפס באוויר = Out!"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"ליאור רץ לבסיס השלישי. מגן בסיס שלישי עומד בדרך שלו וחוסם אותו — אבל הכדור עדיין בדרכו ולא אצל המגן.",
+  q:"מה יחליט השופט?",
+  opts:["ליאור Out — צריך לעצור","ליאור מקבל בסיס נוסף! ⚠️ המגן לא יכול לחסום","ממשיכים","ליאור חוזר לבסיס השני"],
+  ans:1,
+  explain:"Obstruction! מגן לא יכול לחסום רץ כשאין לו את הכדור. זה לא הוגן! ליאור מקבל בסיס נוסף כעונש.",
+  rule:"חסימה ללא כדור = עבירה! הרץ מקבל בסיס נוסף"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"המשחק שווה! אינינג 7 נגמר ב-4-4. מתחיל אינינג 8.",
+  q:"מה מיוחד באינינג 8?",
+  opts:["משחק רגיל לגמרי","כל קבוצה מתחילה עם רץ על הבסיס השני! 🏃","יש 4 Outs","המגיש מוחלף"],
+  ans:1,
+  explain:"כשמשחק שווה אחרי 7 אינינגים, מוסיפים אינינגים מיוחדים: כל קבוצה מתחילה עם רץ על הבסיס השני! זה מגביר את המתח ומגדיל את הסיכוי לנקד.",
+  rule:"Tiebreaker = רץ על בסיס 2 מהתחלה"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"ליהי רצה מבסיס אחד לשני. המגן תפס את הכדור ונגע בה, אבל ליהי כבר הייתה על הבסיס השני.",
+  q:"מה קורה לליהי?",
+  opts:["Out — נגעו בה","Safe! ✅ היא על הבסיס — מוגנת!","חוזרת לבסיס אחד","Walk"],
+  ans:1,
+  explain:"כשרץ נמצא על הבסיס — הוא מוגן לחלוטין! המגן יכול לנגוע בו כמה שרוצה, כל עוד הרץ על הבסיס הוא Safe.",
+  rule:"על בסיס = מוגן = Safe!"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"תמר עומדת ליד הבית. ה-Pitcher מגיש, תמר מנסה להכות אבל מחטיאה לגמרי.",
+  q:"מה זה נחשב?",
+  opts:["Ball","Strike 🎯","Home Run","Out"],
+  ans:1,
+  explain:"תמר ניסתה להכות ולא פגעה — זה Strike! Strike קורה גם כשלא מנסים להכות וכדור עובר בגובה הנכון, וגם כשמנסים ומחטיאים.",
+  rule:"הכאה שהחטיאה = Strike"
+},
+{
+  badge:"⭐ שאלה בסיסית",
+  scene:"כרמל הכתה כדור חזק! הכדור נחת בין מגן שמאל למגן מרכז. כרמל רצה מהר לבסיס 1, ומשם לבסיס 2. הכדור הגיע לבסיס 2 רק אחריה.",
+  q:"מה קורה לכרמל?",
+  opts:["Out — הכדור הגיע","Safe! ✅ כרמל על הבסיס השני — זה נקרא Double!","Walk","היא חייבת לרוץ לבסיס 3"],
+  ans:1,
+  explain:"Double! כרמל הכתה כדור תקין והגיעה לבסיס השני. זה הצלחה גדולה! אם הייתה מגיעה לבסיס 3 — זה Triple. אם מעל הגדר — Home Run!",
+  rule:"הגעה לבסיס 2 מהכאה = Double!"
+},
+];
 
-function renderSituationEasy() {
-  const total = sitEasyPool.length;
-  const answered = sitEasyAnswered.filter(x => x !== null).length;
-  
-  document.getElementById('sitEasyCounter').textContent = `${sitEasyIdx + 1} / ${total}`;
-  document.getElementById('sitEasySubtitle').textContent = `${answered} ענינו מתוך ${total}`;
-  document.getElementById('sitEasyProgressFill').style.width = `${(answered / total) * 100}%`;
-  
-  const sit = sitEasyPool[sitEasyIdx];
-  const alreadyAns = sitEasyAnswered[sitEasyIdx];
-  
-  document.getElementById('sitEasyArea').innerHTML = `
+let sitEasyPool=[], sitEasyIdx=0, sitEasyAnswered=[];
+function startSituationsEasy(){
+  sitEasyPool=SITUATIONS_EASY.map((s,i)=>({...s,_i:i})).sort(()=>Math.random()-.5);
+  sitEasyIdx=0; sitEasyAnswered=new Array(sitEasyPool.length).fill(null);
+  renderSituationEasy(); showScreen('situations-easy');
+}
+function renderSituationEasy(){
+  const total=sitEasyPool.length;
+  const answered=sitEasyAnswered.filter(x=>x!==null).length;
+  document.getElementById('sitEasyCounter').textContent=`${sitEasyIdx+1} / ${total}`;
+  document.getElementById('sitEasySubtitle').textContent=`${answered} ענינו מתוך ${total}`;
+  document.getElementById('sitEasyProgressFill').style.width=`${(answered/total)*100}%`;
+  const sit=sitEasyPool[sitEasyIdx];
+  const alreadyAns=sitEasyAnswered[sitEasyIdx];
+  document.getElementById('sitEasyArea').innerHTML=`
     <div class="sit-card fade-in" style="border-color:rgba(244,114,182,.3)">
       <div class="sit-badge" style="background:rgba(244,114,182,.15);border-color:rgba(244,114,182,.4);color:#F472B6">${sit.badge}</div>
       <div class="sit-scene"><div class="sit-scene-label">מה קורה?</div><div class="sit-scene-text" style="font-size:17px;line-height:1.85">${sit.scene}</div></div>
       <div class="sit-question">${sit.q}</div>
       <div class="sit-opts" id="sitEasyOpts">
-        ${sit.opts.map((o, i) => 
-          `<button class="sit-opt${alreadyAns !== null ? (i === sit.ans ? ' correct' : i === alreadyAns && i !== sit.ans ? ' wrong' : ' plain') : ''}" onclick="answerSitEasy(${i})" style="font-size:16px;padding:16px 18px">${o}</button>`
-        ).join('')}
+        ${sit.opts.map((o,i)=>`<button class="sit-opt${alreadyAns!==null?(i===sit.ans?' correct':i===alreadyAns&&i!==sit.ans?' wrong':' plain'):''}" id="seopt${i}" onclick="answerSitEasy(${i})" style="font-size:16px;padding:16px 18px">${o}</button>`).join('')}
       </div>
-      <div class="sit-explain${alreadyAns !== null ? ' show' : ''}" id="sitEasyExplain">
-        <div class="sit-explain-title">${alreadyAns !== null ? (alreadyAns === sit.ans ? '🎉 כל הכבוד! נכון!' : '💡 לא נורא! הנה ההסבר:') : ''}</div>
+      <div class="sit-explain${alreadyAns!==null?' show':''}" id="sitEasyExplain">
+        <div class="sit-explain-title">${alreadyAns!==null?(alreadyAns===sit.ans?'🎉 כל הכבוד! נכון!':'💡 לא נורא! הנה ההסבר:'):''}</div>
         <div class="sit-explain-text" style="font-size:15px">${sit.explain}</div>
         <div class="sit-rule">📋 ${sit.rule}</div>
       </div>
-      <div style="display:${alreadyAns !== null ? 'flex' : 'none'};gap:10px;margin-top:14px">
-        <button class="nav-btn nav-prev" style="flex:1;padding:14px" onclick="moveSitEasy(-1)" ${sitEasyIdx === 0 ? 'disabled style="opacity:.4"' : ''}>→ הקודם</button>
-        <button class="nav-btn nav-next" style="flex:1;padding:14px;background:${alreadyAns === sit.ans ? '#16A34A' : '#DB2777'}" onclick="moveSitEasy(1)">${sitEasyIdx + 1 < total ? 'הבא ←' : 'סיום 🌟'}</button>
+      <div id="sitEasyNavRow" style="display:${alreadyAns!==null?'flex':'none'};gap:10px;margin-top:14px">
+        <button class="nav-btn nav-prev" style="flex:1;padding:14px" onclick="moveSitEasy(-1)" ${sitEasyIdx===0?'disabled style="opacity:.4"':''}>→ הקודם</button>
+        <button class="nav-btn nav-next" style="flex:1;padding:14px;background:${alreadyAns===sit.ans?'#16A34A':'#DB2777'}" onclick="moveSitEasy(1)">${sitEasyIdx+1<total?'הבא ←':'סיום 🌟'}</button>
       </div>
     </div>
-    ${sitEasyAnswered.filter(x => x !== null).length === total ? renderSitEasyDone() : ''}
+    ${sitEasyAnswered.filter(x=>x!==null).length===total?renderSitEasyDone():''}
   `;
 }
-
-function answerSitEasy(i) {
-  if (sitEasyAnswered[sitEasyIdx] !== null) return;
-  sitEasyAnswered[sitEasyIdx] = i;
+function answerSitEasy(i){
+  if(sitEasyAnswered[sitEasyIdx]!==null)return;
+  sitEasyAnswered[sitEasyIdx]=i;
   renderSituationEasy();
-  setTimeout(() => {
-    const exp = document.getElementById('sitEasyExplain');
-    if (exp) exp.scrollIntoView({behavior: 'smooth', block: 'nearest'});
-  }, 100);
+  setTimeout(()=>{
+    const exp=document.getElementById('sitEasyExplain');
+    if(exp)exp.scrollIntoView({behavior:'smooth',block:'nearest'});
+  },100);
 }
-
-function moveSitEasy(direction) {
-  const total = sitEasyPool.length;
-  sitEasyIdx = Math.max(0, Math.min(total - 1, sitEasyIdx + direction));
+function moveSitEasy(dir){
+  const total=sitEasyPool.length;
+  sitEasyIdx=Math.max(0,Math.min(total-1,sitEasyIdx+dir));
   renderSituationEasy();
-  document.getElementById('sitEasyArea').scrollTop = 0;
+  document.getElementById('sitEasyArea').scrollTop=0;
 }
-
-function renderSitEasyDone() {
-  const correct = sitEasyAnswered.filter((a, i) => a === sitEasyPool[i].ans).length;
-  const total = sitEasyPool.length;
-  const pct = correct / total;
-  const icon = pct >= 0.8 ? '🌟' : pct >= 0.5 ? '⭐' : '💪';
-  const title = pct >= 0.8 ? 'מצוין! אתם כבר לא מתחילים!' : pct >= 0.5 ? 'טוב מאוד! ממשיכים להתאמן!' : 'לא נורא — תנסו שוב!';
-  
+function renderSitEasyDone(){
+  const correct=sitEasyAnswered.filter((a,i)=>a===sitEasyPool[i].ans).length;
+  const total=sitEasyPool.length;
+  const pct=correct/total;
+  const icon=pct>=.8?'🌟':pct>=.5?'⭐':'💪';
+  const title=pct>=.8?'מצוין! אתם כבר לא מתחילים!':pct>=.5?'טוב מאוד! ממשיכים להתאמן!':'לא נורא — תנסו שוב!';
   return `<div class="sit-done-box fade-in">
     <div class="sit-done-icon">${icon}</div>
     <div class="sit-done-title">${title}</div>
@@ -806,29 +1129,5 @@ function renderSitEasyDone() {
     </div>
   </div>`;
 }
-
-// Field positions
-function showPos(pos) {
-  document.querySelectorAll('.pos').forEach(p => p.classList.remove('active'));
-  document.querySelector(`.pos${pos}`).classList.add('active');
-  
-  const position = FIELD_POSITIONS[pos];
-  const info = document.getElementById('fieldInfo');
-  info.classList.remove('empty');
-  info.innerHTML = `
-    <h3>${position.name}</h3>
-    <p>${position.desc}</p>
-  `;
-}
-
-function buildField() {
-  // Field is already built in HTML
-}
-
-// Initialize app
-buildCategories();
-buildQuizMenu();
-buildField();
-</script>
-</body>
-</html>
+buildCategories();buildQuizMenu();buildField();
+</script></body></html>
