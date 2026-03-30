@@ -150,6 +150,31 @@ html,body{height:100%;overflow:hidden;background:var(--bg);font-family:var(--fon
 .fade-in{animation:fadeUp .25s ease both}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.05)}100%{transform:scale(1)}}
 .pop{animation:pop .22s ease}
+
+/* ===== פינת המאמן ===== */
+#coaches-corner{background:var(--bg)}
+.cc-tabs{display:flex;flex-direction:column;gap:10px;padding:4px 0}
+.cc-tab-btn{border:none;border-radius:16px;padding:16px 18px;cursor:pointer;font-family:var(--font);display:flex;align-items:center;gap:14px;transition:transform .12s,opacity .12s;width:100%;text-align:right}
+.cc-tab-btn:active{transform:scale(.97);opacity:.9}
+.cc-tab-icon{font-size:26px;flex-shrink:0}
+.cc-tab-info{flex:1;text-align:right}
+.cc-tab-name{font-size:15px;font-weight:800;display:block}
+.cc-tab-desc{font-size:11px;opacity:.7;margin-top:2px;display:block}
+.cc-tab-arrow{font-size:18px;opacity:.6}
+#cc-rules,#cc-lifelessons,#cc-symbols,#cc-sayings,#cc-unwritten{background:var(--bg)}
+.cc-article{background:var(--card);border-radius:20px;padding:20px;margin-bottom:14px;border:1.5px solid rgba(255,255,255,.07)}
+.cc-article h3{font-size:16px;font-weight:800;color:var(--gold);margin-bottom:8px;line-height:1.4}
+.cc-article p{font-size:14px;color:#CBD5E1;line-height:1.85;margin-bottom:6px}
+.cc-article ul{font-size:14px;color:#CBD5E1;line-height:1.85;padding-right:18px;margin-top:6px;list-style:disc}
+.cc-article ul li{margin-bottom:6px}
+.cc-intro{font-size:13px;color:var(--muted);line-height:1.8;background:rgba(255,255,255,.04);border-radius:14px;padding:14px 16px;margin-bottom:14px;border:1px solid rgba(255,255,255,.06)}
+.sym-table{width:100%;border-collapse:collapse;margin:0}
+.sym-table th{text-align:right;font-size:12px;color:var(--muted);font-weight:700;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sym-table td{font-size:13px;color:#CBD5E1;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top}
+.sym-table td:first-child{font-weight:800;color:var(--gold);font-size:14px;white-space:nowrap;width:55px}
+.sym-table td:nth-child(2){font-weight:700;color:#F1F5F9;width:120px}
+.sym-note{font-size:12px;color:#60A5FA;font-style:italic;padding:8px 10px;background:rgba(59,130,246,.08);border-radius:8px;margin-top:4px;display:block}
+.sym-section-header{font-size:12px;font-weight:800;color:#F59E0B;letter-spacing:.8px;padding:12px 10px 6px;display:block}
 </style>
 </head>
 <body>
@@ -167,6 +192,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);font-family:var(--fon
       <button class="home-btn btn-orange" onclick="startSituations()"><span class="btn-icon">🎮</span><span>מצבי משחק - למתקדמים</span></button>
       <button class="home-btn btn-pink" onclick="startSituationsEasy()"><span class="btn-icon">⭐</span><span>מצבי משחק - למתחילים</span></button>
       <button class="home-btn btn-blue" onclick="showScreen('field')"><span class="btn-icon">🏟️</span><span>מפת המגרש</span></button>
+      <button class="home-btn btn-purple" onclick="showScreen('coaches-corner')"><span class="btn-icon">📋</span><span>פינת המאמן</span></button>
     </div>
     <div class="home-footer" id="homeFooter">טוען...</div>
   </div>
@@ -299,6 +325,199 @@ html,body{height:100%;overflow:hidden;background:var(--bg);font-family:var(--fon
     <div class="field-desc" id="fieldDesc"></div>
   </div>
   <div class="field-hint" id="fieldHint">לחצו על אחד מ-9 השחקנים 👆</div>
+</div>
+
+<!-- פינת המאמן — תפריט -->
+<div id="coaches-corner" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('home')">→</button>
+    <div class="header-text"><h2>📋 פינת המאמן</h2><p>חוכמה מהדאגאוט</p></div>
+  </div>
+  <div class="scroll-area">
+    <div class="cc-tabs">
+      <button class="cc-tab-btn" onclick="showScreen('cc-rules')" style="background:#172554;border:1.5px solid #3B82F640">
+        <span class="cc-tab-arrow" style="color:#3B82F6">←</span>
+        <span class="cc-tab-info"><span class="cc-tab-name" style="color:#60A5FA">חוקים שחייבים לדעת</span><span class="cc-tab-desc">חוקים מרכזיים שכל שחקן חייב להכיר</span></span>
+        <span class="cc-tab-icon">📖</span>
+      </button>
+      <button class="cc-tab-btn" onclick="showScreen('cc-lifelessons')" style="background:#052e16;border:1.5px solid #22C55E40">
+        <span class="cc-tab-arrow" style="color:#22C55E">←</span>
+        <span class="cc-tab-info"><span class="cc-tab-name" style="color:#86EFAC">לקחי החיים שהסופטבול מלמד</span><span class="cc-tab-desc">מה המשחק נותן לך מעבר למגרש</span></span>
+        <span class="cc-tab-icon">🌱</span>
+      </button>
+      <button class="cc-tab-btn" onclick="showScreen('cc-symbols')" style="background:#1a2744;border:1.5px solid #60A5FA40">
+        <span class="cc-tab-arrow" style="color:#60A5FA">←</span>
+        <span class="cc-tab-info"><span class="cc-tab-name" style="color:#BAE6FD">סמלים וסטטיסטיקות</span><span class="cc-tab-desc">מה כל המספרים האלה אומרים</span></span>
+        <span class="cc-tab-icon">📊</span>
+      </button>
+      <button class="cc-tab-btn" onclick="showScreen('cc-sayings')" style="background:#451a03;border:1.5px solid #F59E0B40">
+        <span class="cc-tab-arrow" style="color:#F59E0B">←</span>
+        <span class="cc-tab-info"><span class="cc-tab-name" style="color:#FDE68A">ביטויים בסופטבול</span><span class="cc-tab-desc">הסלנג של המגרש</span></span>
+        <span class="cc-tab-icon">💬</span>
+      </button>
+      <button class="cc-tab-btn" onclick="showScreen('cc-unwritten')" style="background:#2e1065;border:1.5px solid #A78BFA40">
+        <span class="cc-tab-arrow" style="color:#A78BFA">←</span>
+        <span class="cc-tab-info"><span class="cc-tab-name" style="color:#DDD6FE">החוקים הלא כתובים</span><span class="cc-tab-desc">כבוד, מסורת ואזורים אפורים</span></span>
+        <span class="cc-tab-icon">🤝</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div id="cc-rules" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('coaches-corner')">→</button>
+    <div class="header-text"><h2>📖 חוקים שחייבים לדעת</h2><p>חוקים מרכזיים שכל שחקן חייב להכיר</p></div>
+  </div>
+  <div class="scroll-area">
+    <div class="cc-article"><h3>חוק ה-Infield Fly</h3><p>כשיש רצים על הבסיסים הראשון והשני (או בסיס מלא) ופחות משני אאוטים, כדור גבוה בשדה הפנימי גורם לחובט להיות <strong>אאוט אוטומטי</strong> — כדי להגן על הרצים מ-Double Play לא הוגן.</p></div>
+    <div class="cc-article"><h3>Ground-Rule Double</h3><p>כל כדור שנכה לשטח תקין ומקפץ לפני שעובר את הגדר נקרא Ground-Rule Double. החובט מקבל את הבסיס השני. אם יש רצים, כל אחד מקבל שני בסיסים מהבסיס שממנו התחיל!</p></div>
+    <div class="cc-article"><h3>עמוד הפסול = Home Run</h3><p>כדור שנפגע באחד משני עמודי הפסול <strong>נחשב Home Run</strong>! אל יבלבל אתכם השם — עמוד הפסול הוא שטח תקין!</p></div>
+    <div class="cc-article"><h3>סטרייק שלישי שנפל (Dropped 3rd Strike)</h3><p>סטרייק שלישי שנפל מיד התופס — אינו נחשב כסטרייקאאוט! הכדור נחשב חי. לחובט יש סיכוי להיות Safe אם הוא מגיע לבסיס הראשון לפני זריקת התופס.</p></div>
+    <div class="cc-article"><h3>חוק החזרה למשחק (Re-entry Rule)</h3><p>כל שחקן בהרכב הפתיחה רשאי — <strong>פעם אחת בלבד</strong> — לצאת מהמשחק לטובת מחליף ולחזור בשלב מאוחר יותר. הכלל נועד לאפשר ליותר שחקנים להשתתף.</p><p style="font-size:13px;color:#94A3B8">דוגמה: השורטסטופ המתחיל יוצא לטובת מכה חלופית. בסוף החצי אינינג השורטסטופ חוזר ומכת החלף יוצאת.</p></div>
+    <div class="cc-article"><h3>רצים אינם רשאים לעבור רצים אחרים</h3><p>רץ על הבסיס הראשון אינו רשאי לעבור את חברו הרץ על הבסיס השני. חובט אסור לו לעבור רץ על הבסיס הראשון. אם זה קורה — הרץ שעבר נחשב אאוט.</p></div>
+    <div class="cc-article"><h3>חסימת התופס (Catcher's Interference)</h3><p>חובט רשאי לנפנף במחבט ללא הפרעה מהתופס. לעיתים כפפת התופס תפגע במחבט — כשזה קורה, החובט מקבל את הבסיס הראשון וכל רץ מאולץ מתקדם!</p></div>
+  </div>
+</div>
+<div id="cc-lifelessons" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('coaches-corner')">→</button>
+    <div class="header-text"><h2>🌱 לקחי החיים</h2><p>מה הסופטבול נותן לך מעבר למגרש</p></div>
+  </div>
+  <div class="scroll-area">
+    <div class="cc-article"><h3>אתיקת עבודה חזקה</h3><p>אתיקת עבודה היא הבסיס לרוב הדברים בחיים. ככל שתעבד קשה יותר וחכם יותר, כך תמצא את עצמך במצבים מתגמלים יותר. פיתוח הרגלי עבודה קשה במגרש הסופטבול מוביל לעתים קרובות להישגים טובים יותר בלימודים ובקריירה.</p></div>
+    <div class="cc-article"><h3>התמודדות עם לחץ</h3><p>בכל פעם שאתה עולה לחבוט, הקבוצה סומכת עליך. הסופטבול מציע מינון גבוה של מצבי "נצח ותשאר" או "הפסד ותצא". הלקחים הנלמדים מניהול לחץ עוזרים בחיים — בין אם בבחינות, בעבודה, או בפתיחת פרק חדש.</p></div>
+    <div class="cc-article"><h3>התמודדות עם כישלון</h3><p>סופטבול הוא משחק של כישלון. המכים הטובים ביותר בעולם מכים בהצלחה 3.5 פעמים מתוך עשרה — נכשלים 65% מהזמן. השחקנים שלומדים להפיק את המיטב מכישלונות מוצאים הצלחה לטווח הרחוק.</p><p style="font-size:13px;color:#94A3B8;font-style:italic">"יש פעמים רבות בחיים שבהן כולנו מגיעים קצת קצר — היכולת להתמודד חיובית עם המצב וללמוד מהעבר תעזור לנו בעתיד!"</p></div>
+    <div class="cc-article"><h3>עבודת צוות</h3><p>ככל שתשכיל מהר יותר לשלב את החוזקות של אחרים עם שלך, כך המוצר הכולל יהיה טוב יותר. מינוף החוזקות האישיות לקבוצה מגובשת עם מטרה משותפת — יעיל בהרבה מאשר קבוצה של שחקנים אינדיבידואליסטים.</p></div>
+    <div class="cc-article"><h3>עבודה עם אנשים חדשים</h3><p>מגרש הסופטבול הוא מקום נהדר ללמוד להתגבר על ביישנות וחוסר ביטחון. שנה אחר שנה, שחקנים מחליפים קבוצות ורוכשים חברים חדשים. כישורי תקשורת אלה עוזרים בהחלפת בתי ספר, עבודות, ולהתגבר על הפחד ממעבר למקום חדש.</p></div>
+    <div class="cc-article"><h3>התמודדות עם הצלחה</h3><p>שחק קשה עד האאוט האחרון — ואם ניצחת, היה ענוותן כלפי יריבך. אין מנצחים כשגורמים ליריב להרגיש קטן. מנצחים רעים בעלי זיכרון קצר, אבל קבוצות מפסידות שומרות קבלות! גישה ענוותנית תמיד מציגה אותך באור טוב יותר.</p></div>
+  </div>
+</div>
+<div id="cc-symbols" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('coaches-corner')">→</button>
+    <div class="header-text"><h2>📊 סמלים וסטטיסטיקות</h2><p>מה כל המספרים האלה אומרים</p></div>
+  </div>
+  <div class="scroll-area">
+    <div class="cc-article" style="padding:14px">
+      <span class="sym-section-header">⚔️ סטטיסטיקות חבטה</span>
+      <table class="sym-table"><thead><tr><th>סמל</th><th>שם</th><th>משמעות</th></tr></thead><tbody>
+        <tr><td>G</td><td>משחקים</td><td>כמה משחקים שיחקת.</td></tr>
+        <tr><td>PA</td><td>הופעות בחבטה</td><td>כמה פעמים עלית לחבוט.</td></tr>
+        <tr><td>AB</td><td>At Bats</td><td>כל הופעות החבטה פרט ל-Walk, פגיעת כדור, Sacrifice Bunt ו-Sacrifice Fly.</td></tr>
+        <tr><td colspan="3"><span class="sym-note">★ לחישוב ממוצע חבטות משתמשים ב-At Bats — לא ב-Plate Appearances.</span></td></tr>
+        <tr><td>R</td><td>ריצות</td><td>כמה פעמים עברת בבטחה על בסיס הבית.</td></tr>
+        <tr><td>H</td><td>הכאות</td><td>סך הפעמים שהכית בהצלחה ללא שגיאת שדה.</td></tr>
+        <tr><td>2B</td><td>Double</td><td>כמה פעמים הכית בהצלחה והגעת לבסיס השני.</td></tr>
+        <tr><td>3B</td><td>Triple</td><td>כמה פעמים הכית בהצלחה והגעת לבסיס השלישי.</td></tr>
+        <tr><td>HR</td><td>Home Run</td><td>כמה פעמים הכית בהצלחה ונגעת בכל הבסיסים כולל בסיס הבית.</td></tr>
+        <tr><td>XBH</td><td>הכאות בסיס נוסף</td><td>סך כל ה-Double, Triple ו-Home Run.</td></tr>
+        <tr><td>K</td><td>Strikeout</td><td>סך הסטרייקאאוטים של החובט.</td></tr>
+        <tr><td colspan="3"><span class="sym-note">★ K הפוך = סטרייק שלישי "נקרא" — החובט לא נפנף.</span></td></tr>
+        <tr><td>BB</td><td>Walk</td><td>מספר ה-Walk שקיבלת.</td></tr>
+        <tr><td>SBA</td><td>ניסיון גניבה</td><td>כל ניסיון לגנוב בסיס.</td></tr>
+        <tr><td>SB</td><td>בסיס גנוב</td><td>כל גניבת בסיס מוצלחת.</td></tr>
+        <tr><td>CS</td><td>נתפס בגניבה</td><td>כל פעם שנפסלת בניסיון לגנוב.</td></tr>
+        <tr><td>BA</td><td>ממוצע חבטות</td><td>שלוש ספרות עשרוניות (0.285 = 285 הכאות מתוך 1,000 At Bats).</td></tr>
+        <tr><td colspan="3"><span class="sym-note">★ חישוב: סך ההכאות ÷ סך ה-At Bats.</span></td></tr>
+        <tr><td>RISP</td><td>רצים בעמדת ניקוד</td><td>כמה פעמים חבטת עם רץ על בסיס 2 ו/או 3.</td></tr>
+        <tr><td>BA RISP</td><td>ממוצע עם RISP</td><td>BA RISP גבוה = מכה בלחץ.</td></tr>
+        <tr><td colspan="3"><span class="sym-note">★ חישוב: הכאות עם RISP ÷ At Bats עם RISP.</span></td></tr>
+      </tbody></table>
+    </div>
+    <div class="cc-article" style="padding:14px">
+      <span class="sym-section-header">🛡️ סטטיסטיקות הגנה</span>
+      <table class="sym-table"><thead><tr><th>סמל</th><th>שם</th><th>משמעות</th></tr></thead><tbody>
+        <tr><td>E</td><td>שגיאות</td><td>כמה פעמים נכשלת בניסיון לבצע מהלך.</td></tr>
+        <tr><td>PO</td><td>Put Out</td><td>זיכוי למגן שתפס כדור ויצר אאוט.</td></tr>
+        <tr><td>A</td><td>Assist</td><td>נרשם כשזרקת כדור לבסיס שבו נרשם אאוט.</td></tr>
+        <tr><td>CH</td><td>הזדמנויות</td><td>כמה פעמים היית צריך לבצע מהלך הגנתי.</td></tr>
+        <tr><td>FLD%</td><td>אחוז שדה</td><td>מגנים טובים: 0.900+. מגנים מצוינים: 970 מתוך 1,000.</td></tr>
+        <tr><td colspan="3"><span class="sym-note">★ חישוב: סך ההזדמנויות ÷ סך השגיאות.</span></td></tr>
+      </tbody></table>
+    </div>
+    <div class="cc-article" style="padding:14px">
+      <span class="sym-section-header">🎯 סטטיסטיקות הגשה</span>
+      <table class="sym-table"><thead><tr><th>סמל</th><th>שם</th><th>משמעות</th></tr></thead><tbody>
+        <tr><td>INN</td><td>אינינגים שהוגשו</td><td>מספר האינינגים שהמגיש הגיש.</td></tr>
+        <tr><td>H</td><td>הכאות שניתנו</td><td>סך ההכאות שהמגיש ספג.</td></tr>
+        <tr><td>R</td><td>ריצות שניתנו</td><td>סך הריצות שהמגיש ספג.</td></tr>
+        <tr><td>ER</td><td>ריצות מוענקות</td><td>ריצות שנצברו ללא שגיאות שדה.</td></tr>
+        <tr><td>SO</td><td>Strikeout</td><td>מספר הסטרייקאאוטים שנרשמו.</td></tr>
+        <tr><td>BB</td><td>Walk שניתנו</td><td>מספר ה-Walk שהמגיש אפשר.</td></tr>
+        <tr><td>ERA</td><td>ממוצע ריצות מוענקות</td><td>כמה ריצות מוענקות המגיש נותן בממוצע למשחק שלם.</td></tr>
+        <tr><td colspan="3"><span class="sym-note">★ חישוב: (סך הריצות המוענקות ÷ סך האינינגים) × 7.</span></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</div>
+<div id="cc-sayings" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('coaches-corner')">→</button>
+    <div class="header-text"><h2>💬 ביטויים בסופטבול</h2><p>הסלנג של המגרש</p></div>
+  </div>
+  <div class="scroll-area">
+    <div class="cc-article"><h3>"Can of Corn"</h3><p>כדור גבוה שניתן לתפוס בקלות.</p></div>
+    <div class="cc-article"><h3>"Swinging Bunt" — בונט מנפנף</h3><p>חובט מבצע נפנוף מלא אבל הכדור מגיע רק כמה מטרים לפני בסיס הבית.</p></div>
+    <div class="cc-article"><h3>"Texas Leaguer"</h3><p>כדור גבוה שנוחת בין מגן הפנים למגן החוץ — לרוב Hit מעצבן.</p></div>
+    <div class="cc-article"><h3>"Blooper" — בלופר</h3><p>דומה ל-Texas Leaguer, אבל יכול לנחות בין כל שחקני ההגנה.</p></div>
+    <div class="cc-article"><h3>"Hit a Bullet" — קליע</h3><p>כדור שנכה חזק, לעתים קרובות Line Drive.</p></div>
+    <div class="cc-article"><h3>"Pitching Peas" — אפונות</h3><p>מגיש שזורק מהר בצורה יוצאת דופן!</p></div>
+    <div class="cc-article"><h3>"A Five-Tool Player" — שחקן חמש כלים</h3><p>שחקן מעולה ורב-תחומי: חבטה לממוצע, חבטה לכוח, מהירות, שדה וזריקה.</p></div>
+    <div class="cc-article"><h3>"A Cannon" — תותח</h3><p>מגן חוץ שדה בעל מהירות זריקה יוצאת דופן!</p></div>
+    <div class="cc-article"><h3>"Let's Get the Big Half"</h3><p>לקבל את האאוט השני באינינג — עובר את סף ה-50%, ומכאן "החצי הגדול".</p></div>
+    <div class="cc-article"><h3>"Submarine Thrower" — זורק צוללת</h3><p>מגיש שמשחרר את הכדור מגובה הברכיים.</p></div>
+    <div class="cc-article"><h3>"Ace" — האס</h3><p>המגיש הטוב ביותר בקבוצה!</p></div>
+    <div class="cc-article"><h3>"Cleanup Hitter" — מכת הניקוי</h3><p>החובט הרביעי בהרכב — אמור "לנקות" את הבסיסים אחרי שהשלושה הראשונים עלו.</p></div>
+    <div class="cc-article"><h3>"Walk-off" — וואקאוף</h3><p>מהלך שמסיים את המשחק בניקוד הריצה המנצחת בחצי האינינג התחתון האחרון.</p></div>
+    <div class="cc-article"><h3>"Baltimore Chop"</h3><p>חובט שמנסה בכוונה להכות את הכדור על הצלחת או ממש לפניה.</p></div>
+    <div class="cc-article"><h3>"PUP"</h3><p>קיצור של Pick-Up Players — שחקנים מגויסים לטורניר. חייבים לרשום אותם בנפרד ברשימת הקבוצה.</p></div>
+    <div class="cc-article"><h3>"Guarding the Lines" — שמירת הקווים</h3><p>אסטרטגיה עם שני אאוטים: מגני בסיס 1 ו-3 משחקים קרוב לקווי הפסול כדי למנוע הכאת בסיס נוסף.</p></div>
+    <div class="cc-article"><h3>"Southpaw" — דרום כף</h3><p>מגיש שמאלי.</p></div>
+    <div class="cc-article"><h3>"Junk-Ball Pitcher"</h3><p>מגיש שמסתמך על כדורים ערמומיים כגון Change-Up תוך פגיעה על קצוות אזור הסטרייק.</p></div>
+    <div class="cc-article"><h3>"Touch Them All" — גע בכולם</h3><p>חובט שהכה Home Run ונוגע בכל הבסיסים בדרך הביתה.</p></div>
+    <div class="cc-article"><h3>"Pine Tar" — זפת אורן</h3><p>חומר דביק שחובטים שמים על ידית המחבט לאחיזה טובה יותר.</p></div>
+    <div class="cc-article"><h3>"Bullpen" — הבולפן</h3><p>האזור שבו מגישי החלף מתכנסים ומתחממים במהלך המשחק.</p></div>
+    <div class="cc-article"><h3>"Grand Slam" — גרנד סלאם</h3><p>Home Run עם בסיס מלא — 4 נקודות בנפנוף אחד!</p></div>
+    <div class="cc-article"><h3>"Twin-Killing" — הריגה כפולה</h3><p>מונח ל-Double Play — הכאה לתוך Double Play מכבה את ההתקפה באינינג.</p></div>
+    <div class="cc-article"><h3>"A Perfect Game" — משחק מושלם</h3><p>המגיש עמד מול 21 חובטים (7 אינינגים × 3 אאוטים) וכל 21 נפסלו ללא שאף אחד הגיע לבסיס!</p></div>
+    <div class="cc-article"><h3>"A No-Hitter" — נו-היטר</h3><p>דומה למשחק מושלם, אבל המגיש אינו מאפשר אף הכאת בסיס — חלק מהחובטים עשויים להגיע לבסיס דרך Walk או שגיאות.</p></div>
+    <div class="cc-article"><h3>"6-4-3"</h3><p>לכל שחקן הגנתי מספר מתאים. 6-4-3 הוא ה-Double Play הנפוץ ביותר: 6=שורטסטופ, 4=מגן בסיס שני, 3=מגן בסיס ראשון.</p></div>
+    <div class="cc-article"><h3>"Wheelhouse" — אזור הכוח</h3><p>המקום שממנו החובט מכה הכי אפקטיבי.</p></div>
+    <div class="cc-article"><h3>"Utility" — שחקן שירות</h3><p>שחקן הגנתי שמשחק ביותר מעמדה אחת.</p></div>
+    <div class="cc-article"><h3>"Jugs Gun"</h3><p>מכשיר מדידת מהירות הגשה בזמן אמת — מצביעים על המגיש ומיד מתקבלת המהירות.</p></div>
+    <div class="cc-article"><h3>"Eye Black" — שחור עיניים</h3><p>חומר שמורח מתחת לעיניים כדי להסיט את השמש. מורחים בעיקר בימים שמשיים.</p></div>
+    <div class="cc-article"><h3>"Dugout" — הדאגאוט</h3><p>האזור שבו הקבוצה יושבת במהלך המשחק. הקבוצה הביתית — בצד הבסיס השלישי. האורחים — בצד הבסיס הראשון.</p></div>
+  </div>
+</div>
+<div id="cc-unwritten" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="showScreen('coaches-corner')">→</button>
+    <div class="header-text"><h2>🤝 החוקים הלא כתובים</h2><p>כבוד, מסורת ואזורים אפורים</p></div>
+  </div>
+  <div class="scroll-area">
+    <div class="cc-intro">אמונות טפלות, דעות, אסטרטגיה ומסורת שהתגבשו לאורך זמן! החוקים הלא כתובים של הסופטבול לא כתובים בשום ספר חוקים — כולם מאוחסנים ב"אזור אפור" שאין בו נכון ולא נכון. זכרו תמיד: <em>"מה שפוגע בך נורא אולי לא יטריד אותי בכלל!"</em></div>
+    <div class="cc-article">
+      <h3>אל תתרברב כשאתה עושה משהו טוב!</h3>
+      <p>כבוד ליריב הוא עדיפות גדולה:</p>
+      <ul>
+        <li>כשאתה מכה Home Run — התנהג כאילו כבר הכית לפני. אל תבהה במגיש. צעד בצעד יציב סביב הבסיסים ללא הצבעה לדאגאוטים.</li>
+        <li>כשאתה מנקד ריצה — גע בצלחת. אל תעשה סלטות או פעולות שמושכות תשומת לב.</li>
+        <li>לעולם אל תדבר לגנאי על יריביך. במקום זאת, "דבר בשבח" על חברי קבוצתך.</li>
+        <li>כרץ בסיסים — אין לצעוק או להסיח את הדעת בזמן שמגן יריב מנסה לתפוס כדור גבוה.</li>
+      </ul>
+    </div>
+    <div class="cc-article">
+      <h3>אל תרוץ על הניקוד כשאתה בנוחות בקדמה!</h3>
+      <p>ויכוח שלעולם לא מסתיים! אף אחד לא יכול להסביר מה "בנוחות קדמה" מייצג. מאמנים ותיקים יודעים מתי מספיק — תפקיד המאמן הוא לנצח במשחקים ולעשות זאת עם כבוד.</p>
+      <p>היבטים נוספים: הימנעות מגניבת בסיסים, בונטים, או התקדמות על כדורים פרועים כשיש קדמה נוחה. שמרו את מחבטי הבונט בתיק למשחק הבא!</p>
+    </div>
+    <div class="cc-article">
+      <h3>אל תפסיד בכוונה</h3>
+      <p>מה הטעם לשחק כשהיריב יוצא מדרכו להפסיד? ספורט הוא הכל על תחרות. מצבים כאלה אין להם מקום בספורט חובבני!</p>
+      <p>יש מקרה אחד נדיר — טורנירי פרסי מזומן שבהם קבוצה עשויה לבחור בהפסד מכוון כדי לקבל מסלול קל יותר לגמר. בכל נסיבה אחרת — הכל על ניצחון!</p>
+      <p style="font-size:13px;color:#94A3B8;font-style:italic">"יש אנשים שונים לדברים שונים" — הויכוח תמיד מתחיל כששני הצדדים צודקים.</p>
+    </div>
+  </div>
 </div>
 </div>
 <script>
@@ -1125,6 +1344,211 @@ function renderSitEasyDone(){
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
       <button class="home-btn btn-pink" onclick="startSituationsEasy()"><span class="btn-icon">🔄</span><span>שחקו שוב!</span></button>
       <button class="home-btn btn-orange" onclick="startSituations()"><span class="btn-icon">🎮</span><span>נסו את המתקדמים!</span></button>
+      <button class="home-btn btn-blue" onclick="showScreen('home')"><span class="btn-icon">🏠</span><span>חזרה לתפריט</span></button>
+    </div>
+  </div>`;
+}
+const EASY_SITUATIONS=[
+{
+  badge:"למידה 1",
+  scene:"אתם בקבוצה שתוקפת. השחקן שלכם עומד ליד הבסיס הראשון עם מחבט.",
+  q:"איך קוראים לשחקן הזה?",
+  opts:["רץ","מגן","חובט","תופס"],
+  ans:2,
+  explain:"השחקן שעומד עם המחבט נקרא חובט! הוא מנסה להכות את הכדור.",
+  rule:"מילון: חובט = Batter"
+},
+{
+  badge:"למידה 2",
+  scene:"החובט הכה את הכדור והכדור נפל בתוך המגרש.",
+  q:"מה קורה עכשיו?",
+  opts:["משחק נעצר","החובט רץ לבסיס הראשון","החובט נשאר במקום","המשחק מתחיל מחדש"],
+  ans:1,
+  explain:"כשהכדור נפל במגרש (Fair Ball) — החובט רץ לבסיס הראשון!",
+  rule:"כלל: כדור תקין = ריצה!"
+},
+{
+  badge:"למידה 3",
+  scene:"החובט הכה את הכדור, והכדור נפל מחוץ למגרש.",
+  q:"מה קורה?",
+  opts:["החובט רץ","הכדור לא נספר","זה Foul Ball","המשחק נגמר"],
+  ans:2,
+  explain:"כדור שיצא מהמגרש = Foul Ball! המשחק ממשיך, אבל החובט לא רץ.",
+  rule:"כלל: Foul Ball = לא רצים"
+},
+{
+  badge:"למידה 4",
+  scene:"יש שחקן על הבסיס הראשון שרוצה לרוץ לבסיס השני.",
+  q:"איך קוראים לשחקן שרץ על הבסיסים?",
+  opts:["חובט","מגן","רץ","שופט"],
+  ans:2,
+  explain:"שחקן שרץ על הבסיסים נקרא רץ! הוא מנסה להגיע הביתה לקבל נקודה.",
+  rule:"מילון: רץ = Runner"
+},
+{
+  badge:"למידה 5",
+  scene:"המגן תפס את הכדור שהחובט הכה, לפני שהכדור נגע בקרקע.",
+  q:"מה קורה לחובט?",
+  opts:["הוא רץ לבסיס ראשון","הוא Out!","הוא מנסה שוב","הוא מקבל נקודה"],
+  ans:1,
+  explain:"כדור שנתפס באוויר = החובט Out! הוא מסולק ויורד מהמגרש.",
+  rule:"כלל: תפיסה באוויר = Out"
+},
+{
+  badge:"למידה 6",
+  scene:"בקבוצה שלכם יש 3 Out.",
+  q:"מה קורה עכשיו?",
+  opts:["הקבוצה שלכם ממשיכה לחבוט","הקבוצות מחליפות מקומות","המשחק נגמר","מתחילים מחדש"],
+  ans:1,
+  explain:"3 Out = מחליפים! הקבוצה שלכם הולכת להגן, והצד השני חובט.",
+  rule:"כלל: 3 Out = מחליפים מקומות"
+},
+{
+  badge:"למידה 7",
+  scene:"השחקן שלכם רץ דרך כל הבסיסים והגיע חזרה לבסיס הבית.",
+  q:"מה קרה?",
+  opts:["הוא Out","הקבוצה קיבלה נקודה!","הוא חוזר לבסיס ראשון","הוא מחליף עם מגן"],
+  ans:1,
+  explain:"רץ שהגיע חזרה לבסיס הבית = נקודה! זה הדבר הכי חשוב בסופטבול.",
+  rule:"מטרה: להגיע הביתה = נקודה!"
+},
+{
+  badge:"למידה 8",
+  scene:"המגיש זורק את הכדור, והכדור עובר מעל בסיס הבית בגובה טוב.",
+  q:"איך קוראים לזריקה כזאת?",
+  opts:["Ball","Strike","Home Run","Foul"],
+  ans:1,
+  explain:"כדור טוב שעובר מעל בסיס הבית = Strike! אם החובט לא יכה, זה Strike.",
+  rule:"מילון: Strike = זריקה טובה"
+},
+{
+  badge:"למידה 9",
+  scene:"המגיש זורק כדור גבוה מדי או נמוך מדי, והחובט לא מנסה להכות.",
+  q:"איך קוראים לזריקה כזאת?",
+  opts:["Strike","Ball","Out","Fair"],
+  ans:1,
+  explain:"כדור לא טוב = Ball! אם המגיש זורק 4 Balls, החובט הולך לבסיס ראשון בחינם.",
+  rule:"כלל: 4 Balls = הליכה חופשית"
+},
+{
+  badge:"למידה 10",
+  scene:"החובט קיבל 3 Strikes.",
+  q:"מה קורה לו?",
+  opts:["הוא מנסה שוב","הוא Out","הוא רץ לבסיס ראשון","הוא מחליף מחבט"],
+  ans:1,
+  explain:"3 Strikes = Out! החובט מסולק והבא בתור בא לחבוט.",
+  rule:"כלל: 3 Strikes = אתה בחוץ!"
+},
+{
+  badge:"למידה 11",
+  scene:"שחקן הצוות שלכם עומד על הבסיס השני. החובט הכה כדור חזק!",
+  q:"מה צריך לעשות הרץ על הבסיס השני?",
+  opts:["להישאר במקום","לרוץ הביתה","לחזור לבסיס ראשון","לעזוב את המגרש"],
+  ans:1,
+  explain:"כשיש כדור תקין, הרץ רץ לבסיס הבא! מבסיס שני הוא רץ לשלישי או הביתה.",
+  rule:"כלל: כדור תקין = כולם רצים!"
+},
+{
+  badge:"למידה 12",
+  scene:"החובט הכה כדור מאוד חזק שעף מעל הגדר.",
+  q:"איך קוראים לזה?",
+  opts:["Foul Ball","Strike","Home Run","Single"],
+  ans:2,
+  explain:"כדור מעל הגדר בשטח תקין = Home Run! החובט וכל הרצים מקבלים נקודה!",
+  rule:"הישג: Home Run = נקודות לכולם!"
+},
+{
+  badge:"למידה 13",
+  scene:"הקבוצה שלכם מובילה 5-3 אחרי 7 אינינגים.",
+  q:"מה קרה?",
+  opts:["אתם הפסדתם","תיקו","אתם ניצחתם!","צריך לשחק עוד"],
+  ans:2,
+  explain:"אחרי 7 אינינגים, מי שיש לו יותר נקודות מנצח! 5 גדול מ-3 = ניצחתם!",
+  rule:"מטרה: יותר נקודות = ניצחון!"
+},
+{
+  badge:"למידה 14",
+  scene:"השופט מחזיק 4 אצבעות באוויר אחרי שהמגיש זרק.",
+  q:"מה זה אומר?",
+  opts:["4 Strikes","4 Balls - החובט הולך לבסיס ראשון","4 Out","4 נקודות"],
+  ans:1,
+  explain:"4 אצבעות = 4 Balls! החובט מקבל הליכה חופשית לבסיס הראשון.",
+  rule:"כלל: 4 Balls = הליכה!"
+},
+{
+  badge:"למידה 15",
+  scene:"אתם שומרים בשדה. החובט הכה כדור לכיוונכם.",
+  q:"מה אתם מנסים לעשות?",
+  opts:["לברוח מהכדור","לתפוס את הכדור","להכות בכדור","לקרוא לשופט"],
+  ans:1,
+  explain:"כשאתם מגנים, אתם מנסים לתפוס כדורים לעשות Out! זה התפקיד של הקבוצה המגנה.",
+  rule:"תפקיד: מגנים תופסים כדורים"
+}
+];
+let easySitPool=[], easySitIdx=0, easySitAnswered=[];
+function startSituationsEasy(){
+  easySitPool=EASY_SITUATIONS.map((s,i)=>({...s,_i:i}));
+  easySitIdx=0; easySitAnswered=new Array(easySitPool.length).fill(null);
+  renderEasySituation(); showScreen('situations-easy');
+}
+function renderEasySituation(){
+  const total=easySitPool.length;
+  const answered=easySitAnswered.filter(x=>x!==null).length;
+  document.getElementById('sitEasyCounter').textContent=`${easySitIdx+1} / ${total}`;
+  document.getElementById('sitEasySubtitle').textContent=`${answered} ענינו מתוך ${total}`;
+  document.getElementById('sitEasyProgressFill').style.width=`${(answered/total)*100}%`;
+  const sit=easySitPool[easySitIdx];
+  const alreadyAns=easySitAnswered[easySitIdx];
+  document.getElementById('sitEasyArea').innerHTML=`
+    <div class="sit-card fade-in">
+      <div class="sit-badge" style="background:rgba(244,114,182,.15);border-color:rgba(244,114,182,.4);color:#F472B6">🌟 ${sit.badge}</div>
+      <div class="sit-scene"><div class="sit-scene-label">מה קורה כאן?</div><div class="sit-scene-text">${sit.scene}</div></div>
+      <div class="sit-question">${sit.q}</div>
+      <div class="sit-opts" id="easySitOpts">
+        ${sit.opts.map((o,i)=>`<button class="sit-opt${alreadyAns!==null?(i===sit.ans?' correct':i===alreadyAns&&i!==sit.ans?' wrong':' plain'):(alreadyAns===null?'':'')}" id="easyopt${i}" onclick="answerEasySit(${i})">${o}</button>`).join('')}
+      </div>
+      <div class="sit-explain${alreadyAns!==null?' show':''}" id="easySitExplain">
+        <div class="sit-explain-title">${alreadyAns!==null?(alreadyAns===sit.ans?'🎉 כל הכבוד! נכון!':'💡 בואו נלמד:'):''}</div>
+        <div class="sit-explain-text">${sit.explain}</div>
+        <div class="sit-rule" style="color:#F472B6">⭐ ${sit.rule}</div>
+      </div>
+      <div id="easySitNavRow" style="display:${alreadyAns!==null?'flex':'none'};gap:10px;margin-top:14px">
+        <button class="nav-btn nav-prev" style="flex:1;padding:14px" onclick="moveEasySit(-1)" ${easySitIdx===0?'disabled style="opacity:.4"':''}>→ הקודם</button>
+        <button class="nav-btn nav-next" style="flex:1;padding:14px;background:${alreadyAns===sit.ans?'#16A34A':'#1D4ED8'}" onclick="moveEasySit(1)">${easySitIdx+1<total?'הבא ←':'סיום 🏆'}</button>
+      </div>
+    </div>
+    ${easySitAnswered.filter(x=>x!==null).length===total?renderEasySitDone():''}
+  `;
+}
+function answerEasySit(i){
+  if(easySitAnswered[easySitIdx]!==null)return;
+  easySitAnswered[easySitIdx]=i;
+  renderEasySituation();
+  setTimeout(()=>{
+    const exp=document.getElementById('easySitExplain');
+    if(exp) exp.scrollIntoView({behavior:'smooth',block:'nearest'});
+  },100);
+}
+function moveEasySit(dir){
+  const total=easySitPool.length;
+  easySitIdx=Math.max(0,Math.min(total-1,easySitIdx+dir));
+  renderEasySituation();
+  document.getElementById('sitEasyArea').scrollTop=0;
+}
+function renderEasySitDone(){
+  const correct=easySitAnswered.filter((a,i)=>a===easySitPool[i].ans).length;
+  const total=easySitPool.length;
+  const pct=correct/total;
+  const icon=pct>=.8?'🏆':pct>=.6?'⭐':'🌟';
+  const title=pct>=.8?'אלופים! אתם מכירים סופטבול!':pct>=.6?'מעולה! אתם לומדים מהר!':'יופי! בואו נמשיך ללמוד!';
+  return `<div class="sit-done-box fade-in">
+    <div class="sit-done-icon">${icon}</div>
+    <div class="sit-done-title">${title}</div>
+    <div class="sit-done-score">${correct} / ${total}</div>
+    <div class="sit-done-of">תשובות נכונות</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <button class="home-btn btn-pink" onclick="startSituationsEasy()"><span class="btn-icon">🔄</span><span>שחקו שוב!</span></button>
+      <button class="home-btn btn-orange" onclick="startSituations()"><span class="btn-icon">🎮</span><span>נסו מצבי משחק מתקדמים!</span></button>
       <button class="home-btn btn-blue" onclick="showScreen('home')"><span class="btn-icon">🏠</span><span>חזרה לתפריט</span></button>
     </div>
   </div>`;
